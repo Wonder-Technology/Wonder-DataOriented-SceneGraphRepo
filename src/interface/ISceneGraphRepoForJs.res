@@ -1,10 +1,4 @@
-type gameObject
-
-type sceneGameObject = gameObject
-
-type geometry
-
-// type material
+open ISceneGraphRepoType
 
 type geometryRepo = {
   create: unit => geometry,
@@ -12,14 +6,15 @@ type geometryRepo = {
   getIndices: geometry => Js.Typed_array.Uint32Array.t,
 }
 
-// type materialRepo = {
-//   create: unit => material,
-//   getColor: geometry => (float, float, float),
-// }
+type materialRepo = {
+  create: unit => material,
+  getDiffuseColor: material => color,
+  setDiffuseColor: (material, color) => unit,
+}
 
 type gameObjectRepo = {
   create: unit => gameObject,
-  getGeometry: gameObject => geometry,
+  getGeometry: gameObject => Js.Nullable.t<geometry>,
   addGeometry: (gameObject, geometry) => unit,
   // getMaterial: gameObject => material,
   // addMaterial: (gameObject, material) => unit,
@@ -30,12 +25,10 @@ type sceneRepo = {
   getAllGameObjects: sceneGameObject => list<gameObject>,
 }
 
-type canvas
-
 type sceneGraphRepo = {
-  sceneRepo: sceneRepo,
-  gameObjectRepo: gameObjectRepo,
-  geometryRepo: geometryRepo,
+  // sceneRepo: sceneRepo,
+  // gameObjectRepo: gameObjectRepo,
+  // geometryRepo: geometryRepo,
   // materialRepo: materialRepo,
   init: canvas => unit,
   getCanvas: unit => canvas,
