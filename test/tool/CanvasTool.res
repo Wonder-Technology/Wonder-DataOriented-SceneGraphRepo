@@ -1,1 +1,3 @@
-let getCanvas = (): ISceneGraphRepoForJs.canvas => DirectorForJs.buildSceneGraphRepo().getCanvas()
+let getCanvas = () => {
+  CanvasEntity.getCanvas()
+}

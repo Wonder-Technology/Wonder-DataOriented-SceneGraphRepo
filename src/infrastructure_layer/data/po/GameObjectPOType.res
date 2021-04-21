@@ -1,13 +1,14 @@
 type uid = int
 
-// type componentIndex = int
+type gameObject = uid
 
-type gameObject = {
-  maxUID: uid,
-  //   transformMap: ImmutableSparseMap.t<uid, componentIndex>,
-  //   bsdfMaterialMap: ImmutableSparseMap.t<uid, componentIndex>,
-  //   geometryMap: ImmutableSparseMap.t<uid, componentIndex>,
-  //   directionLightMap: ImmutableSparseMap.t<uid, componentIndex>,
-  //   basicCameraViewMap: ImmutableSparseMap.t<uid, componentIndex>,
-  //   perspectiveCameraProjectionMap: ImmutableSparseMap.t<uid, componentIndex>,
+// type componentIndex = int
+type gameObjectPO = {
+  maxUID: gameObject,
+  transformMap: ImmutableSparseMap.t<gameObject, TransformPOType.transform>,
+  //   bsdfMaterialMap: ImmutableSparseMap.t<gameObject, componentIndex>,
+  //   geometryMap: ImmutableSparseMap.t<gameObject, componentIndex>,
+  //   directionLightMap: ImmutableSparseMap.t<gameObject, componentIndex>,
+  //   basicCameraViewMap: ImmutableSparseMap.t<gameObject, componentIndex>,
+  //   perspectiveCameraProjectionMap: ImmutableSparseMap.t<gameObject, componentIndex>,
 }

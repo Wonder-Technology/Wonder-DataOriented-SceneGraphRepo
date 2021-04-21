@@ -3,11 +3,9 @@ let create = () => {
 
   GameObjectRepo.setMaxUID(uid->succ)
 
-  // let gameObject = uid->GameObjectEntity.create
+  let gameObject = uid->GameObjectEntity.create
 
-  // CreateTransformDoService.create()->Result.bind(transform =>
-  //   gameObject->AddComponentGameObjectDoService.addTransform(transform)
-  // )
-
-  uid->GameObjectEntity.create
+  CreateTransformDoService.create()->Result.bind(transform =>
+    gameObject->AddComponentGameObjectDoService.addTransform(transform)
+  )
 }

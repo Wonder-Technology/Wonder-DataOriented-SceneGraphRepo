@@ -15,12 +15,13 @@ let _ = describe("Scene", () => {
 
   describe("setScene", () =>
     test("test", () => {
-      let scene1 = SceneTool.getSceneRepo().create()
-      let scene2 = SceneTool.getSceneRepo().create()
+      let scene1 = SceneTool.create()->ResultTool.getExnSuccessValue
 
-      SceneTool.getSceneRepo().setScene(scene2)
+      let scene2 = SceneTool.create()->ResultTool.getExnSuccessValue
 
-      SceneTool.getSceneRepo().getScene()->expect == scene2
+      SceneTool.setScene(scene2)
+
+      SceneTool.getScene()->expect == scene2->Some
     })
   )
 })

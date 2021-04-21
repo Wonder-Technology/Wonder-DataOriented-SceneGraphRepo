@@ -16,9 +16,9 @@ let _ = describe("Canvas", () => {
   describe("getCanvas", () =>
     test("test", () => {
       let canvas = 1->Obj.magic
-      DirectorTool.init(canvas)
+      DirectorTool.init(~canvas, ())
 
-      CanvasTool.getCanvas()->expect == canvas
+      CanvasTool.getCanvas()->expect == canvas->Some
     })
   )
 })

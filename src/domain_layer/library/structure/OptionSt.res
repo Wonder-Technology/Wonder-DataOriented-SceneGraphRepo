@@ -20,6 +20,8 @@ let flatMap = Belt.Option.flatMap
 
 let fromNullable = optionData => Js.Nullable.toOption(optionData)
 
+let toNullable = optionData => Js.Nullable.from_opt(optionData)
+
 let forEachResult = (optionData, func) =>
   switch optionData {
   | None => ()->Result.succeed

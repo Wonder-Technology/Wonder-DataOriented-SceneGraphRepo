@@ -1,1 +1,1 @@
-type scene = {scene: option<GameObjectPOType.uid>}
+type scenePO = {scene: option<GameObjectPOType.gameObject>}

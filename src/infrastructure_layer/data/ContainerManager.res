@@ -2,6 +2,18 @@ let getPO = () => Container.poContainer.po
 
 let setPO = po => Container.poContainer.po = po
 
+let getConfig = () => {
+  let po = getPO()
+
+  po.config
+}
+
+let setConfig = config => {
+  let po = getPO()
+
+  {...po, config: config}->setPO
+}
+
 let getCanvas = () => {
   let po = getPO()
 
@@ -36,4 +48,16 @@ let setGameObject = gameObject => {
   let po = getPO()
 
   {...po, gameObject: gameObject}->setPO
+}
+
+let getExnTransform = () => {
+  let po = getPO()
+
+  po.transform->OptionSt.getExn
+}
+
+let setTransform = transform => {
+  let po = getPO()
+
+  {...po, transform: transform->Some}->setPO
 }
