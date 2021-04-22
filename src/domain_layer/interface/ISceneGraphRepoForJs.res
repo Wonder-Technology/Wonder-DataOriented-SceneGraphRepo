@@ -108,10 +108,9 @@ type gameObjectRepo = {
   getTransform: gameObject => Js.Nullable.t<transform>,
   addTransform: (gameObject, transform) => gameObject,
   hasTransform: gameObject => bool,
-  // getGeometry: gameObject => Js.Nullable.t<geometry>,
-  // addGeometry: (gameObject, geometry) => gameObject,
-  // getMaterial: gameObject => Js.Nullable.t<pbrMaterial>,
-  // addMaterial: (gameObject, pbrMaterial) => gameObject,
+  getGeometry: gameObject => Js.Nullable.t<geometry>,
+  addGeometry: (gameObject, geometry) => gameObject,
+  hasGeometry: gameObject => bool,
 }
 
 type sceneRepo = {

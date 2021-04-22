@@ -8,10 +8,10 @@ let getTransform = gameObject =>
 //     gameObject->GameObjectEntity.value,
 //   )->OptionSt.map(BSDFMaterialEntity.create)
 
-// let getGeometry = gameObject =>
-//   GameObjectRepo.getGeometry(
-//     gameObject->GameObjectEntity.value,
-//   )->OptionSt.map(GeometryEntity.create)
+let getGeometry = gameObject =>
+  GameObjectRepo.getGeometry(
+    gameObject->GameObjectEntity.value,
+  )->OptionSt.map(GeometryEntity.create)
 
 // let getDirectionLight = gameObject =>
 //   GameObjectRepo.getDirectionLight(

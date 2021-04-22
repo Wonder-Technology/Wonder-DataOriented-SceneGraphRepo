@@ -1,11 +1,12 @@
 let _createAndSetAllComponentPOs = () =>
-  CreatePOTransformRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setTransform)
-// ->Result.bind(() =>
-//   CreatePOBSDFMaterialRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setBSDFMaterial)
-// )
-// ->Result.bind(() =>
-//   CreatePOGeometryRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setGeometry)
-// )
+  CreatePOTransformRepo.createPO()
+  ->Result.mapSuccess(po => po->ContainerManager.setTransform)
+  // ->Result.bind(() =>
+  //   CreatePOBSDFMaterialRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setBSDFMaterial)
+  // )
+  ->Result.bind(() =>
+    CreatePOGeometryRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setGeometry)
+  )
 // ->Result.bind(() =>
 //   CreatePODirectionLightRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setDirectionLight)
 // )
@@ -50,6 +51,10 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
       GameObjectApService.addTransform(gameObject, transform)->Result.getExn,
     getTransform: gameObject => GameObjectApService.getTransform(gameObject)->OptionSt.toNullable,
     hasTransform: GameObjectApService.hasTransform,
+    addGeometry: (gameObject, geometry) =>
+      GameObjectApService.addGeometry(gameObject, geometry)->Result.getExn,
+    getGeometry: gameObject => GameObjectApService.getGeometry(gameObject)->OptionSt.toNullable,
+    hasGeometry: GameObjectApService.hasGeometry,
   },
   transformRepo: {
     create: () => TransformApService.create()->Result.getExn,

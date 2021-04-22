@@ -33,6 +33,7 @@ let create = (): POType.po => {
   gameObject: {
     maxUID: 0,
     transformMap: ImmutableSparseMap.createEmpty(),
+    geometryMap: ImmutableSparseMap.createEmpty(),
   },
   transform: None,
   geometry: None,

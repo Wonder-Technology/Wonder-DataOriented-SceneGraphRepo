@@ -9,6 +9,13 @@ let getTransform = gameObject => GetComponentGameObjectDoService.getTransform(ga
 
 let hasTransform = gameObject => HasComponentGameObjectDoService.hasTransform(gameObject)
 
+let addGeometry = (gameObject, geometry) =>
+  AddComponentGameObjectDoService.addGeometry(gameObject, geometry)
+
+let getGeometry = gameObject => GetComponentGameObjectDoService.getGeometry(gameObject)
+
+let hasGeometry = gameObject => HasComponentGameObjectDoService.hasGeometry(gameObject)
+
 let getMaxUID = () => ContainerManager.getGameObject().maxUID
 
 let getMaxUID = () => ContainerManager.getGameObject().maxUID

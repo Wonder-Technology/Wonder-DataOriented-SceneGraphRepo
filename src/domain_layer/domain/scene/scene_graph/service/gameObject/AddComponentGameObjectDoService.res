@@ -42,15 +42,15 @@ let addTransform = (gameObject, transform) =>
 //     (gameObject->GameObjectEntity.value, material->BSDFMaterialEntity.value),
 //   )
 
-// let addGeometry = (gameObject, geometry) =>
-//   _addComponent(
-//     (
-//       GameObjectRepo.hasGeometry,
-//       GameObjectRepo.addGeometry,
-//       AddGeometryDoService.handleAddComponent,
-//     ),
-//     (gameObject->GameObjectEntity.value, geometry->GeometryEntity.value),
-//   )
+let addGeometry = (gameObject, geometry) =>
+  _addComponent(
+    (
+      GameObjectRepo.hasGeometry,
+      GameObjectRepo.addGeometry,
+      AddGeometryDoService.handleAddComponent,
+    ),
+    (gameObject->GameObjectEntity.value, geometry->GeometryEntity.value),
+  )
 
 // let addDirectionLight = (gameObject, light) =>
 //   _addComponent(
