@@ -2,6 +2,18 @@ let getPO = () => Container.poContainer.po
 
 let setPO = po => Container.poContainer.po = po
 
+let getGlobalTemp = () => {
+  let po = getPO()
+
+  po.globalTemp
+}
+
+let setGlobalTemp = globalTemp => {
+  let po = getPO()
+
+  {...po, globalTemp: globalTemp}->setPO
+}
+
 let getConfig = () => {
   let po = getPO()
 

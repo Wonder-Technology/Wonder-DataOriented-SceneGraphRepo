@@ -1,12 +1,16 @@
-let init = (~sandbox, ~isDebug=true, ~transformCount=10, ()) => {
-  // let init = (~sandbox, ()) => {
-  // DependencyTool.injectAllDependencies(~isDebug, ~transformCount, ())
-
-  // POConfigTool.setAllCount(~transformCount, ())
-
+let init = (
+  ~sandbox,
+  ~isDebug=true,
+  ~transformCount=10,
+  ~float9Array1=Matrix3.createIdentityMatrix3(),
+  ~float32Array1=Matrix4.createIdentityMatrix4(),
+  (),
+) => {
   ContainerManager.setPO(CreatePO.create())
 
-  DirectorForJs.init(Obj.magic(21), isDebug, transformCount)->Result.handleFail(err =>
-    err->Exception.throwErr
-  )
+  DirectorForJs.init(
+    Obj.magic(21),
+    {isDebug: isDebug, transformCount: transformCount},
+    {float9Array1: float9Array1, float32Array1: float32Array1},
+  )->Result.handleFail(err => err->Exception.throwErr)
 }

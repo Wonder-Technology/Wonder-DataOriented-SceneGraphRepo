@@ -7,4 +7,4 @@ let value = transform =>
   | Transform(index) => index
   }
 
-// let isSame = (tran1, tran2) => value(tran1) === value(tran2)
+let isSame = (tran1, tran2) => value(tran1) === value(tran2)
