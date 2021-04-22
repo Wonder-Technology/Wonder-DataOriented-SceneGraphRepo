@@ -2,6 +2,8 @@ let init = (
   ~sandbox,
   ~isDebug=true,
   ~transformCount=10,
+  ~geometryCount=10,
+  ~geometryPointCount=10,
   ~float9Array1=Matrix3.createIdentityMatrix3(),
   ~float32Array1=Matrix4.createIdentityMatrix4(),
   (),
@@ -10,7 +12,12 @@ let init = (
 
   DirectorForJs.init(
     Obj.magic(21),
-    {isDebug: isDebug, transformCount: transformCount},
+    {
+      isDebug: isDebug,
+      transformCount: transformCount,
+      geometryCount: geometryCount,
+      geometryPointCount: geometryPointCount,
+    },
     {float9Array1: float9Array1, float32Array1: float32Array1},
   )->Result.handleFail(err => err->Exception.throwErr)
 }

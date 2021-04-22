@@ -216,7 +216,7 @@ let fillFloat32ArrayWithOffset = (targetTypeArr, sourceTypeArr: Float32Array.t, 
       () => sourceTypeArrLen + offset <= targetTypeArrLen,
     )
   }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
-    targetTypeArr |> Float32Array.setArrayOffset(Obj.magic(sourceTypeArr), offset)
+    targetTypeArr->Float32Array.setArrayOffset(Obj.magic(sourceTypeArr), offset, _)
   )
 
 let fillUint32ArrayWithOffset = (targetTypeArr, sourceTypeArr, offset) =>
@@ -236,7 +236,7 @@ let fillUint32ArrayWithOffset = (targetTypeArr, sourceTypeArr, offset) =>
       () => sourceTypeArrLen + offset <= targetTypeArrLen,
     )
   }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
-    targetTypeArr |> Uint32Array.setArrayOffset(Obj.magic(sourceTypeArr), offset)
+    targetTypeArr->Uint32Array.setArrayOffset(Obj.magic(sourceTypeArr), offset, _)
   )
 
 let reduceFloat32Array = (typeArr, acc, f) => Float32Array.reduce(f, acc, typeArr)

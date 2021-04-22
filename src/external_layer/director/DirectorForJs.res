@@ -12,13 +12,15 @@ let _createAndSetAllComponentPOs = () =>
 
 let init = (
   canvas,
-  {isDebug, transformCount}: ISceneGraphRepoForJs.configData,
+  {isDebug, transformCount, geometryCount, geometryPointCount}: ISceneGraphRepoForJs.configData,
   {float9Array1, float32Array1}: ISceneGraphRepoForJs.globalTempData,
 ) => {
   CanvasApService.setCanvas(canvas)
 
   ConfigApService.setIsDebug(isDebug)
   ConfigApService.setTransformCount(transformCount)
+  ConfigApService.setGeometryCount(geometryCount)
+  ConfigApService.setGeometryPointCount(geometryPointCount)
 
   GlobalTempApService.setFloat9Array1(float9Array1)
   GlobalTempApService.setFloat32Array1(float32Array1)
@@ -87,5 +89,42 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     getLocalToWorldMatrix: TransformApService.getLocalToWorldMatrix,
     getNormalMatrix: transform => TransformApService.getNormalMatrix(transform)->Result.getExn,
     lookAt: (transform, target) => TransformApService.lookAt(transform, target)->Result.getExn,
+  },
+  geometryRepo: {
+    create: () => GeometryApService.create()->Result.getExn,
+    createTriangleGeometry: () => GeometryApService.createTriangleGeometry()->Result.getExn,
+    createSphereGeometry: (radius, bands) =>
+      GeometryApService.createSphereGeometry(radius, bands)->Result.getExn,
+    createPlaneGeometry: (width, height, widthSegments, heightSegments) =>
+      GeometryApService.createPlaneGeometry(
+        width,
+        height,
+        widthSegments,
+        heightSegments,
+      )->Result.getExn,
+    getGameObjects: geometry =>
+      GeometryApService.getGameObjects(geometry)->OptionSt.map(ListSt.toArray)->OptionSt.toNullable,
+    getVertices: geometry => GeometryApService.getVertices(geometry)->Result.toNullable,
+    setVertices: (geometry, vertices) =>
+      GeometryApService.setVertices(geometry, vertices)->Result.getExn,
+    getNormals: geometry => GeometryApService.getNormals(geometry)->Result.toNullable,
+    setNormals: (geometry, normals) =>
+      GeometryApService.setNormals(geometry, normals)->Result.getExn,
+    getTexCoords: geometry => GeometryApService.getTexCoords(geometry)->Result.toNullable,
+    setTexCoords: (geometry, texCoords) =>
+      GeometryApService.setTexCoords(geometry, texCoords)->Result.getExn,
+    getTangents: geometry => GeometryApService.getTangents(geometry)->Result.toNullable,
+    setTangents: (geometry, tangents) =>
+      GeometryApService.setTangents(geometry, tangents)->Result.getExn,
+    getIndices: geometry => GeometryApService.getIndices(geometry)->Result.toNullable,
+    setIndices: (geometry, indices) =>
+      GeometryApService.setIndices(geometry, indices)->Result.getExn,
+    hasVertices: geometry => GeometryApService.hasVertices(geometry)->Result.getExn,
+    hasNormals: geometry => GeometryApService.hasNormals(geometry)->Result.getExn,
+    hasTexCoords: geometry => GeometryApService.hasTexCoords(geometry)->Result.getExn,
+    hasTangents: geometry => GeometryApService.hasTangents(geometry)->Result.getExn,
+    hasIndices: geometry => GeometryApService.hasIndices(geometry)->Result.getExn,
+    getIndicesCount: geometry => GeometryApService.getIndicesCount(geometry)->Result.toNullable,
+    computeTangents: GeometryApService.computeTangents,
   },
 }

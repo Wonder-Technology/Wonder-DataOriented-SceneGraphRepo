@@ -11,3 +11,7 @@ external gameObjectVOToGameObjectDO: ISceneGraphRepoForJs.gameObject => GameObje
 external transformDOToTransformVO: TransformEntity.t => ISceneGraphRepoForJs.transform = "%identity"
 
 external transformVOToTransformDO: ISceneGraphRepoForJs.transform => TransformEntity.t = "%identity"
+
+external geometryDOToGeometryVO: GeometryEntity.t => ISceneGraphRepoForJs.geometry = "%identity"
+
+external geometryVOToGeometryDO: ISceneGraphRepoForJs.geometry => GeometryEntity.t = "%identity"

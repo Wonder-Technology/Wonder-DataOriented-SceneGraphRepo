@@ -5,4 +5,5 @@ type po = {
   scene: ScenePOType.scenePO,
   gameObject: GameObjectPOType.gameObjectPO,
   transform: option<TransformPOType.transformPO>,
+  geometry:option<GeometryPOType.geometryPO>
 }

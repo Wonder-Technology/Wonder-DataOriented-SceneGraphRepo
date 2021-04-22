@@ -53,3 +53,9 @@ let handleFail = (result: t<'s, 'f>, handleFailFunc: 'f => 's): 's =>
   }
 
 let getExn = result => result->handleFail(Exception.throwErr)
+
+let toNullable = result =>
+  switch result {
+  | Ok(s) => Js.Nullable.return(s)
+  | Error(f) => Js.Nullable.null
+  }

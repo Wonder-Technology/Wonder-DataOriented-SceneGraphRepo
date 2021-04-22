@@ -13,3 +13,19 @@ let getTransformCount = () => {
 let setTransformCount = transformCount => {
   ConfigDoService.setTransformCount(transformCount)
 }
+
+let getGeometryCount = () => {
+  ConfigDoService.getGeometryCount()
+}
+
+let setGeometryCount = geometryCount => {
+  ConfigDoService.setGeometryCount(geometryCount)
+}
+
+let getGeometryPointCount = () => {
+  ConfigDoService.getGeometryPointCount()
+}
+
+let setGeometryPointCount = geometryPointCount => {
+  ConfigDoService.setGeometryPointCount(geometryPointCount)
+}

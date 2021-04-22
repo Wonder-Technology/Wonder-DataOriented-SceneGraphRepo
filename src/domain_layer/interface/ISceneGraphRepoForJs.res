@@ -69,8 +69,32 @@ type transformRepo = {
 
 type geometryRepo = {
   create: unit => geometry,
-  getVertices: geometry => Js.Typed_array.Float32Array.t,
-  getIndices: geometry => Js.Typed_array.Uint32Array.t,
+  getGameObjects: geometry => Js.Nullable.t<array<gameObject>>,
+  createTriangleGeometry: unit => geometry,
+  createSphereGeometry: (float, int) => geometry,
+  createPlaneGeometry: (int, int, int, int) => geometry,
+  getVertices: geometry => Js.Nullable.t<Js.Typed_array.Float32Array.t>,
+  setVertices: (geometry, Js.Typed_array.Float32Array.t) => unit,
+  hasVertices: geometry => bool,
+  getNormals: geometry => Js.Nullable.t<Js.Typed_array.Float32Array.t>,
+  setNormals: (geometry, Js.Typed_array.Float32Array.t) => unit,
+  hasNormals: geometry => bool,
+  getTexCoords: geometry => Js.Nullable.t<Js.Typed_array.Float32Array.t>,
+  setTexCoords: (geometry, Js.Typed_array.Float32Array.t) => unit,
+  hasTexCoords: geometry => bool,
+  getTangents: geometry => Js.Nullable.t<Js.Typed_array.Float32Array.t>,
+  setTangents: (geometry, Js.Typed_array.Float32Array.t) => unit,
+  hasTangents: geometry => bool,
+  getIndices: geometry => Js.Nullable.t<Js.Typed_array.Uint32Array.t>,
+  setIndices: (geometry, Js.Typed_array.Uint32Array.t) => unit,
+  hasIndices: geometry => bool,
+  getIndicesCount: geometry => Js.Nullable.t<int>,
+  computeTangents: (
+    Js.Typed_array.Float32Array.t,
+    Js.Typed_array.Float32Array.t,
+    Js.Typed_array.Float32Array.t,
+    Js.Typed_array.Uint32Array.t,
+  ) => Js.Typed_array.Float32Array.t,
 }
 
 type pbrMaterialRepo = {
@@ -102,6 +126,8 @@ type sceneRepo = {
 type configData = {
   isDebug: bool,
   transformCount: int,
+  geometryCount: int,
+  geometryPointCount: int,
 }
 
 type globalTempData = {
@@ -114,7 +140,7 @@ type sceneGraphRepo = {
   sceneRepo: sceneRepo,
   gameObjectRepo: gameObjectRepo,
   transformRepo: transformRepo,
-  // geometryRepo: geometryRepo,
+  geometryRepo: geometryRepo,
   // pbrMaterialRepo: pbrMaterialRepo,
   init: (canvas, configData, globalTempData) => unit,
   getCanvas: unit => Js.Nullable.t<canvas>,

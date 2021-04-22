@@ -73,3 +73,15 @@ let setTransform = transform => {
 
   {...po, transform: transform->Some}->setPO
 }
+
+let getExnGeometry = () => {
+  let po = getPO()
+
+  po.geometry->OptionSt.getExn
+}
+
+let setGeometry = geometry => {
+  let po = getPO()
+
+  {...po, geometry: geometry->Some}->setPO
+}

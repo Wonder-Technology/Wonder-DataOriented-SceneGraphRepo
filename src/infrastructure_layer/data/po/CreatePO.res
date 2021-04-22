@@ -23,6 +23,8 @@ let create = (): POType.po => {
   config: {
     isDebug: true,
     transformCount: 10,
+    geometryCount: 10,
+    geometryPointCount: 10,
   },
   canvas: None,
   scene: {
@@ -33,4 +35,5 @@ let create = (): POType.po => {
     transformMap: ImmutableSparseMap.createEmpty(),
   },
   transform: None,
+  geometry: None,
 }
