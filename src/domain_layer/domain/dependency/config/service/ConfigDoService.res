@@ -29,3 +29,19 @@ let getGeometryPointCount = () => {
 let setGeometryPointCount = geometryPointCount => {
   ConfigRepo.setGeometryPointCount(geometryPointCount)
 }
+
+let getPBRMaterialCount = () => {
+  ConfigRepo.getPBRMaterialCount()
+}
+
+let setPBRMaterialCount = pbrMaterialCount => {
+  ConfigRepo.setPBRMaterialCount(pbrMaterialCount)
+}
+
+let getDirectionLightCountCount = () => {
+  ConfigRepo.getDirectionLightCountCount()
+}
+
+let setDirectionLightCountCount = directionLightCount => {
+  ConfigRepo.setDirectionLightCountCount(directionLightCount)
+}

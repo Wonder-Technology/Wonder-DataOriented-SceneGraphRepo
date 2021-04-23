@@ -97,10 +97,46 @@ type geometryRepo = {
   ) => Js.Typed_array.Float32Array.t,
 }
 
+type diffuseMap
+
+type normalMap
+
+type channelRoughnessMetallicMap
+
+type emissionMap
+
+type transmissionMap
+
+type specularMap
+
 type pbrMaterialRepo = {
   create: unit => pbrMaterial,
-  getDiffuseColor: pbrMaterial => Js.Nullable.t<color>,
+  getDiffuseColor: pbrMaterial => color,
   setDiffuseColor: (pbrMaterial, color) => unit,
+  getSpecularColor: pbrMaterial => color,
+  setSpecularColor: (pbrMaterial, color) => unit,
+  getSpecular: pbrMaterial => float,
+  setSpecular: (pbrMaterial, float) => unit,
+  getRoughness: pbrMaterial => float,
+  setRoughness: (pbrMaterial, float) => unit,
+  getMetalness: pbrMaterial => float,
+  setMetalness: (pbrMaterial, float) => unit,
+  getTransmission: pbrMaterial => float,
+  setTransmission: (pbrMaterial, float) => unit,
+  getIOR: pbrMaterial => float,
+  setIOR: (pbrMaterial, float) => unit,
+  getDiffuseMap: pbrMaterial => Js.Nullable.t<diffuseMap>,
+  setDiffuseMap: (pbrMaterial, diffuseMap) => unit,
+  getChannelRoughnessMetallicMap: pbrMaterial => Js.Nullable.t<channelRoughnessMetallicMap>,
+  setChannelRoughnessMetallicMap: (pbrMaterial, channelRoughnessMetallicMap) => unit,
+  getEmissionMap: pbrMaterial => Js.Nullable.t<emissionMap>,
+  setEmissionMap: (pbrMaterial, emissionMap) => unit,
+  getNormalMap: pbrMaterial => Js.Nullable.t<normalMap>,
+  setNormalMap: (pbrMaterial, normalMap) => unit,
+  getTransmissionMap: pbrMaterial => Js.Nullable.t<transmissionMap>,
+  setTransmissionMap: (pbrMaterial, transmissionMap) => unit,
+  getSpecularMap: pbrMaterial => Js.Nullable.t<specularMap>,
+  setSpecularMap: (pbrMaterial, specularMap) => unit,
 }
 
 type gameObjectRepo = {
@@ -127,6 +163,8 @@ type configData = {
   transformCount: int,
   geometryCount: int,
   geometryPointCount: int,
+  pbrMaterialCount: int,
+  directionLightCount: int,
 }
 
 type globalTempData = {
@@ -140,7 +178,7 @@ type sceneGraphRepo = {
   gameObjectRepo: gameObjectRepo,
   transformRepo: transformRepo,
   geometryRepo: geometryRepo,
-  // pbrMaterialRepo: pbrMaterialRepo,
+  pbrMaterialRepo: pbrMaterialRepo,
   init: (canvas, configData, globalTempData) => unit,
   getCanvas: unit => Js.Nullable.t<canvas>,
 }

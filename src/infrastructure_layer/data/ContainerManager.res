@@ -85,3 +85,15 @@ let setGeometry = geometry => {
 
   {...po, geometry: geometry->Some}->setPO
 }
+
+let getExnPBRMaterial = () => {
+  let po = getPO()
+
+  po.pbrMaterial->OptionSt.getExn
+}
+
+let setPBRMaterial = pbrMaterial => {
+  let po = getPO()
+
+  {...po, pbrMaterial: pbrMaterial->Some}->setPO
+}

@@ -25,6 +25,8 @@ let create = (): POType.po => {
     transformCount: 10,
     geometryCount: 10,
     geometryPointCount: 10,
+    pbrMaterialCount: 10,
+    directionLightCount: 10,
   },
   canvas: None,
   scene: {
@@ -37,4 +39,5 @@ let create = (): POType.po => {
   },
   transform: None,
   geometry: None,
+  pbrMaterial: None,
 }

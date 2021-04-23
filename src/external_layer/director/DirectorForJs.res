@@ -1,9 +1,9 @@
 let _createAndSetAllComponentPOs = () =>
   CreatePOTransformRepo.createPO()
   ->Result.mapSuccess(po => po->ContainerManager.setTransform)
-  // ->Result.bind(() =>
-  //   CreatePOBSDFMaterialRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setBSDFMaterial)
-  // )
+  ->Result.bind(() =>
+    CreatePOPBRMaterialRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setPBRMaterial)
+  )
   ->Result.bind(() =>
     CreatePOGeometryRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setGeometry)
   )
@@ -13,7 +13,14 @@ let _createAndSetAllComponentPOs = () =>
 
 let init = (
   canvas,
-  {isDebug, transformCount, geometryCount, geometryPointCount}: ISceneGraphRepoForJs.configData,
+  {
+    isDebug,
+    transformCount,
+    geometryCount,
+    geometryPointCount,
+    pbrMaterialCount,
+    directionLightCount,
+  }: ISceneGraphRepoForJs.configData,
   {float9Array1, float32Array1}: ISceneGraphRepoForJs.globalTempData,
 ) => {
   CanvasApService.setCanvas(canvas)
@@ -22,6 +29,8 @@ let init = (
   ConfigApService.setTransformCount(transformCount)
   ConfigApService.setGeometryCount(geometryCount)
   ConfigApService.setGeometryPointCount(geometryPointCount)
+  ConfigApService.setPBRMaterialCount(pbrMaterialCount)
+  ConfigApService.setDirectionLightCount(directionLightCount)
 
   GlobalTempApService.setFloat9Array1(float9Array1)
   GlobalTempApService.setFloat32Array1(float32Array1)
@@ -131,5 +140,43 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     hasIndices: geometry => GeometryApService.hasIndices(geometry)->Result.getExn,
     getIndicesCount: geometry => GeometryApService.getIndicesCount(geometry)->Result.toNullable,
     computeTangents: GeometryApService.computeTangents,
+  },
+  pbrMaterialRepo: {
+    create: () => PBRMaterialApService.create()->Result.getExn,
+    getDiffuseColor: material => PBRMaterialApService.getDiffuseColor(material),
+    setDiffuseColor: (material, color) =>
+      PBRMaterialApService.setDiffuseColor(material, color)->Result.getExn,
+    getSpecularColor: material => PBRMaterialApService.getSpecularColor(material),
+    setSpecularColor: (material, color) =>
+      PBRMaterialApService.setSpecularColor(material, color)->Result.getExn,
+    getSpecular: material => PBRMaterialApService.getSpecular(material),
+    setSpecular: (material, specular) =>
+      PBRMaterialApService.setSpecular(material, specular)->Result.getExn,
+    getRoughness: material => PBRMaterialApService.getRoughness(material),
+    setRoughness: (material, roughness) =>
+      PBRMaterialApService.setRoughness(material, roughness)->Result.getExn,
+    getMetalness: material => PBRMaterialApService.getMetalness(material),
+    setMetalness: (material, metalness) =>
+      PBRMaterialApService.setMetalness(material, metalness)->Result.getExn,
+    getTransmission: material => PBRMaterialApService.getTransmission(material),
+    setTransmission: (material, transmission) =>
+      PBRMaterialApService.setTransmission(material, transmission)->Result.getExn,
+    getIOR: material => PBRMaterialApService.getIOR(material),
+    setIOR: (material, ior) => PBRMaterialApService.setIOR(material, ior)->Result.getExn,
+    getDiffuseMap: material => PBRMaterialApService.getDiffuseMap(material)->OptionSt.toNullable,
+    setDiffuseMap: (material, map) => PBRMaterialApService.setDiffuseMap(material, map),
+    getChannelRoughnessMetallicMap: material =>
+      PBRMaterialApService.getChannelRoughnessMetallicMap(material)->OptionSt.toNullable,
+    setChannelRoughnessMetallicMap: (material, map) =>
+      PBRMaterialApService.setChannelRoughnessMetallicMap(material, map),
+    getEmissionMap: material => PBRMaterialApService.getEmissionMap(material)->OptionSt.toNullable,
+    setEmissionMap: (material, map) => PBRMaterialApService.setEmissionMap(material, map),
+    getNormalMap: material => PBRMaterialApService.getNormalMap(material)->OptionSt.toNullable,
+    setNormalMap: (material, map) => PBRMaterialApService.setNormalMap(material, map),
+    getTransmissionMap: material =>
+      PBRMaterialApService.getTransmissionMap(material)->OptionSt.toNullable,
+    setTransmissionMap: (material, map) => PBRMaterialApService.setTransmissionMap(material, map),
+    getSpecularMap: material => PBRMaterialApService.getSpecularMap(material)->OptionSt.toNullable,
+    setSpecularMap: (material, map) => PBRMaterialApService.setSpecularMap(material, map),
   },
 }

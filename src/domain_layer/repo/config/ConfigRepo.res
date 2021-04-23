@@ -19,7 +19,7 @@ let getGeometryCount = () => {
 }
 
 let setGeometryCount = geometryCount => {
-  ContainerManager.setConfig({...ContainerManager.getConfig(), transformCount: geometryCount})
+  ContainerManager.setConfig({...ContainerManager.getConfig(), geometryCount: geometryCount})
 }
 
 let getGeometryPointCount = () => {
@@ -30,5 +30,24 @@ let setGeometryPointCount = geometryPointCount => {
   ContainerManager.setConfig({
     ...ContainerManager.getConfig(),
     geometryPointCount: geometryPointCount,
+  })
+}
+
+let getPBRMaterialCount = () => {
+  ContainerManager.getConfig().pbrMaterialCount
+}
+
+let setPBRMaterialCount = pbrMaterialCount => {
+  ContainerManager.setConfig({...ContainerManager.getConfig(), pbrMaterialCount: pbrMaterialCount})
+}
+
+let getDirectionLightCountCount = () => {
+  ContainerManager.getConfig().geometryCount
+}
+
+let setDirectionLightCountCount = directionLightCount => {
+  ContainerManager.setConfig({
+    ...ContainerManager.getConfig(),
+    directionLightCount: directionLightCount,
   })
 }
