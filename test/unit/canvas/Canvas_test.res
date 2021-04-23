@@ -15,10 +15,15 @@ let _ = describe("Canvas", () => {
 
   describe("getCanvas", () =>
     test("test", () => {
-      let canvas = 1->Obj.magic
+      let canvas: ISceneGraphRepoForJs.canvas = {
+        width: 2,
+        height: 4,
+        getContext: createEmptyStub(refJsObjToSandbox(sandbox.contents)),
+      }
       DirectorTool.init(~canvas, ())
 
-      CanvasTool.getCanvas()->expect == canvas->Some
+      CanvasTool.getCanvas()->OptionSt.map(VODOConvertApService.canvasDOToCanvasVO)->expect ==
+        canvas->Some
     })
   )
 })

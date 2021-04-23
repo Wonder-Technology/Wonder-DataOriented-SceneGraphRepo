@@ -12,7 +12,15 @@ type directionLight
 
 type basicCameraView
 
-type canvas
+type perspectiveCameraProjection
+
+type context
+
+type canvas = {
+  width: int,
+  height: int,
+  getContext: string => context,
+}
 
 type color = (float, float, float)
 
@@ -166,6 +174,23 @@ type basicCameraViewRepo = {
   getActiveBasicCameraView: unit => Js.Nullable.t<basicCameraView>,
 }
 
+type perspectiveCameraProjectionRepo = {
+  create: unit => perspectiveCameraProjection,
+  getGameObject: perspectiveCameraProjection => Js.Nullable.t<gameObject>,
+  getPMatrix: perspectiveCameraProjection => Js.Nullable.t<Js.Typed_array.Float32Array.t>,
+  getFovy: perspectiveCameraProjection => Js.Nullable.t<float>,
+  setFovy: (perspectiveCameraProjection, float) => unit,
+  getAspect: perspectiveCameraProjection => Js.Nullable.t<float>,
+  setAspect: (perspectiveCameraProjection, float) => unit,
+  getNear: perspectiveCameraProjection => Js.Nullable.t<float>,
+  setNear: (perspectiveCameraProjection, float) => unit,
+  getFar: perspectiveCameraProjection => Js.Nullable.t<float>,
+  setFar: (perspectiveCameraProjection, float) => unit,
+  markDirty: perspectiveCameraProjection => unit,
+  markNotDirty: perspectiveCameraProjection => unit,
+  update: unit => unit,
+}
+
 type gameObjectRepo = {
   create: unit => gameObject,
   getTransform: gameObject => Js.Nullable.t<transform>,
@@ -217,6 +242,7 @@ type sceneGraphRepo = {
   pbrMaterialRepo: pbrMaterialRepo,
   directionLightRepo: directionLightRepo,
   basicCameraViewRepo: basicCameraViewRepo,
+  perspectiveCameraProjectionRepo: perspectiveCameraProjectionRepo,
   init: (canvas, configData, globalTempData) => unit,
   getCanvas: unit => Js.Nullable.t<canvas>,
 }

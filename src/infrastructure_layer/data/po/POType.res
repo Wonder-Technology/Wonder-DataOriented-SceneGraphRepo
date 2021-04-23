@@ -9,4 +9,5 @@ type po = {
   pbrMaterial: option<PBRMaterialPOType.pbrMaterialPO>,
   directionLight: option<DirectionLightPOType.directionLightPO>,
   basicCameraView: BasicCameraViewPOType.basicCameraViewPO,
+  perspectiveCameraProjection: PerspectiveCameraProjectionPOType.perspectiveCameraProjectionPO,
 }

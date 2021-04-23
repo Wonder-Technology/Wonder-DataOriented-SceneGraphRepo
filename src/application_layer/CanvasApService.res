@@ -1,11 +1,9 @@
-external canvasDOToCanvasVO: CanvasEntity.t => ISceneGraphRepoForJs.canvas = "%identity"
-
-external canvasVOToCanvasDO: ISceneGraphRepoForJs.canvas => CanvasEntity.t = "%identity"
+open VODOConvertApService
 
 let getCanvas = () => {
   CanvasEntity.getCanvas()->OptionSt.map(canvasDOToCanvasVO)
 }
 
 let setCanvas = canvas => {
-  CanvasRepo.setCanvas(canvas->canvasVOToCanvasDO)
+  CanvasEntity.setCanvas(canvas->canvasVOToCanvasDO)
 }

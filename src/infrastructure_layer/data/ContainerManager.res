@@ -121,3 +121,15 @@ let setBasicCameraView = basicCameraView => {
 
   {...po, basicCameraView: basicCameraView}->setPO
 }
+
+let getPerspectiveCameraProjection = () => {
+  let po = getPO()
+
+  po.perspectiveCameraProjection
+}
+
+let setPerspectiveCameraProjection = perspectiveCameraProjection => {
+  let po = getPO()
+
+  {...po, perspectiveCameraProjection: perspectiveCameraProjection}->setPO
+}

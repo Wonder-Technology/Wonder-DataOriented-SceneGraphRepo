@@ -227,4 +227,31 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
       ->Result.mapSuccess(OptionSt.toNullable)
       ->Result.getExn,
   },
+  perspectiveCameraProjectionRepo: {
+    create: () => PerspectiveCameraProjectionApService.create(),
+    getGameObject: cameraProjection =>
+      PerspectiveCameraProjectionApService.getGameObject(cameraProjection)->OptionSt.toNullable,
+    getPMatrix: cameraProjection =>
+      PerspectiveCameraProjectionApService.getPMatrix(cameraProjection)->OptionSt.toNullable,
+    getFovy: cameraProjection =>
+      PerspectiveCameraProjectionApService.getFovy(cameraProjection)->OptionSt.toNullable,
+    setFovy: (cameraProjection, fovy) =>
+      PerspectiveCameraProjectionApService.setFovy(cameraProjection, fovy),
+    getAspect: cameraProjection =>
+      PerspectiveCameraProjectionApService.getAspect(cameraProjection)->OptionSt.toNullable,
+    setAspect: (cameraProjection, fovy) =>
+      PerspectiveCameraProjectionApService.setAspect(cameraProjection, fovy),
+    getNear: cameraProjection =>
+      PerspectiveCameraProjectionApService.getNear(cameraProjection)->OptionSt.toNullable,
+    setNear: (cameraProjection, fovy) =>
+      PerspectiveCameraProjectionApService.setNear(cameraProjection, fovy),
+    getFar: cameraProjection =>
+      PerspectiveCameraProjectionApService.getFar(cameraProjection)->OptionSt.toNullable,
+    setFar: (cameraProjection, fovy) =>
+      PerspectiveCameraProjectionApService.setFar(cameraProjection, fovy),
+    markDirty: cameraProjection => PerspectiveCameraProjectionApService.markDirty(cameraProjection),
+    markNotDirty: cameraProjection =>
+      PerspectiveCameraProjectionApService.markNotDirty(cameraProjection),
+    update: () => PerspectiveCameraProjectionApService.update()->Result.getExn,
+  },
 }

@@ -1,3 +1,7 @@
+external canvasDOToCanvasVO: CanvasEntity.t => ISceneGraphRepoForJs.canvas = "%identity"
+
+external canvasVOToCanvasDO: ISceneGraphRepoForJs.canvas => CanvasEntity.t = "%identity"
+
 external sceneDOToSceneVO: SceneRoot.t => ISceneGraphRepoForJs.scene = "%identity"
 
 external sceneVOToSceneDO: ISceneGraphRepoForJs.scene => SceneRoot.t = "%identity"
@@ -68,4 +72,10 @@ external basicCameraViewDOToBasicCameraViewVO: BasicCameraViewEntity.t => IScene
   "%identity"
 
 external basicCameraViewVOToBasicCameraViewDO: ISceneGraphRepoForJs.basicCameraView => BasicCameraViewEntity.t =
+  "%identity"
+
+external perspectiveCameraProjectionDOToPerspectiveCameraProjectionVO: PerspectiveCameraProjectionEntity.t => ISceneGraphRepoForJs.perspectiveCameraProjection =
+  "%identity"
+
+external perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO: ISceneGraphRepoForJs.perspectiveCameraProjection => PerspectiveCameraProjectionEntity.t =
   "%identity"

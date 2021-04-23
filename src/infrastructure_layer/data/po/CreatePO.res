@@ -49,4 +49,14 @@ let create = (): POType.po => {
     isActiveMap: ImmutableSparseMap.createEmpty(),
     gameObjectMap: ImmutableSparseMap.createEmpty(),
   },
+  perspectiveCameraProjection: {
+    maxIndex: 0,
+    dirtyList: list{},
+    pMatrixMap: ImmutableSparseMap.createEmpty(),
+    nearMap: ImmutableSparseMap.createEmpty(),
+    farMap: ImmutableSparseMap.createEmpty(),
+    fovyMap: ImmutableSparseMap.createEmpty(),
+    aspectMap: ImmutableSparseMap.createEmpty(),
+    gameObjectMap: ImmutableSparseMap.createEmpty(),
+  },
 }
