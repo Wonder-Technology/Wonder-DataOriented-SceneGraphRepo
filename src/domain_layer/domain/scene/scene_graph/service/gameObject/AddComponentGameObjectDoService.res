@@ -32,15 +32,15 @@ let addTransform = (gameObject, transform) =>
     (gameObject->GameObjectEntity.value, transform->TransformEntity.value),
   )
 
-// let addBSDFMaterial = (gameObject, material) =>
-//   _addComponent(
-//     (
-//       GameObjectRepo.hasBSDFMaterial,
-//       GameObjectRepo.addBSDFMaterial,
-//       AddBSDFMaterialDoService.handleAddComponent,
-//     ),
-//     (gameObject->GameObjectEntity.value, material->BSDFMaterialEntity.value),
-//   )
+let addPBRMaterial = (gameObject, material) =>
+  _addComponent(
+    (
+      GameObjectRepo.hasPBRMaterial,
+      GameObjectRepo.addPBRMaterial,
+      AddPBRMaterialDoService.handleAddComponent,
+    ),
+    (gameObject->GameObjectEntity.value, material->PBRMaterialEntity.value),
+  )
 
 let addGeometry = (gameObject, geometry) =>
   _addComponent(

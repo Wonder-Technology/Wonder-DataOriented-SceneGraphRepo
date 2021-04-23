@@ -16,6 +16,13 @@ let getGeometry = gameObject => GetComponentGameObjectDoService.getGeometry(game
 
 let hasGeometry = gameObject => HasComponentGameObjectDoService.hasGeometry(gameObject)
 
+let addPBRMaterial = (gameObject, material) =>
+  AddComponentGameObjectDoService.addPBRMaterial(gameObject, material)
+
+let getPBRMaterial = gameObject => GetComponentGameObjectDoService.getPBRMaterial(gameObject)
+
+let hasPBRMaterial = gameObject => HasComponentGameObjectDoService.hasPBRMaterial(gameObject)
+
 let getMaxUID = () => ContainerManager.getGameObject().maxUID
 
 let getMaxUID = () => ContainerManager.getGameObject().maxUID

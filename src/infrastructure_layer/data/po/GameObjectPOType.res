@@ -2,11 +2,10 @@ type uid = int
 
 type gameObject = uid
 
-// type componentIndex = int
 type gameObjectPO = {
   maxUID: gameObject,
   transformMap: ImmutableSparseMap.t<gameObject, TransformPOType.transform>,
-  //   bsdfMaterialMap: ImmutableSparseMap.t<gameObject, componentIndex>,
+  pbrMaterialMap: ImmutableSparseMap.t<gameObject, PBRMaterialPOType.pbrMaterial>,
   geometryMap: ImmutableSparseMap.t<gameObject, GeometryPOType.geometry>,
   //   directionLightMap: ImmutableSparseMap.t<gameObject, componentIndex>,
   //   basicCameraViewMap: ImmutableSparseMap.t<gameObject, componentIndex>,

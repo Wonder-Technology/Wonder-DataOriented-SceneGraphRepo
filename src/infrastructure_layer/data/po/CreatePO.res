@@ -36,6 +36,7 @@ let create = (): POType.po => {
     maxUID: 0,
     transformMap: ImmutableSparseMap.createEmpty(),
     geometryMap: ImmutableSparseMap.createEmpty(),
+    pbrMaterialMap: ImmutableSparseMap.createEmpty(),
   },
   transform: None,
   geometry: None,

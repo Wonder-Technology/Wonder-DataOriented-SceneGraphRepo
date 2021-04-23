@@ -29,3 +29,17 @@ let getGeometry = gameObject =>
 
 let hasGeometry = gameObject =>
   HasComponentGameObjectDoService.hasGeometry(gameObject->gameObjectVOToGameObjectDO)
+
+let addPBRMaterial = (gameObject, material) =>
+  AddComponentGameObjectDoService.addPBRMaterial(
+    gameObject->gameObjectVOToGameObjectDO,
+    material->pbrMaterialVOToPBRMaterialDO,
+  )->Result.mapSuccess(gameObjectDOToGameObjectVO)
+
+let getPBRMaterial = gameObject =>
+  GetComponentGameObjectDoService.getPBRMaterial(
+    gameObject->gameObjectVOToGameObjectDO,
+  )->OptionSt.map(pbrMaterialDOToPBRMaterialVO)
+
+let hasPBRMaterial = gameObject =>
+  HasComponentGameObjectDoService.hasPBRMaterial(gameObject->gameObjectVOToGameObjectDO)

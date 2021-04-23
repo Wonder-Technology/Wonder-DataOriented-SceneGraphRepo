@@ -32,3 +32,18 @@ let getGeometry = gameObject =>
 
 let hasGeometry = gameObject =>
   ContainerManager.getGameObject().geometryMap->ImmutableSparseMap.has(gameObject)
+
+let addPBRMaterial = (gameObject, pbrMaterial) => {
+  let {pbrMaterialMap} as gameObjectPO = ContainerManager.getGameObject()
+
+  ContainerManager.setGameObject({
+    ...gameObjectPO,
+    pbrMaterialMap: pbrMaterialMap->ImmutableSparseMap.set(gameObject, pbrMaterial),
+  })
+}
+
+let getPBRMaterial = gameObject =>
+  ContainerManager.getGameObject().pbrMaterialMap->ImmutableSparseMap.get(gameObject)
+
+let hasPBRMaterial = gameObject =>
+  ContainerManager.getGameObject().pbrMaterialMap->ImmutableSparseMap.has(gameObject)

@@ -147,6 +147,9 @@ type gameObjectRepo = {
   getGeometry: gameObject => Js.Nullable.t<geometry>,
   addGeometry: (gameObject, geometry) => gameObject,
   hasGeometry: gameObject => bool,
+  getPBRMaterial: gameObject => Js.Nullable.t<pbrMaterial>,
+  addPBRMaterial: (gameObject, pbrMaterial) => gameObject,
+  hasPBRMaterial: gameObject => bool,
 }
 
 type sceneRepo = {

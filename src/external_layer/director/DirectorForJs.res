@@ -64,6 +64,11 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
       GameObjectApService.addGeometry(gameObject, geometry)->Result.getExn,
     getGeometry: gameObject => GameObjectApService.getGeometry(gameObject)->OptionSt.toNullable,
     hasGeometry: GameObjectApService.hasGeometry,
+    addPBRMaterial: (gameObject, material) =>
+      GameObjectApService.addPBRMaterial(gameObject, material)->Result.getExn,
+    getPBRMaterial: gameObject =>
+      GameObjectApService.getPBRMaterial(gameObject)->OptionSt.toNullable,
+    hasPBRMaterial: GameObjectApService.hasPBRMaterial,
   },
   transformRepo: {
     create: () => TransformApService.create()->Result.getExn,

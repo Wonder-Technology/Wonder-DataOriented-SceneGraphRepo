@@ -3,15 +3,15 @@ let getTransform = gameObject =>
     TransformEntity.create,
   )
 
-// let getBSDFMaterial = gameObject =>
-//   GameObjectRepo.getBSDFMaterial(
-//     gameObject->GameObjectEntity.value,
-//   )->OptionSt.map(BSDFMaterialEntity.create)
+let getPBRMaterial = gameObject =>
+  GameObjectRepo.getPBRMaterial(gameObject->GameObjectEntity.value)->OptionSt.map(
+    PBRMaterialEntity.create,
+  )
 
 let getGeometry = gameObject =>
-  GameObjectRepo.getGeometry(
-    gameObject->GameObjectEntity.value,
-  )->OptionSt.map(GeometryEntity.create)
+  GameObjectRepo.getGeometry(gameObject->GameObjectEntity.value)->OptionSt.map(
+    GeometryEntity.create,
+  )
 
 // let getDirectionLight = gameObject =>
 //   GameObjectRepo.getDirectionLight(
