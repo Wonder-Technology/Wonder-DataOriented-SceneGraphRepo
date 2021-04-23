@@ -1,14 +1,13 @@
 let createBasicCameraViewPerspectiveCamera = () => {
-  // let perspectiveCameraProjection = PerspectiveCameraProjectionRunAPI.create()
+  let perspectiveCameraProjection = PerspectiveCameraProjectionTool.create()
   let basicCameraView = BasicCameraViewTool.create()
 
-  // PerspectiveCameraProjectionRunAPI.setNear(perspectiveCameraProjection, 0.1->NearVO.create)
-  // PerspectiveCameraProjectionRunAPI.setFar(perspectiveCameraProjection, 1000.->FarVO.create)
-  // PerspectiveCameraProjectionRunAPI.setFovy(perspectiveCameraProjection, 60.->FovyVO.create)
-  // PerspectiveCameraProjectionRunAPI.setAspect(perspectiveCameraProjection, 1.->AspectVO.create)
+  PerspectiveCameraProjectionTool.setNear(perspectiveCameraProjection, 0.1->NearVO.create)
+  PerspectiveCameraProjectionTool.setFar(perspectiveCameraProjection, 1000.->FarVO.create)
+  PerspectiveCameraProjectionTool.setFovy(perspectiveCameraProjection, 60.->FovyVO.create)
+  PerspectiveCameraProjectionTool.setAspect(perspectiveCameraProjection, 1.->AspectVO.create)
 
-  // (basicCameraView, perspectiveCameraProjection)
-  (basicCameraView, 1->Obj.magic)
+  (basicCameraView, perspectiveCameraProjection)
 }
 
 let createCameraGameObjectWithFunc = createBasicCameraViewPerspectiveCameraFunc => {
@@ -19,10 +18,10 @@ let createCameraGameObjectWithFunc = createBasicCameraViewPerspectiveCameraFunc 
     gameObject,
     basicCameraView,
   )->ResultTool.getExnSuccessValueIgnore
-  // GameObjectTool.addPerspectiveCameraProjection(
-  //   gameObject,
-  //   perspectiveCameraProjection,
-  // )->ResultTool.getExnSuccessValueIgnore
+  GameObjectTool.addPerspectiveCameraProjection(
+    gameObject,
+    perspectiveCameraProjection,
+  )->ResultTool.getExnSuccessValueIgnore
 
   BasicCameraViewTool.active(basicCameraView)
 

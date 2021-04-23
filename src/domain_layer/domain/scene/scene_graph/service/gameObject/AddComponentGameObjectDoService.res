@@ -72,12 +72,12 @@ let addBasicCameraView = (gameObject, cameraView) =>
     (gameObject->GameObjectEntity.value, cameraView->BasicCameraViewEntity.value),
   )
 
-// let addPerspectiveCameraProjection = (gameObject, cameraProjection) =>
-//   _addComponent(
-//     (
-//       GameObjectRepo.hasPerspectiveCameraProjection,
-//       GameObjectRepo.addPerspectiveCameraProjection,
-//       AddPerspectiveCameraProjectionDoService.handleAddComponent,
-//     ),
-//     (gameObject->GameObjectEntity.value, cameraProjection->PerspectiveCameraProjectionEntity.value),
-//   )
+let addPerspectiveCameraProjection = (gameObject, cameraProjection) =>
+  _addComponent(
+    (
+      GameObjectRepo.hasPerspectiveCameraProjection,
+      GameObjectRepo.addPerspectiveCameraProjection,
+      AddPerspectiveCameraProjectionDoService.handleAddComponent,
+    ),
+    (gameObject->GameObjectEntity.value, cameraProjection->PerspectiveCameraProjectionEntity.value),
+  )

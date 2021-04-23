@@ -39,6 +39,15 @@ let getBasicCameraView = gameObject =>
 let hasBasicCameraView = gameObject =>
   HasComponentGameObjectDoService.hasBasicCameraView(gameObject)
 
+let addPerspectiveCameraProjection = (gameObject, cameraProjection) =>
+  AddComponentGameObjectDoService.addPerspectiveCameraProjection(gameObject, cameraProjection)
+
+let getPerspectiveCameraProjection = gameObject =>
+  GetComponentGameObjectDoService.getPerspectiveCameraProjection(gameObject)
+
+let hasPerspectiveCameraProjection = gameObject =>
+  HasComponentGameObjectDoService.hasPerspectiveCameraProjection(gameObject)
+
 let getMaxUID = () => ContainerManager.getGameObject().maxUID
 
 let getMaxUID = () => ContainerManager.getGameObject().maxUID

@@ -83,6 +83,11 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     getBasicCameraView: gameObject =>
       GameObjectApService.getBasicCameraView(gameObject)->OptionSt.toNullable,
     hasBasicCameraView: GameObjectApService.hasBasicCameraView,
+    addPerspectiveCameraProjection: (gameObject, cameraView) =>
+      GameObjectApService.addPerspectiveCameraProjection(gameObject, cameraView)->Result.getExn,
+    getPerspectiveCameraProjection: gameObject =>
+      GameObjectApService.getPerspectiveCameraProjection(gameObject)->OptionSt.toNullable,
+    hasPerspectiveCameraProjection: GameObjectApService.hasPerspectiveCameraProjection,
   },
   transformRepo: {
     create: () => TransformApService.create()->Result.getExn,

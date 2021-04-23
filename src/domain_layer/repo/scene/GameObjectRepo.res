@@ -78,6 +78,28 @@ let getBasicCameraView = gameObject =>
 let hasBasicCameraView = gameObject =>
   ContainerManager.getGameObject().basicCameraViewMap->ImmutableSparseMap.has(gameObject)
 
+let addPerspectiveCameraProjection = (gameObject, cameraProjection) => {
+  let {perspectiveCameraProjectionMap} as gameObjectPO = ContainerManager.getGameObject()
+
+  ContainerManager.setGameObject({
+    ...gameObjectPO,
+    perspectiveCameraProjectionMap: perspectiveCameraProjectionMap->ImmutableSparseMap.set(
+      gameObject,
+      cameraProjection,
+    ),
+  })
+}
+
+let getPerspectiveCameraProjection = gameObject =>
+  ContainerManager.getGameObject().perspectiveCameraProjectionMap->ImmutableSparseMap.get(
+    gameObject,
+  )
+
+let hasPerspectiveCameraProjection = gameObject =>
+  ContainerManager.getGameObject().perspectiveCameraProjectionMap->ImmutableSparseMap.has(
+    gameObject,
+  )
+
 let getAllGameObjectGeometries = () =>
   ContainerManager.getGameObject().geometryMap->ImmutableSparseMap.getValues->ListSt.fromArray
 

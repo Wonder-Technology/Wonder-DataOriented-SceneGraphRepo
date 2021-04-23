@@ -208,6 +208,9 @@ type gameObjectRepo = {
   getBasicCameraView: gameObject => Js.Nullable.t<basicCameraView>,
   addBasicCameraView: (gameObject, basicCameraView) => gameObject,
   hasBasicCameraView: gameObject => bool,
+  getPerspectiveCameraProjection: gameObject => Js.Nullable.t<perspectiveCameraProjection>,
+  addPerspectiveCameraProjection: (gameObject, perspectiveCameraProjection) => gameObject,
+  hasPerspectiveCameraProjection: gameObject => bool,
 }
 
 type sceneRepo = {

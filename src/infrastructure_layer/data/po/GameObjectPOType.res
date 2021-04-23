@@ -9,5 +9,8 @@ type gameObjectPO = {
   geometryMap: ImmutableSparseMap.t<gameObject, GeometryPOType.geometry>,
   directionLightMap: ImmutableSparseMap.t<gameObject, DirectionLightPOType.directionLight>,
   basicCameraViewMap: ImmutableSparseMap.t<gameObject, BasicCameraViewPOType.basicCameraView>,
-  //   perspectiveCameraProjectionMap: ImmutableSparseMap.t<gameObject, componentIndex>,
+  perspectiveCameraProjectionMap: ImmutableSparseMap.t<
+    gameObject,
+    PerspectiveCameraProjectionPOType.perspectiveCameraProjection,
+  >,
 }

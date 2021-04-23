@@ -39,6 +39,7 @@ let create = (): POType.po => {
     pbrMaterialMap: ImmutableSparseMap.createEmpty(),
     directionLightMap: ImmutableSparseMap.createEmpty(),
     basicCameraViewMap: ImmutableSparseMap.createEmpty(),
+    perspectiveCameraProjectionMap: ImmutableSparseMap.createEmpty(),
   },
   transform: None,
   geometry: None,

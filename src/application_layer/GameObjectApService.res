@@ -71,3 +71,19 @@ let getBasicCameraView = gameObject =>
 
 let hasBasicCameraView = gameObject =>
   HasComponentGameObjectDoService.hasBasicCameraView(gameObject->gameObjectVOToGameObjectDO)
+
+let addPerspectiveCameraProjection = (gameObject, cameraProjection) =>
+  AddComponentGameObjectDoService.addPerspectiveCameraProjection(
+    gameObject->gameObjectVOToGameObjectDO,
+    cameraProjection->perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO,
+  )->Result.mapSuccess(gameObjectDOToGameObjectVO)
+
+let getPerspectiveCameraProjection = gameObject =>
+  GetComponentGameObjectDoService.getPerspectiveCameraProjection(
+    gameObject->gameObjectVOToGameObjectDO,
+  )->OptionSt.map(perspectiveCameraProjectionDOToPerspectiveCameraProjectionVO)
+
+let hasPerspectiveCameraProjection = gameObject =>
+  HasComponentGameObjectDoService.hasPerspectiveCameraProjection(
+    gameObject->gameObjectVOToGameObjectDO,
+  )

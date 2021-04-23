@@ -10,7 +10,5 @@ let hasDirectionLight = gameObject =>
 let hasBasicCameraView = gameObject =>
   GameObjectRepo.hasBasicCameraView(gameObject->GameObjectEntity.value)
 
-// let hasPerspectiveCameraProjection = gameObject =>
-//   GameObjectRepo.hasPerspectiveCameraProjection(
-//     gameObject->GameObjectEntity.value,
-//   )
+let hasPerspectiveCameraProjection = gameObject =>
+  GameObjectRepo.hasPerspectiveCameraProjection(gameObject->GameObjectEntity.value)
