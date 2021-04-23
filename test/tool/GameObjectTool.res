@@ -30,6 +30,15 @@ let getDirectionLight = gameObject => GetComponentGameObjectDoService.getDirecti
 
 let hasDirectionLight = gameObject => HasComponentGameObjectDoService.hasDirectionLight(gameObject)
 
+let addBasicCameraView = (gameObject, cameraView) =>
+  AddComponentGameObjectDoService.addBasicCameraView(gameObject, cameraView)
+
+let getBasicCameraView = gameObject =>
+  GetComponentGameObjectDoService.getBasicCameraView(gameObject)
+
+let hasBasicCameraView = gameObject =>
+  HasComponentGameObjectDoService.hasBasicCameraView(gameObject)
+
 let getMaxUID = () => ContainerManager.getGameObject().maxUID
 
 let getMaxUID = () => ContainerManager.getGameObject().maxUID
