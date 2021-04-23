@@ -7,9 +7,11 @@ let _createAndSetAllComponentPOs = () =>
   ->Result.bind(() =>
     CreatePOGeometryRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setGeometry)
   )
-// ->Result.bind(() =>
-//   CreatePODirectionLightRepo.createPO()->Result.mapSuccess(po => po->ContainerManager.setDirectionLight)
-// )
+  ->Result.bind(() =>
+    CreatePODirectionLightRepo.createPO()->Result.mapSuccess(po =>
+      po->ContainerManager.setDirectionLight
+    )
+  )
 
 let init = (
   canvas,
@@ -183,5 +185,17 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     setTransmissionMap: (material, map) => PBRMaterialApService.setTransmissionMap(material, map),
     getSpecularMap: material => PBRMaterialApService.getSpecularMap(material)->OptionSt.toNullable,
     setSpecularMap: (material, map) => PBRMaterialApService.setSpecularMap(material, map),
+  },
+  directionLightRepo: {
+    create: () => DirectionLightApService.create()->Result.getExn,
+    getGameObject: light => DirectionLightApService.getGameObject(light)->OptionSt.toNullable,
+    getColor: light => DirectionLightApService.getColor(light),
+    setColor: (light, color) => DirectionLightApService.setColor(light, color)->Result.getExn,
+    getIntensity: light => DirectionLightApService.getIntensity(light),
+    setIntensity: (light, intensity) =>
+      DirectionLightApService.setIntensity(light, intensity)->Result.getExn,
+    getAllLights: () => DirectionLightApService.getAllLights(),
+    getDirection: light => DirectionLightApService.getDirection(light)->OptionSt.toNullable,
+    getLightCount: () => DirectionLightApService.getLightCount(),
   },
 }

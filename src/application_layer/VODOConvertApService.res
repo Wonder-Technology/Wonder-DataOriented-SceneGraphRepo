@@ -57,3 +57,9 @@ external specularMapDOToSpecularMapVO: PBRMaterialPOType.specularMap => ISceneGr
 
 external specularMapVOToSpecularMapDO: ISceneGraphRepoForJs.specularMap => PBRMaterialPOType.specularMap =
   "%identity"
+
+external directionLightDOToDirectionLightVO: DirectionLightEntity.t => ISceneGraphRepoForJs.directionLight =
+  "%identity"
+
+external directionLightVOToDirectionLightDO: ISceneGraphRepoForJs.directionLight => DirectionLightEntity.t =
+  "%identity"

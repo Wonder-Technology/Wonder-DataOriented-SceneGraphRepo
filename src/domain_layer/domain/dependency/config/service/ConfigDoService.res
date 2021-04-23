@@ -38,10 +38,10 @@ let setPBRMaterialCount = pbrMaterialCount => {
   ConfigRepo.setPBRMaterialCount(pbrMaterialCount)
 }
 
-let getDirectionLightCountCount = () => {
-  ConfigRepo.getDirectionLightCountCount()
+let getDirectionLightCount = () => {
+  ConfigRepo.getDirectionLightCount()
 }
 
-let setDirectionLightCountCount = directionLightCount => {
-  ConfigRepo.setDirectionLightCountCount(directionLightCount)
+let setDirectionLightCount = directionLightCount => {
+  ConfigRepo.setDirectionLightCount(directionLightCount)
 }

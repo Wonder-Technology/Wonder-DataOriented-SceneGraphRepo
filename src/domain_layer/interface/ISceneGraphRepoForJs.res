@@ -8,6 +8,8 @@ type geometry
 
 type pbrMaterial
 
+type directionLight
+
 type canvas
 
 type color = (float, float, float)
@@ -139,6 +141,18 @@ type pbrMaterialRepo = {
   setSpecularMap: (pbrMaterial, specularMap) => unit,
 }
 
+type directionLightRepo = {
+  create: unit => directionLight,
+  getGameObject: directionLight => Js.Nullable.t<gameObject>,
+  getColor: directionLight => color,
+  setColor: (directionLight, color) => unit,
+  getIntensity: directionLight => float,
+  setIntensity: (directionLight, float) => unit,
+  getAllLights: unit => array<directionLight>,
+  getDirection: directionLight => Js.Nullable.t<(float, float, float)>,
+  getLightCount: unit => int,
+}
+
 type gameObjectRepo = {
   create: unit => gameObject,
   getTransform: gameObject => Js.Nullable.t<transform>,
@@ -182,6 +196,7 @@ type sceneGraphRepo = {
   transformRepo: transformRepo,
   geometryRepo: geometryRepo,
   pbrMaterialRepo: pbrMaterialRepo,
+  directionLightRepo: directionLightRepo,
   init: (canvas, configData, globalTempData) => unit,
   getCanvas: unit => Js.Nullable.t<canvas>,
 }

@@ -41,11 +41,11 @@ let setPBRMaterialCount = pbrMaterialCount => {
   ContainerManager.setConfig({...ContainerManager.getConfig(), pbrMaterialCount: pbrMaterialCount})
 }
 
-let getDirectionLightCountCount = () => {
+let getDirectionLightCount = () => {
   ContainerManager.getConfig().geometryCount
 }
 
-let setDirectionLightCountCount = directionLightCount => {
+let setDirectionLightCount = directionLightCount => {
   ContainerManager.setConfig({
     ...ContainerManager.getConfig(),
     directionLightCount: directionLightCount,

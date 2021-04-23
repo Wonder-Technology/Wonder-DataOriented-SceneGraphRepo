@@ -7,4 +7,5 @@ type po = {
   transform: option<TransformPOType.transformPO>,
   geometry: option<GeometryPOType.geometryPO>,
   pbrMaterial: option<PBRMaterialPOType.pbrMaterialPO>,
+  directionLight: option<DirectionLightPOType.directionLightPO>,
 }

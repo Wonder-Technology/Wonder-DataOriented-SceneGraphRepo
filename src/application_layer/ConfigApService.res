@@ -39,9 +39,9 @@ let setPBRMaterialCount = pbrMaterialCount => {
 }
 
 let getDirectionLightCount = () => {
-  ConfigDoService.getDirectionLightCountCount()
+  ConfigDoService.getDirectionLightCount()
 }
 
 let setDirectionLightCount = directionLightCount => {
-  ConfigDoService.setDirectionLightCountCount(directionLightCount)
+  ConfigDoService.setDirectionLightCount(directionLightCount)
 }

@@ -97,3 +97,15 @@ let setPBRMaterial = pbrMaterial => {
 
   {...po, pbrMaterial: pbrMaterial->Some}->setPO
 }
+
+let getExnDirectionLight = () => {
+  let po = getPO()
+
+  po.directionLight->OptionSt.getExn
+}
+
+let setDirectionLight = directionLight => {
+  let po = getPO()
+
+  {...po, directionLight: directionLight->Some}->setPO
+}

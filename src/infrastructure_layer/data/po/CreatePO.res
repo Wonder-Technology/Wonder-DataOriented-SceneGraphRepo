@@ -41,4 +41,5 @@ let create = (): POType.po => {
   transform: None,
   geometry: None,
   pbrMaterial: None,
+  directionLight: None,
 }
