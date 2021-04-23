@@ -10,6 +10,8 @@ type pbrMaterial
 
 type directionLight
 
+type basicCameraView
+
 type canvas
 
 type color = (float, float, float)
@@ -153,6 +155,17 @@ type directionLightRepo = {
   getLightCount: unit => int,
 }
 
+type basicCameraViewRepo = {
+  create: unit => basicCameraView,
+  getGameObject: basicCameraView => Js.Nullable.t<gameObject>,
+  getViewWorldToCameraMatrix: basicCameraView => Js.Nullable.t<Js.Typed_array.Float32Array.t>,
+  isActive: basicCameraView => bool,
+  active: basicCameraView => unit,
+  unactive: basicCameraView => unit,
+  setActive: (basicCameraView, bool) => unit,
+  getActiveBasicCameraView: unit => Js.Nullable.t<basicCameraView>,
+}
+
 type gameObjectRepo = {
   create: unit => gameObject,
   getTransform: gameObject => Js.Nullable.t<transform>,
@@ -167,6 +180,9 @@ type gameObjectRepo = {
   getDirectionLight: gameObject => Js.Nullable.t<directionLight>,
   addDirectionLight: (gameObject, directionLight) => gameObject,
   hasDirectionLight: gameObject => bool,
+  getBasicCameraView: gameObject => Js.Nullable.t<basicCameraView>,
+  addBasicCameraView: (gameObject, basicCameraView) => gameObject,
+  hasBasicCameraView: gameObject => bool,
 }
 
 type sceneRepo = {
@@ -200,6 +216,7 @@ type sceneGraphRepo = {
   geometryRepo: geometryRepo,
   pbrMaterialRepo: pbrMaterialRepo,
   directionLightRepo: directionLightRepo,
+  basicCameraViewRepo: basicCameraViewRepo,
   init: (canvas, configData, globalTempData) => unit,
   getCanvas: unit => Js.Nullable.t<canvas>,
 }

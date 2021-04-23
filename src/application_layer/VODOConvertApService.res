@@ -63,3 +63,9 @@ external directionLightDOToDirectionLightVO: DirectionLightEntity.t => ISceneGra
 
 external directionLightVOToDirectionLightDO: ISceneGraphRepoForJs.directionLight => DirectionLightEntity.t =
   "%identity"
+
+external basicCameraViewDOToBasicCameraViewVO: BasicCameraViewEntity.t => ISceneGraphRepoForJs.basicCameraView =
+  "%identity"
+
+external basicCameraViewVOToBasicCameraViewDO: ISceneGraphRepoForJs.basicCameraView => BasicCameraViewEntity.t =
+  "%identity"

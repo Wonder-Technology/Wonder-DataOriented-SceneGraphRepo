@@ -8,6 +8,6 @@ type gameObjectPO = {
   pbrMaterialMap: ImmutableSparseMap.t<gameObject, PBRMaterialPOType.pbrMaterial>,
   geometryMap: ImmutableSparseMap.t<gameObject, GeometryPOType.geometry>,
   directionLightMap: ImmutableSparseMap.t<gameObject, DirectionLightPOType.directionLight>,
-  //   basicCameraViewMap: ImmutableSparseMap.t<gameObject, componentIndex>,
+  basicCameraViewMap: ImmutableSparseMap.t<gameObject, BasicCameraViewPOType.basicCameraView>,
   //   perspectiveCameraProjectionMap: ImmutableSparseMap.t<gameObject, componentIndex>,
 }

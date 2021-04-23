@@ -109,3 +109,15 @@ let setDirectionLight = directionLight => {
 
   {...po, directionLight: directionLight->Some}->setPO
 }
+
+let getBasicCameraView = () => {
+  let po = getPO()
+
+  po.basicCameraView
+}
+
+let setBasicCameraView = basicCameraView => {
+  let po = getPO()
+
+  {...po, basicCameraView: basicCameraView}->setPO
+}

@@ -18,10 +18,10 @@ let getDirectionLight = gameObject =>
     gameObject->GameObjectEntity.value,
   )->OptionSt.map(DirectionLightEntity.create)
 
-// let getBasicCameraView = gameObject =>
-//   GameObjectRepo.getBasicCameraView(
-//     gameObject->GameObjectEntity.value,
-//   )->OptionSt.map(BasicCameraViewEntity.create)
+let getBasicCameraView = gameObject =>
+  GameObjectRepo.getBasicCameraView(
+    gameObject->GameObjectEntity.value,
+  )->OptionSt.map(BasicCameraViewEntity.create)
 
 // let getPerspectiveCameraProjection = gameObject =>
 //   GameObjectRepo.getPerspectiveCameraProjection(

@@ -76,6 +76,11 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     getDirectionLight: gameObject =>
       GameObjectApService.getDirectionLight(gameObject)->OptionSt.toNullable,
     hasDirectionLight: GameObjectApService.hasDirectionLight,
+    addBasicCameraView: (gameObject, cameraView) =>
+      GameObjectApService.addBasicCameraView(gameObject, cameraView)->Result.getExn,
+    getBasicCameraView: gameObject =>
+      GameObjectApService.getBasicCameraView(gameObject)->OptionSt.toNullable,
+    hasBasicCameraView: GameObjectApService.hasBasicCameraView,
   },
   transformRepo: {
     create: () => TransformApService.create()->Result.getExn,
@@ -202,5 +207,22 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     getAllLights: () => DirectionLightApService.getAllLights(),
     getDirection: light => DirectionLightApService.getDirection(light)->OptionSt.toNullable,
     getLightCount: () => DirectionLightApService.getLightCount(),
+  },
+  basicCameraViewRepo: {
+    create: () => BasicCameraViewApService.create(),
+    getGameObject: cameraView =>
+      BasicCameraViewApService.getGameObject(cameraView)->OptionSt.toNullable,
+    getViewWorldToCameraMatrix: cameraView =>
+      BasicCameraViewApService.getViewWorldToCameraMatrix(cameraView)
+      ->Result.mapSuccess(OptionSt.toNullable)
+      ->Result.getExn,
+    isActive: cameraView => BasicCameraViewApService.isActive(cameraView),
+    active: cameraView => BasicCameraViewApService.active(cameraView),
+    unactive: cameraView => BasicCameraViewApService.unactive(cameraView),
+    setActive: (cameraView, isActive) => BasicCameraViewApService.setActive(cameraView, isActive),
+    getActiveBasicCameraView: () =>
+      BasicCameraViewApService.getActiveBasicCameraView()
+      ->Result.mapSuccess(OptionSt.toNullable)
+      ->Result.getExn,
   },
 }

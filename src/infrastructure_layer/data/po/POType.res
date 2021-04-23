@@ -8,4 +8,5 @@ type po = {
   geometry: option<GeometryPOType.geometryPO>,
   pbrMaterial: option<PBRMaterialPOType.pbrMaterialPO>,
   directionLight: option<DirectionLightPOType.directionLightPO>,
+  basicCameraView: BasicCameraViewPOType.basicCameraViewPO,
 }

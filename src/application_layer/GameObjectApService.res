@@ -57,3 +57,17 @@ let getDirectionLight = gameObject =>
 
 let hasDirectionLight = gameObject =>
   HasComponentGameObjectDoService.hasDirectionLight(gameObject->gameObjectVOToGameObjectDO)
+
+let addBasicCameraView = (gameObject, cameraView) =>
+  AddComponentGameObjectDoService.addBasicCameraView(
+    gameObject->gameObjectVOToGameObjectDO,
+    cameraView->basicCameraViewVOToBasicCameraViewDO,
+  )->Result.mapSuccess(gameObjectDOToGameObjectVO)
+
+let getBasicCameraView = gameObject =>
+  GetComponentGameObjectDoService.getBasicCameraView(
+    gameObject->gameObjectVOToGameObjectDO,
+  )->OptionSt.map(basicCameraViewDOToBasicCameraViewVO)
+
+let hasBasicCameraView = gameObject =>
+  HasComponentGameObjectDoService.hasBasicCameraView(gameObject->gameObjectVOToGameObjectDO)

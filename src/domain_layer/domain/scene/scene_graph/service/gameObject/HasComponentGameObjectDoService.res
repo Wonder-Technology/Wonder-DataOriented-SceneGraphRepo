@@ -7,8 +7,8 @@ let hasGeometry = gameObject => GameObjectRepo.hasGeometry(gameObject->GameObjec
 let hasDirectionLight = gameObject =>
   GameObjectRepo.hasDirectionLight(gameObject->GameObjectEntity.value)
 
-// let hasBasicCameraView = gameObject =>
-//   GameObjectRepo.hasBasicCameraView(gameObject->GameObjectEntity.value)
+let hasBasicCameraView = gameObject =>
+  GameObjectRepo.hasBasicCameraView(gameObject->GameObjectEntity.value)
 
 // let hasPerspectiveCameraProjection = gameObject =>
 //   GameObjectRepo.hasPerspectiveCameraProjection(

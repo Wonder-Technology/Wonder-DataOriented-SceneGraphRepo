@@ -62,3 +62,18 @@ let getDirectionLight = gameObject =>
 
 let hasDirectionLight = gameObject =>
   ContainerManager.getGameObject().directionLightMap->ImmutableSparseMap.has(gameObject)
+
+let addBasicCameraView = (gameObject, cameraView) => {
+  let {basicCameraViewMap} as gameObjectPO = ContainerManager.getGameObject()
+
+  ContainerManager.setGameObject({
+    ...gameObjectPO,
+    basicCameraViewMap: basicCameraViewMap->ImmutableSparseMap.set(gameObject, cameraView),
+  })
+}
+
+let getBasicCameraView = gameObject =>
+  ContainerManager.getGameObject().basicCameraViewMap->ImmutableSparseMap.get(gameObject)
+
+let hasBasicCameraView = gameObject =>
+  ContainerManager.getGameObject().basicCameraViewMap->ImmutableSparseMap.has(gameObject)

@@ -62,15 +62,15 @@ let addDirectionLight = (gameObject, light) =>
     (gameObject->GameObjectEntity.value, light->DirectionLightEntity.value),
   )
 
-// let addBasicCameraView = (gameObject, cameraView) =>
-//   _addComponent(
-//     (
-//       GameObjectRepo.hasBasicCameraView,
-//       GameObjectRepo.addBasicCameraView,
-//       AddBasicCameraViewDoService.handleAddComponent,
-//     ),
-//     (gameObject->GameObjectEntity.value, cameraView->BasicCameraViewEntity.value),
-//   )
+let addBasicCameraView = (gameObject, cameraView) =>
+  _addComponent(
+    (
+      GameObjectRepo.hasBasicCameraView,
+      GameObjectRepo.addBasicCameraView,
+      AddBasicCameraViewDoService.handleAddComponent,
+    ),
+    (gameObject->GameObjectEntity.value, cameraView->BasicCameraViewEntity.value),
+  )
 
 // let addPerspectiveCameraProjection = (gameObject, cameraProjection) =>
 //   _addComponent(
