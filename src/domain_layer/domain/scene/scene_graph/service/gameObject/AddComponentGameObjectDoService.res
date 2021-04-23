@@ -52,15 +52,15 @@ let addGeometry = (gameObject, geometry) =>
     (gameObject->GameObjectEntity.value, geometry->GeometryEntity.value),
   )
 
-// let addDirectionLight = (gameObject, light) =>
-//   _addComponent(
-//     (
-//       GameObjectRepo.hasDirectionLight,
-//       GameObjectRepo.addDirectionLight,
-//       AddDirectionLightDoService.handleAddComponent,
-//     ),
-//     (gameObject->GameObjectEntity.value, light->DirectionLightEntity.value),
-//   )
+let addDirectionLight = (gameObject, light) =>
+  _addComponent(
+    (
+      GameObjectRepo.hasDirectionLight,
+      GameObjectRepo.addDirectionLight,
+      AddDirectionLightDoService.handleAddComponent,
+    ),
+    (gameObject->GameObjectEntity.value, light->DirectionLightEntity.value),
+  )
 
 // let addBasicCameraView = (gameObject, cameraView) =>
 //   _addComponent(

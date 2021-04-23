@@ -4,8 +4,8 @@ let hasPBRMaterial = gameObject => GameObjectRepo.hasPBRMaterial(gameObject->Gam
 
 let hasGeometry = gameObject => GameObjectRepo.hasGeometry(gameObject->GameObjectEntity.value)
 
-// let hasDirectionLight = gameObject =>
-//   GameObjectRepo.hasDirectionLight(gameObject->GameObjectEntity.value)
+let hasDirectionLight = gameObject =>
+  GameObjectRepo.hasDirectionLight(gameObject->GameObjectEntity.value)
 
 // let hasBasicCameraView = gameObject =>
 //   GameObjectRepo.hasBasicCameraView(gameObject->GameObjectEntity.value)

@@ -71,6 +71,11 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     getPBRMaterial: gameObject =>
       GameObjectApService.getPBRMaterial(gameObject)->OptionSt.toNullable,
     hasPBRMaterial: GameObjectApService.hasPBRMaterial,
+    addDirectionLight: (gameObject, light) =>
+      GameObjectApService.addDirectionLight(gameObject, light)->Result.getExn,
+    getDirectionLight: gameObject =>
+      GameObjectApService.getDirectionLight(gameObject)->OptionSt.toNullable,
+    hasDirectionLight: GameObjectApService.hasDirectionLight,
   },
   transformRepo: {
     create: () => TransformApService.create()->Result.getExn,

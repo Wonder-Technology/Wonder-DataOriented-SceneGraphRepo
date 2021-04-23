@@ -43,3 +43,17 @@ let getPBRMaterial = gameObject =>
 
 let hasPBRMaterial = gameObject =>
   HasComponentGameObjectDoService.hasPBRMaterial(gameObject->gameObjectVOToGameObjectDO)
+
+let addDirectionLight = (gameObject, light) =>
+  AddComponentGameObjectDoService.addDirectionLight(
+    gameObject->gameObjectVOToGameObjectDO,
+    light->directionLightVOToDirectionLightDO,
+  )->Result.mapSuccess(gameObjectDOToGameObjectVO)
+
+let getDirectionLight = gameObject =>
+  GetComponentGameObjectDoService.getDirectionLight(
+    gameObject->gameObjectVOToGameObjectDO,
+  )->OptionSt.map(directionLightDOToDirectionLightVO)
+
+let hasDirectionLight = gameObject =>
+  HasComponentGameObjectDoService.hasDirectionLight(gameObject->gameObjectVOToGameObjectDO)

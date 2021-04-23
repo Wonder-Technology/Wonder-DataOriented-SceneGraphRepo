@@ -164,6 +164,9 @@ type gameObjectRepo = {
   getPBRMaterial: gameObject => Js.Nullable.t<pbrMaterial>,
   addPBRMaterial: (gameObject, pbrMaterial) => gameObject,
   hasPBRMaterial: gameObject => bool,
+  getDirectionLight: gameObject => Js.Nullable.t<directionLight>,
+  addDirectionLight: (gameObject, directionLight) => gameObject,
+  hasDirectionLight: gameObject => bool,
 }
 
 type sceneRepo = {

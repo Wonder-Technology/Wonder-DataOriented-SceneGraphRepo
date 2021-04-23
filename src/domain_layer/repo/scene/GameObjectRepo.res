@@ -33,12 +33,12 @@ let getGeometry = gameObject =>
 let hasGeometry = gameObject =>
   ContainerManager.getGameObject().geometryMap->ImmutableSparseMap.has(gameObject)
 
-let addPBRMaterial = (gameObject, pbrMaterial) => {
+let addPBRMaterial = (gameObject, material) => {
   let {pbrMaterialMap} as gameObjectPO = ContainerManager.getGameObject()
 
   ContainerManager.setGameObject({
     ...gameObjectPO,
-    pbrMaterialMap: pbrMaterialMap->ImmutableSparseMap.set(gameObject, pbrMaterial),
+    pbrMaterialMap: pbrMaterialMap->ImmutableSparseMap.set(gameObject, material),
   })
 }
 
@@ -47,3 +47,18 @@ let getPBRMaterial = gameObject =>
 
 let hasPBRMaterial = gameObject =>
   ContainerManager.getGameObject().pbrMaterialMap->ImmutableSparseMap.has(gameObject)
+
+let addDirectionLight = (gameObject, light) => {
+  let {directionLightMap} as gameObjectPO = ContainerManager.getGameObject()
+
+  ContainerManager.setGameObject({
+    ...gameObjectPO,
+    directionLightMap: directionLightMap->ImmutableSparseMap.set(gameObject, light),
+  })
+}
+
+let getDirectionLight = gameObject =>
+  ContainerManager.getGameObject().directionLightMap->ImmutableSparseMap.get(gameObject)
+
+let hasDirectionLight = gameObject =>
+  ContainerManager.getGameObject().directionLightMap->ImmutableSparseMap.has(gameObject)

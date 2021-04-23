@@ -23,6 +23,13 @@ let getPBRMaterial = gameObject => GetComponentGameObjectDoService.getPBRMateria
 
 let hasPBRMaterial = gameObject => HasComponentGameObjectDoService.hasPBRMaterial(gameObject)
 
+let addDirectionLight = (gameObject, light) =>
+  AddComponentGameObjectDoService.addDirectionLight(gameObject, light)
+
+let getDirectionLight = gameObject => GetComponentGameObjectDoService.getDirectionLight(gameObject)
+
+let hasDirectionLight = gameObject => HasComponentGameObjectDoService.hasDirectionLight(gameObject)
+
 let getMaxUID = () => ContainerManager.getGameObject().maxUID
 
 let getMaxUID = () => ContainerManager.getGameObject().maxUID
