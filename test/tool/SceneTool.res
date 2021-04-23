@@ -1,9 +1,3 @@
-// let create = SceneApService.create
-
-// let getScene = SceneApService.getScene
-
-// let setScene = SceneApService.setScene
-
 let getScene = () => SceneRoot.getScene()
 
 let setScene = scene => SceneRoot.setScene(scene)
@@ -11,3 +5,7 @@ let setScene = scene => SceneRoot.setScene(scene)
 let create = () => {
   CreateGameObjectDoService.create()
 }
+
+let getAllGameObjectGeometries = scene => AllGameObjectsDoService.getAllGameObjectGeometries()
+
+let getAllGameObjectPBRMaterials = scene => AllGameObjectsDoService.getAllGameObjectPBRMaterials()

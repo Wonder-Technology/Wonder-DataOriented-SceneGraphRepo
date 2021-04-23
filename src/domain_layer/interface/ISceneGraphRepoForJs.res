@@ -190,8 +190,8 @@ type sceneRepo = {
   add: (scene, gameObject) => unit,
   getScene: unit => Js.Nullable.t<scene>,
   setScene: scene => unit,
-  // getAllGeometries: scene => array<geometry>,
-  // getAllPBRMaterials: scene => array<pbrMaterial>,
+  getAllGeometries: scene => array<geometry>,
+  getAllPBRMaterials: scene => array<pbrMaterial>,
 }
 
 type configData = {

@@ -77,3 +77,9 @@ let getBasicCameraView = gameObject =>
 
 let hasBasicCameraView = gameObject =>
   ContainerManager.getGameObject().basicCameraViewMap->ImmutableSparseMap.has(gameObject)
+
+let getAllGameObjectGeometries = () =>
+  ContainerManager.getGameObject().geometryMap->ImmutableSparseMap.getValues->ListSt.fromArray
+
+let getAllGameObjectPBRMaterials = () =>
+  ContainerManager.getGameObject().pbrMaterialMap->ImmutableSparseMap.getValues->ListSt.fromArray

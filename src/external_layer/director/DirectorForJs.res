@@ -55,6 +55,8 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     add: SceneApService.add,
     getScene: unit => SceneApService.getScene()->OptionSt.toNullable,
     setScene: SceneApService.setScene,
+    getAllGeometries: scene => SceneApService.getAllGameObjectGeometries(scene)->ListSt.toArray,
+    getAllPBRMaterials: scene => SceneApService.getAllGameObjectPBRMaterials(scene)->ListSt.toArray,
   },
   gameObjectRepo: {
     create: () => GameObjectApService.create()->Result.getExn,

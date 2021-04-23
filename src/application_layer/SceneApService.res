@@ -9,3 +9,9 @@ let add = (scene, gameObject) => ()
 let create = () => {
   CreateGameObjectDoService.create()->Result.mapSuccess(sceneDOToSceneVO)
 }
+
+let getAllGameObjectGeometries = scene =>
+  AllGameObjectsDoService.getAllGameObjectGeometries()->ListSt.map(geometryDOToGeometryVO)
+
+let getAllGameObjectPBRMaterials = scene =>
+  AllGameObjectsDoService.getAllGameObjectPBRMaterials()->ListSt.map(pbrMaterialDOToPBRMaterialVO)

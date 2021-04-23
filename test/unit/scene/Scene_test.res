@@ -24,4 +24,34 @@ let _ = describe("Scene", () => {
       SceneTool.getScene()->expect == scene2->Some
     })
   )
+
+  describe("getAllGameObjectGeometries", () =>
+    test("test", () => {
+      let scene = SceneTool.create()->ResultTool.getExnSuccessValue
+      SceneTool.setScene(scene)
+      let geometry1 = GeometryTool.create()->ResultTool.getExnSuccessValue
+      let geometry2 = GeometryTool.create()->ResultTool.getExnSuccessValue
+      let gameObject1 = GameObjectTool.create()->ResultTool.getExnSuccessValue
+      let gameObject2 = GameObjectTool.create()->ResultTool.getExnSuccessValue
+      GameObjectTool.addGeometry(gameObject1, geometry1)->ResultTool.getExnSuccessValueIgnore
+      GameObjectTool.addGeometry(gameObject2, geometry2)->ResultTool.getExnSuccessValueIgnore
+
+      SceneTool.getAllGameObjectGeometries()->expect == list{geometry1, geometry2}
+    })
+  )
+
+  describe("getAllGameObjectPBRMaterials", () =>
+    test("test", () => {
+      let scene = SceneTool.create()->ResultTool.getExnSuccessValue
+      SceneTool.setScene(scene)
+      let material1 = PBRMaterialTool.create()->ResultTool.getExnSuccessValue
+      let material2 = PBRMaterialTool.create()->ResultTool.getExnSuccessValue
+      let gameObject1 = GameObjectTool.create()->ResultTool.getExnSuccessValue
+      let gameObject2 = GameObjectTool.create()->ResultTool.getExnSuccessValue
+      GameObjectTool.addPBRMaterial(gameObject1, material1)->ResultTool.getExnSuccessValueIgnore
+      GameObjectTool.addPBRMaterial(gameObject2, material2)->ResultTool.getExnSuccessValueIgnore
+
+      SceneTool.getAllGameObjectPBRMaterials()->expect == list{material1, material2}
+    })
+  )
 })
