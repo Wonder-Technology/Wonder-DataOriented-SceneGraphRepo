@@ -22,8 +22,8 @@ let init = (
     geometryPointCount,
     pbrMaterialCount,
     directionLightCount,
-  }: ISceneGraphRepoForJs.configData,
-  {float9Array1, float32Array1}: ISceneGraphRepoForJs.globalTempData,
+  }: WonderEngineAbstract.ISceneGraphRepoForJs.configData,
+  {float9Array1, float32Array1}: WonderEngineAbstract.ISceneGraphRepoForJs.globalTempData,
 ) => {
   CanvasApService.setCanvas(canvas)
 
@@ -40,7 +40,7 @@ let init = (
   _createAndSetAllComponentPOs()
 }
 
-let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
+let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGraphRepo => {
   init: (canvas, configData, globalTempData) =>
     init(canvas, configData, globalTempData)->Result.getExn,
   getCanvas: () => CanvasApService.getCanvas()->OptionSt.toNullable,
@@ -49,6 +49,14 @@ let buildSceneGraphRepo = (): ISceneGraphRepoForJs.sceneGraphRepo => {
     setIsDebug: ConfigApService.setIsDebug,
     getTransformCount: ConfigApService.getTransformCount,
     setTransformCount: ConfigApService.setTransformCount,
+    getGeometryCount: ConfigApService.getGeometryCount,
+    setGeometryCount: ConfigApService.setGeometryCount,
+    getGeometryPointCount: ConfigApService.getGeometryPointCount,
+    setGeometryPointCount: ConfigApService.setGeometryPointCount,
+    getDirectionLightCount: ConfigApService.getDirectionLightCount,
+    setDirectionLightCount: ConfigApService.setDirectionLightCount,
+    getPBRMaterialCount: ConfigApService.getPBRMaterialCount,
+    setPBRMaterialCount: ConfigApService.setPBRMaterialCount,
   },
   sceneRepo: {
     create: () => SceneApService.create()->Result.getExn,

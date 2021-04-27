@@ -15,7 +15,7 @@ let _ = describe("Canvas", () => {
 
   describe("getCanvas", () =>
     test("test", () => {
-      let canvas: ISceneGraphRepoForJs.canvas = {
+      let canvas: WonderEngineAbstract.ISceneGraphRepoForJs.canvas = {
         width: 2,
         height: 4,
         getContext: createEmptyStub(refJsObjToSandbox(sandbox.contents)),

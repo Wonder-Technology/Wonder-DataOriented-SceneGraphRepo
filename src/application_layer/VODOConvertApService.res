@@ -1,81 +1,89 @@
-external canvasDOToCanvasVO: CanvasEntity.t => ISceneGraphRepoForJs.canvas = "%identity"
-
-external canvasVOToCanvasDO: ISceneGraphRepoForJs.canvas => CanvasEntity.t = "%identity"
-
-external sceneDOToSceneVO: SceneRoot.t => ISceneGraphRepoForJs.scene = "%identity"
-
-external sceneVOToSceneDO: ISceneGraphRepoForJs.scene => SceneRoot.t = "%identity"
-
-external gameObjectDOToGameObjectVO: GameObjectEntity.t => ISceneGraphRepoForJs.gameObject =
+external canvasDOToCanvasVO: CanvasEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.canvas =
   "%identity"
 
-external gameObjectVOToGameObjectDO: ISceneGraphRepoForJs.gameObject => GameObjectEntity.t =
+external canvasVOToCanvasDO: WonderEngineAbstract.ISceneGraphRepoForJs.canvas => CanvasEntity.t =
   "%identity"
 
-external transformDOToTransformVO: TransformEntity.t => ISceneGraphRepoForJs.transform = "%identity"
-
-external transformVOToTransformDO: ISceneGraphRepoForJs.transform => TransformEntity.t = "%identity"
-
-external geometryDOToGeometryVO: GeometryEntity.t => ISceneGraphRepoForJs.geometry = "%identity"
-
-external geometryVOToGeometryDO: ISceneGraphRepoForJs.geometry => GeometryEntity.t = "%identity"
-
-external pbrMaterialDOToPBRMaterialVO: PBRMaterialEntity.t => ISceneGraphRepoForJs.pbrMaterial =
+external sceneDOToSceneVO: SceneRoot.t => WonderEngineAbstract.ISceneGraphRepoForJs.scene =
   "%identity"
 
-external pbrMaterialVOToPBRMaterialDO: ISceneGraphRepoForJs.pbrMaterial => PBRMaterialEntity.t =
+external sceneVOToSceneDO: WonderEngineAbstract.ISceneGraphRepoForJs.scene => SceneRoot.t =
   "%identity"
 
-external diffuseMapDOToDiffuseMapVO: PBRMaterialPOType.diffuseMap => ISceneGraphRepoForJs.diffuseMap =
+external gameObjectDOToGameObjectVO: GameObjectEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.gameObject =
   "%identity"
 
-external diffuseMapVOToDiffuseMapDO: ISceneGraphRepoForJs.diffuseMap => PBRMaterialPOType.diffuseMap =
+external gameObjectVOToGameObjectDO: WonderEngineAbstract.ISceneGraphRepoForJs.gameObject => GameObjectEntity.t =
   "%identity"
 
-external emissionMapDOToEmissionMapVO: PBRMaterialPOType.emissionMap => ISceneGraphRepoForJs.emissionMap =
+external transformDOToTransformVO: TransformEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.transform =
   "%identity"
 
-external emissionMapVOToEmissionMapDO: ISceneGraphRepoForJs.emissionMap => PBRMaterialPOType.emissionMap =
+external transformVOToTransformDO: WonderEngineAbstract.ISceneGraphRepoForJs.transform => TransformEntity.t =
   "%identity"
 
-external normalMapDOToNormalMapVO: PBRMaterialPOType.normalMap => ISceneGraphRepoForJs.normalMap =
+external geometryDOToGeometryVO: GeometryEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.geometry =
   "%identity"
 
-external normalMapVOToNormalMapDO: ISceneGraphRepoForJs.normalMap => PBRMaterialPOType.normalMap =
+external geometryVOToGeometryDO: WonderEngineAbstract.ISceneGraphRepoForJs.geometry => GeometryEntity.t =
   "%identity"
 
-external channelRoughnessMetallicMapDOToChannelRoughnessMetallicMapVO: PBRMaterialPOType.channelRoughnessMetallicMap => ISceneGraphRepoForJs.channelRoughnessMetallicMap =
+external pbrMaterialDOToPBRMaterialVO: PBRMaterialEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.pbrMaterial =
   "%identity"
 
-external channelRoughnessMetallicMapVOToChannelRoughnessMetallicMapDO: ISceneGraphRepoForJs.channelRoughnessMetallicMap => PBRMaterialPOType.channelRoughnessMetallicMap =
+external pbrMaterialVOToPBRMaterialDO: WonderEngineAbstract.ISceneGraphRepoForJs.pbrMaterial => PBRMaterialEntity.t =
   "%identity"
 
-external transmissionMapDOToTransmissionMapVO: PBRMaterialPOType.transmissionMap => ISceneGraphRepoForJs.transmissionMap =
+external diffuseMapDOToDiffuseMapVO: PBRMaterialPOType.diffuseMap => WonderEngineAbstract.ISceneGraphRepoForJs.diffuseMap =
   "%identity"
 
-external transmissionMapVOToTransmissionMapDO: ISceneGraphRepoForJs.transmissionMap => PBRMaterialPOType.transmissionMap =
+external diffuseMapVOToDiffuseMapDO: WonderEngineAbstract.ISceneGraphRepoForJs.diffuseMap => PBRMaterialPOType.diffuseMap =
   "%identity"
 
-external specularMapDOToSpecularMapVO: PBRMaterialPOType.specularMap => ISceneGraphRepoForJs.specularMap =
+external emissionMapDOToEmissionMapVO: PBRMaterialPOType.emissionMap => WonderEngineAbstract.ISceneGraphRepoForJs.emissionMap =
   "%identity"
 
-external specularMapVOToSpecularMapDO: ISceneGraphRepoForJs.specularMap => PBRMaterialPOType.specularMap =
+external emissionMapVOToEmissionMapDO: WonderEngineAbstract.ISceneGraphRepoForJs.emissionMap => PBRMaterialPOType.emissionMap =
   "%identity"
 
-external directionLightDOToDirectionLightVO: DirectionLightEntity.t => ISceneGraphRepoForJs.directionLight =
+external normalMapDOToNormalMapVO: PBRMaterialPOType.normalMap => WonderEngineAbstract.ISceneGraphRepoForJs.normalMap =
   "%identity"
 
-external directionLightVOToDirectionLightDO: ISceneGraphRepoForJs.directionLight => DirectionLightEntity.t =
+external normalMapVOToNormalMapDO: WonderEngineAbstract.ISceneGraphRepoForJs.normalMap => PBRMaterialPOType.normalMap =
   "%identity"
 
-external basicCameraViewDOToBasicCameraViewVO: BasicCameraViewEntity.t => ISceneGraphRepoForJs.basicCameraView =
+external channelRoughnessMetallicMapDOToChannelRoughnessMetallicMapVO: PBRMaterialPOType.channelRoughnessMetallicMap => WonderEngineAbstract.ISceneGraphRepoForJs.channelRoughnessMetallicMap =
   "%identity"
 
-external basicCameraViewVOToBasicCameraViewDO: ISceneGraphRepoForJs.basicCameraView => BasicCameraViewEntity.t =
+external channelRoughnessMetallicMapVOToChannelRoughnessMetallicMapDO: WonderEngineAbstract.ISceneGraphRepoForJs.channelRoughnessMetallicMap => PBRMaterialPOType.channelRoughnessMetallicMap =
   "%identity"
 
-external perspectiveCameraProjectionDOToPerspectiveCameraProjectionVO: PerspectiveCameraProjectionEntity.t => ISceneGraphRepoForJs.perspectiveCameraProjection =
+external transmissionMapDOToTransmissionMapVO: PBRMaterialPOType.transmissionMap => WonderEngineAbstract.ISceneGraphRepoForJs.transmissionMap =
   "%identity"
 
-external perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO: ISceneGraphRepoForJs.perspectiveCameraProjection => PerspectiveCameraProjectionEntity.t =
+external transmissionMapVOToTransmissionMapDO: WonderEngineAbstract.ISceneGraphRepoForJs.transmissionMap => PBRMaterialPOType.transmissionMap =
+  "%identity"
+
+external specularMapDOToSpecularMapVO: PBRMaterialPOType.specularMap => WonderEngineAbstract.ISceneGraphRepoForJs.specularMap =
+  "%identity"
+
+external specularMapVOToSpecularMapDO: WonderEngineAbstract.ISceneGraphRepoForJs.specularMap => PBRMaterialPOType.specularMap =
+  "%identity"
+
+external directionLightDOToDirectionLightVO: DirectionLightEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.directionLight =
+  "%identity"
+
+external directionLightVOToDirectionLightDO: WonderEngineAbstract.ISceneGraphRepoForJs.directionLight => DirectionLightEntity.t =
+  "%identity"
+
+external basicCameraViewDOToBasicCameraViewVO: BasicCameraViewEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.basicCameraView =
+  "%identity"
+
+external basicCameraViewVOToBasicCameraViewDO: WonderEngineAbstract.ISceneGraphRepoForJs.basicCameraView => BasicCameraViewEntity.t =
+  "%identity"
+
+external perspectiveCameraProjectionDOToPerspectiveCameraProjectionVO: PerspectiveCameraProjectionEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.perspectiveCameraProjection =
+  "%identity"
+
+external perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO: WonderEngineAbstract.ISceneGraphRepoForJs.perspectiveCameraProjection => PerspectiveCameraProjectionEntity.t =
   "%identity"

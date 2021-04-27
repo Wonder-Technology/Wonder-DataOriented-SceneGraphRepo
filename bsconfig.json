@@ -11,6 +11,15 @@
       "type": "dev"
     }
   ],
+  "gentypeconfig": {
+    "language": "typescript",
+    "module": "es6",
+    "importPath": "relative",
+    "debug": {
+      "all": false
+    },
+    "exportInterfaces": false
+  },
   "bsc-flags": [
     "-bs-no-version-header",
     "-bs-super-errors"
@@ -21,7 +30,8 @@
   ],
   "refmt": 3,
   "bs-dependencies": [
-    "wonder-bs-most"
+    "wonder-bs-most",
+    "wonder-engine-abstract"
   ],
   "package-specs": [
     "commonjs"
