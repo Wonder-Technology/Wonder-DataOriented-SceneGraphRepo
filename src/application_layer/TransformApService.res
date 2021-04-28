@@ -136,4 +136,8 @@ let getNormalMatrix = transform =>
   )->Result.mapSuccess(NormalMatrixVO.value)
 
 let lookAt = (transform, target) =>
-  LookAtTransformDoService.lookAt(~transform=transform->transformVOToTransformDO, ~target, ())
+  LookAtTransformDoService.lookAt(
+    ~transform=transform->transformVOToTransformDO,
+    ~target=target->TargetVO.create,
+    (),
+  )

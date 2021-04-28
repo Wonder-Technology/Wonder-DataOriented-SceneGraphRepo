@@ -1,6 +1,4 @@
-open ComponentPOType
-
-type geometry = index
+type geometry = ComponentPOType.index
 
 type geometryPO = {
   maxIndex: ComponentPOType.index,

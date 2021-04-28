@@ -1,6 +1,4 @@
-open ComponentPOType
-
-type pbrMaterial = index
+type pbrMaterial = ComponentPOType.index
 
 type diffuse = (float, float, float)
 

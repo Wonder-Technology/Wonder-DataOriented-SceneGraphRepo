@@ -267,4 +267,50 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
       PerspectiveCameraProjectionApService.markNotDirty(cameraProjection),
     update: () => PerspectiveCameraProjectionApService.update()->Result.getExn,
   },
+  arcballCameraControllerRepo: {
+    create: () => ArcballCameraControllerApService.create(),
+    getGameObject: cameraController =>
+      ArcballCameraControllerApService.getGameObject(cameraController)->OptionSt.toNullable,
+    getDistance: cameraController =>
+      ArcballCameraControllerApService.getDistance(cameraController)->OptionSt.toNullable,
+    setDistance: (cameraController, distance) =>
+      ArcballCameraControllerApService.setDistance(cameraController, distance),
+    getMinDistance: cameraController =>
+      ArcballCameraControllerApService.getMinDistance(cameraController)->OptionSt.toNullable,
+    setMinDistance: (cameraController, minDistance) =>
+      ArcballCameraControllerApService.setMinDistance(cameraController, minDistance),
+    getWheelSpeed: cameraController =>
+      ArcballCameraControllerApService.getWheelSpeed(cameraController)->OptionSt.toNullable,
+    setWheelSpeed: (cameraController, wheelSpeed) =>
+      ArcballCameraControllerApService.setWheelSpeed(cameraController, wheelSpeed),
+    getPhi: cameraController =>
+      ArcballCameraControllerApService.getPhi(cameraController)->OptionSt.toNullable,
+    setPhi: (cameraController, phi) =>
+      ArcballCameraControllerApService.setPhi(cameraController, phi),
+    getTheta: cameraController =>
+      ArcballCameraControllerApService.getTheta(cameraController)->OptionSt.toNullable,
+    setTheta: (cameraController, theta) =>
+      ArcballCameraControllerApService.setTheta(cameraController, theta),
+    getThetaMargin: cameraController =>
+      ArcballCameraControllerApService.getThetaMargin(cameraController)->OptionSt.toNullable,
+    setThetaMargin: (cameraController, thetaMargin) =>
+      ArcballCameraControllerApService.setThetaMargin(cameraController, thetaMargin),
+    getTarget: cameraController =>
+      ArcballCameraControllerApService.getTarget(cameraController)->OptionSt.toNullable,
+    setTarget: (cameraController, target) =>
+      ArcballCameraControllerApService.setTarget(cameraController, target),
+    getRotateSpeed: cameraController =>
+      ArcballCameraControllerApService.getRotateSpeed(cameraController)->OptionSt.toNullable,
+    setRotateSpeed: (cameraController, rotateSpeed) =>
+      ArcballCameraControllerApService.setRotateSpeed(cameraController, rotateSpeed),
+    getMoveSpeedX: cameraController =>
+      ArcballCameraControllerApService.getMoveSpeedX(cameraController)->OptionSt.toNullable,
+    setMoveSpeedX: (cameraController, moveSpeedX) =>
+      ArcballCameraControllerApService.setMoveSpeedX(cameraController, moveSpeedX),
+    getMoveSpeedY: cameraController =>
+      ArcballCameraControllerApService.getMoveSpeedY(cameraController)->OptionSt.toNullable,
+    setMoveSpeedY: (cameraController, moveSpeedY) =>
+      ArcballCameraControllerApService.setMoveSpeedY(cameraController, moveSpeedY),
+    update: () => ArcballCameraControllerApService.update()->Result.getExn,
+  },
 }

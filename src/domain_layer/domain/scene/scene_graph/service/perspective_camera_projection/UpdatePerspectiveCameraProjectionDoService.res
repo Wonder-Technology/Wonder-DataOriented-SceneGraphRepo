@@ -42,6 +42,4 @@ let update = () =>
   ->ListSt.traverseResultM(cameraProjection => updateCameraProjection(cameraProjection))
   ->Result.mapSuccess(_ => {
     PerspectiveCameraProjectionRepo.clearDirtyList()
-
-    ()
   })

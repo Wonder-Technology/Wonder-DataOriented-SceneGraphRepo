@@ -133,3 +133,15 @@ let setPerspectiveCameraProjection = perspectiveCameraProjection => {
 
   {...po, perspectiveCameraProjection: perspectiveCameraProjection}->setPO
 }
+
+let getArcballCameraController = () => {
+  let po = getPO()
+
+  po.arcballCameraController
+}
+
+let setArcballCameraController = arcballCameraController => {
+  let po = getPO()
+
+  {...po, arcballCameraController: arcballCameraController}->setPO
+}

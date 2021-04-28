@@ -87,3 +87,9 @@ external perspectiveCameraProjectionDOToPerspectiveCameraProjectionVO: Perspecti
 
 external perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO: WonderEngineAbstract.ISceneGraphRepoForJs.perspectiveCameraProjection => PerspectiveCameraProjectionEntity.t =
   "%identity"
+
+external arcballCameraControllerDOToArcballCameraControllerVO: ArcballCameraControllerEntity.t => WonderEngineAbstract.ISceneGraphRepoForJs.arcballCameraController =
+  "%identity"
+
+external arcballCameraControllerVOToArcballCameraControllerDO: WonderEngineAbstract.ISceneGraphRepoForJs.arcballCameraController => ArcballCameraControllerEntity.t =
+  "%identity"

@@ -3,7 +3,7 @@ let lookAt = (~transform, ~target, ~up=(0., 1., 0.), ()) =>
     transform,
     Matrix4.setLookAt(
       UpdateTransformDoService.updateAndGetPosition(transform)->PositionVO.value,
-      target,
+      target->TargetVO.value,
       up,
     )
     ->Quaternion.setFromMatrix

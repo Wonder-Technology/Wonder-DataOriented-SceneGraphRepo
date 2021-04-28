@@ -1,6 +1,4 @@
-open ComponentPOType
-
-type directionLight = index
+type directionLight = ComponentPOType.index
 
 type directionLightPO = {
   maxIndex: ComponentPOType.index,

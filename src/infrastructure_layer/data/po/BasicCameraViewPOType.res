@@ -1,9 +1,7 @@
-open ComponentPOType
-
-type basicCameraView = index
+type basicCameraView = ComponentPOType.index
 
 type basicCameraViewPO = {
   maxIndex: ComponentPOType.index,
-  isActiveMap: ImmutableSparseMap.t<ComponentPOType.index, bool>,
+  isActiveMap: ImmutableSparseMap.t<basicCameraView, bool>,
   gameObjectMap: ComponentPOType.gameObjectMap,
 }

@@ -16,7 +16,7 @@ let isSome = Belt.Option.isSome
 
 let map = Belt.Option.map
 
-let flatMap = Belt.Option.flatMap
+let bind = Belt.Option.flatMap
 
 let fromNullable = optionData => Js.Nullable.toOption(optionData)
 

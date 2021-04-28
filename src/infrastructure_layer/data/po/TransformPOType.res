@@ -1,6 +1,4 @@
-open ComponentPOType
-
-type transform = index
+type transform = ComponentPOType.index
 
 type parent = transform
 
@@ -31,8 +29,8 @@ type transformPO = {
   defaultLocalPosition: VectorPOType.vec3,
   defaultLocalRotation: VectorPOType.vec4,
   defaultLocalScale: VectorPOType.vec3,
-  parentMap: ImmutableSparseMap.t<ComponentPOType.index, ComponentPOType.index>,
-  childrenMap: ImmutableSparseMap.t<ComponentPOType.index, list<ComponentPOType.index>>,
+  parentMap: ImmutableSparseMap.t<transform, transform>,
+  childrenMap: ImmutableSparseMap.t<transform, list<transform>>,
   gameObjectMap: ComponentPOType.gameObjectMap,
-  dirtyMap: ImmutableSparseMap.t<ComponentPOType.index, bool>,
+  dirtyMap: ImmutableSparseMap.t<transform, bool>,
 }

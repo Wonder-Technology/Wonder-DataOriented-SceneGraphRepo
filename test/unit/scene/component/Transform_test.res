@@ -694,7 +694,7 @@ let _ = describe("Transform", () => {
     test("set lookAt will change localToWorld matrix", () => {
       let transform = create()->ResultTool.getExnSuccessValue
 
-      let target = (0., 0., 1.)
+      let target = (0., 0., 1.) -> TargetVO.create
 
       transform->lookAt(target)->ResultTool.getExnSuccessValue
 

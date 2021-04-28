@@ -10,4 +10,5 @@ type po = {
   directionLight: option<DirectionLightPOType.directionLightPO>,
   basicCameraView: BasicCameraViewPOType.basicCameraViewPO,
   perspectiveCameraProjection: PerspectiveCameraProjectionPOType.perspectiveCameraProjectionPO,
+  arcballCameraController: ArcballCameraControllerPOType.arcballCameraControllerPO,
 }
