@@ -91,11 +91,19 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     getBasicCameraView: gameObject =>
       GameObjectApService.getBasicCameraView(gameObject)->OptionSt.toNullable,
     hasBasicCameraView: GameObjectApService.hasBasicCameraView,
-    addPerspectiveCameraProjection: (gameObject, cameraView) =>
-      GameObjectApService.addPerspectiveCameraProjection(gameObject, cameraView)->Result.getExn,
+    addPerspectiveCameraProjection: (gameObject, cameraProjection) =>
+      GameObjectApService.addPerspectiveCameraProjection(
+        gameObject,
+        cameraProjection,
+      )->Result.getExn,
     getPerspectiveCameraProjection: gameObject =>
       GameObjectApService.getPerspectiveCameraProjection(gameObject)->OptionSt.toNullable,
     hasPerspectiveCameraProjection: GameObjectApService.hasPerspectiveCameraProjection,
+    addArcballCameraController: (gameObject, cameraController) =>
+      GameObjectApService.addArcballCameraController(gameObject, cameraController)->Result.getExn,
+    getArcballCameraController: gameObject =>
+      GameObjectApService.getArcballCameraController(gameObject)->OptionSt.toNullable,
+    hasArcballCameraController: GameObjectApService.hasArcballCameraController,
   },
   transformRepo: {
     create: () => TransformApService.create()->Result.getExn,
@@ -274,7 +282,7 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     getDistance: cameraController =>
       ArcballCameraControllerApService.getDistance(cameraController)->OptionSt.toNullable,
     setDistance: (cameraController, distance) =>
-      ArcballCameraControllerApService.setDistance(cameraController, distance),
+      ArcballCameraControllerApService.setDistance(cameraController, distance)->Result.getExn,
     getMinDistance: cameraController =>
       ArcballCameraControllerApService.getMinDistance(cameraController)->OptionSt.toNullable,
     setMinDistance: (cameraController, minDistance) =>
@@ -290,11 +298,11 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     getTheta: cameraController =>
       ArcballCameraControllerApService.getTheta(cameraController)->OptionSt.toNullable,
     setTheta: (cameraController, theta) =>
-      ArcballCameraControllerApService.setTheta(cameraController, theta),
+      ArcballCameraControllerApService.setTheta(cameraController, theta)->Result.getExn,
     getThetaMargin: cameraController =>
       ArcballCameraControllerApService.getThetaMargin(cameraController)->OptionSt.toNullable,
     setThetaMargin: (cameraController, thetaMargin) =>
-      ArcballCameraControllerApService.setThetaMargin(cameraController, thetaMargin),
+      ArcballCameraControllerApService.setThetaMargin(cameraController, thetaMargin)->Result.getExn,
     getTarget: cameraController =>
       ArcballCameraControllerApService.getTarget(cameraController)->OptionSt.toNullable,
     setTarget: (cameraController, target) =>

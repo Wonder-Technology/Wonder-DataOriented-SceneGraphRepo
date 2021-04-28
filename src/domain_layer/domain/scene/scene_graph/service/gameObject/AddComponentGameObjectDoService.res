@@ -81,3 +81,13 @@ let addPerspectiveCameraProjection = (gameObject, cameraProjection) =>
     ),
     (gameObject->GameObjectEntity.value, cameraProjection->PerspectiveCameraProjectionEntity.value),
   )
+
+let addArcballCameraController = (gameObject, cameraController) =>
+  _addComponent(
+    (
+      GameObjectRepo.hasArcballCameraController,
+      GameObjectRepo.addArcballCameraController,
+      AddArcballCameraControllerDoService.handleAddComponent,
+    ),
+    (gameObject->GameObjectEntity.value, cameraController->ArcballCameraControllerEntity.value),
+  )

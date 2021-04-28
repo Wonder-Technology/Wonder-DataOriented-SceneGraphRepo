@@ -87,3 +87,17 @@ let hasPerspectiveCameraProjection = gameObject =>
   HasComponentGameObjectDoService.hasPerspectiveCameraProjection(
     gameObject->gameObjectVOToGameObjectDO,
   )
+
+let addArcballCameraController = (gameObject, cameraController) =>
+  AddComponentGameObjectDoService.addArcballCameraController(
+    gameObject->gameObjectVOToGameObjectDO,
+    cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
+  )->Result.mapSuccess(gameObjectDOToGameObjectVO)
+
+let getArcballCameraController = gameObject =>
+  GetComponentGameObjectDoService.getArcballCameraController(
+    gameObject->gameObjectVOToGameObjectDO,
+  )->OptionSt.map(arcballCameraControllerDOToArcballCameraControllerVO)
+
+let hasArcballCameraController = gameObject =>
+  HasComponentGameObjectDoService.hasArcballCameraController(gameObject->gameObjectVOToGameObjectDO)

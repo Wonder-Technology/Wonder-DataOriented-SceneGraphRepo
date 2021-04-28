@@ -48,6 +48,15 @@ let getPerspectiveCameraProjection = gameObject =>
 let hasPerspectiveCameraProjection = gameObject =>
   HasComponentGameObjectDoService.hasPerspectiveCameraProjection(gameObject)
 
+let addArcballCameraController = (gameObject, cameraController) =>
+  AddComponentGameObjectDoService.addArcballCameraController(gameObject, cameraController)
+
+let getArcballCameraController = gameObject =>
+  GetComponentGameObjectDoService.getArcballCameraController(gameObject)
+
+let hasArcballCameraController = gameObject =>
+  HasComponentGameObjectDoService.hasArcballCameraController(gameObject)
+
 let getMaxUID = () => ContainerManager.getGameObject().maxUID
 
 let getMaxUID = () => ContainerManager.getGameObject().maxUID

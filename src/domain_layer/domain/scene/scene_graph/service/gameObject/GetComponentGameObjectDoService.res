@@ -27,3 +27,8 @@ let getPerspectiveCameraProjection = gameObject =>
   GameObjectRepo.getPerspectiveCameraProjection(gameObject->GameObjectEntity.value)->OptionSt.map(
     PerspectiveCameraProjectionEntity.create,
   )
+
+let getArcballCameraController = gameObject =>
+  GameObjectRepo.getArcballCameraController(gameObject->GameObjectEntity.value)->OptionSt.map(
+    ArcballCameraControllerEntity.create,
+  )

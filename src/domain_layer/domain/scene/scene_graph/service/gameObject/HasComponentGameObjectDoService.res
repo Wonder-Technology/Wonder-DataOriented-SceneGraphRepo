@@ -12,3 +12,6 @@ let hasBasicCameraView = gameObject =>
 
 let hasPerspectiveCameraProjection = gameObject =>
   GameObjectRepo.hasPerspectiveCameraProjection(gameObject->GameObjectEntity.value)
+
+let hasArcballCameraController = gameObject =>
+  GameObjectRepo.hasArcballCameraController(gameObject->GameObjectEntity.value)

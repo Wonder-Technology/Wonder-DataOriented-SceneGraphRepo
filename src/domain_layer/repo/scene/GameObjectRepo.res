@@ -100,6 +100,24 @@ let hasPerspectiveCameraProjection = gameObject =>
     gameObject,
   )
 
+let addArcballCameraController = (gameObject, cameraController) => {
+  let {arcballCameraControllerMap} as gameObjectPO = ContainerManager.getGameObject()
+
+  ContainerManager.setGameObject({
+    ...gameObjectPO,
+    arcballCameraControllerMap: arcballCameraControllerMap->ImmutableSparseMap.set(
+      gameObject,
+      cameraController,
+    ),
+  })
+}
+
+let getArcballCameraController = gameObject =>
+  ContainerManager.getGameObject().arcballCameraControllerMap->ImmutableSparseMap.get(gameObject)
+
+let hasArcballCameraController = gameObject =>
+  ContainerManager.getGameObject().arcballCameraControllerMap->ImmutableSparseMap.has(gameObject)
+
 let getAllGameObjectGeometries = () =>
   ContainerManager.getGameObject().geometryMap->ImmutableSparseMap.getValues->ListSt.fromArray
 

@@ -1,17 +1,3 @@
-let getDistance = cameraController =>
-  ArcballCameraControllerRepo.getDistance(
-    cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(DistanceVO.create)
-
-let setDistance = (cameraController, distance) => {
-  ArcballCameraControllerRepo.setDistance(
-    cameraController->ArcballCameraControllerEntity.value,
-    distance->DistanceVO.value,
-  )
-
-  ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
-}
-
 let getMinDistance = cameraController =>
   ArcballCameraControllerRepo.getMinDistance(
     cameraController->ArcballCameraControllerEntity.value,
@@ -24,6 +10,24 @@ let setMinDistance = (cameraController, minDistance) => {
   )
 
   ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
+}
+
+let getDistance = cameraController =>
+  ArcballCameraControllerRepo.getDistance(
+    cameraController->ArcballCameraControllerEntity.value,
+  )->OptionSt.map(DistanceVO.create)
+
+let setDistance = (cameraController, distance) => {
+  ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
+
+  getMinDistance(cameraController)
+  ->OptionSt.get
+  ->Result.mapSuccess(minDistance => {
+    ArcballCameraControllerRepo.setDistance(
+      cameraController->ArcballCameraControllerEntity.value,
+      NumberDoService.bigThan(distance->DistanceVO.value, minDistance->DistanceVO.value),
+    )
+  })
 }
 
 let getWheelSpeed = cameraController =>
@@ -54,22 +58,32 @@ let setPhi = (cameraController, phi) => {
   ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
 }
 
+let _constrainTheta = (theta, thetaMargin) =>
+  NumberDoService.clamp(theta, thetaMargin, Js.Math._PI -. thetaMargin)
+
 let getTheta = cameraController =>
   ArcballCameraControllerRepo.getTheta(
     cameraController->ArcballCameraControllerEntity.value,
   )->OptionSt.map(ThetaVO.create)
 
-let setTheta = (cameraController, theta) => {
-  ArcballCameraControllerRepo.setTheta(
-    cameraController->ArcballCameraControllerEntity.value,
-    theta->ThetaVO.value,
-  )
-
-  ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
-}
-
 let getThetaMargin = cameraController =>
   ArcballCameraControllerRepo.getThetaMargin(cameraController->ArcballCameraControllerEntity.value)
+
+let setTheta = (cameraController, theta) => {
+  ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
+
+  getThetaMargin(cameraController)
+  ->OptionSt.get
+  ->Result.bind(thetaMargin => {
+    _constrainTheta(theta->ThetaVO.value, thetaMargin)
+  })
+  ->Result.mapSuccess(constrainedTheta => {
+    ArcballCameraControllerRepo.setTheta(
+      cameraController->ArcballCameraControllerEntity.value,
+      constrainedTheta,
+    )
+  })
+}
 
 let setThetaMargin = (cameraController, thetaMargin) => {
   ArcballCameraControllerRepo.setThetaMargin(
@@ -78,6 +92,18 @@ let setThetaMargin = (cameraController, thetaMargin) => {
   )
 
   ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
+
+  getTheta(cameraController)
+  ->OptionSt.get
+  ->Result.bind(theta => {
+    _constrainTheta(theta->ThetaVO.value, thetaMargin)
+  })
+  ->Result.mapSuccess(constrainedTheta => {
+    ArcballCameraControllerRepo.setTheta(
+      cameraController->ArcballCameraControllerEntity.value,
+      constrainedTheta,
+    )
+  })
 }
 
 let getTarget = cameraController =>

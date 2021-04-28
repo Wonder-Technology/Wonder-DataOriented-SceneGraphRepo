@@ -13,4 +13,8 @@ type gameObjectPO = {
     gameObject,
     PerspectiveCameraProjectionPOType.perspectiveCameraProjection,
   >,
+  arcballCameraControllerMap: ImmutableSparseMap.t<
+    gameObject,
+    ArcballCameraControllerPOType.arcballCameraController,
+  >,
 }
