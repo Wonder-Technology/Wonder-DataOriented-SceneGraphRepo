@@ -63,6 +63,7 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     add: SceneApService.add,
     getScene: unit => SceneApService.getScene()->OptionSt.toNullable,
     setScene: SceneApService.setScene,
+    getAllRenderGameObjects: scene => SceneApService.getAllRenderGameObjects(scene)->ListSt.toArray,
     getAllGeometries: scene => SceneApService.getAllGameObjectGeometries(scene)->ListSt.toArray,
     getAllPBRMaterials: scene => SceneApService.getAllGameObjectPBRMaterials(scene)->ListSt.toArray,
   },

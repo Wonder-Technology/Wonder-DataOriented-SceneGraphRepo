@@ -118,6 +118,9 @@ let getArcballCameraController = gameObject =>
 let hasArcballCameraController = gameObject =>
   ContainerManager.getGameObject().arcballCameraControllerMap->ImmutableSparseMap.has(gameObject)
 
+let getAllRenderGameObjects = () =>
+  ContainerManager.getGameObject().geometryMap->ImmutableSparseMap.getKeys->ListSt.fromArray
+
 let getAllGameObjectGeometries = () =>
   ContainerManager.getGameObject().geometryMap->ImmutableSparseMap.getValues->ListSt.fromArray
 

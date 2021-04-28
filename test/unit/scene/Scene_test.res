@@ -25,6 +25,20 @@ let _ = describe("Scene", () => {
     })
   )
 
+  describe("getAllRenderGameObjects", () =>
+    test("get all gameObjects with geometry component", () => {
+      let scene = SceneTool.create()->ResultTool.getExnSuccessValue
+      SceneTool.setScene(scene)
+      let geometry1 = GeometryTool.create()->ResultTool.getExnSuccessValue
+      let geometry2 = GeometryTool.create()->ResultTool.getExnSuccessValue
+      let gameObject1 = GameObjectTool.create()->ResultTool.getExnSuccessValue
+      let gameObject2 = GameObjectTool.create()->ResultTool.getExnSuccessValue
+      GameObjectTool.addGeometry(gameObject1, geometry1)->ResultTool.getExnSuccessValueIgnore
+
+      SceneTool.getAllRenderGameObjects()->expect == list{gameObject1}
+    })
+  )
+
   describe("getAllGameObjectGeometries", () =>
     test("test", () => {
       let scene = SceneTool.create()->ResultTool.getExnSuccessValue
