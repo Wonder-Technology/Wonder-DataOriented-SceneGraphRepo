@@ -183,6 +183,10 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
   },
   pbrMaterialRepo: {
     create: () => PBRMaterialApService.create()->Result.getExn,
+    getGameObjects: pbrMaterial =>
+      PBRMaterialApService.getGameObjects(pbrMaterial)
+      ->OptionSt.map(ListSt.toArray)
+      ->OptionSt.toNullable,
     getDiffuseColor: material => PBRMaterialApService.getDiffuseColor(material),
     setDiffuseColor: (material, color) =>
       PBRMaterialApService.setDiffuseColor(material, color)->Result.getExn,
