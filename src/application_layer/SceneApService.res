@@ -10,6 +10,9 @@ let create = () => {
   CreateGameObjectDoService.create()->Result.mapSuccess(sceneDOToSceneVO)
 }
 
+let getAllGameObjects = scene =>
+  AllGameObjectsDoService.getAllGameObjects()->ListSt.map(gameObjectDOToGameObjectVO)
+
 let getAllRenderGameObjects = scene =>
   AllGameObjectsDoService.getAllRenderGameObjects()->ListSt.map(gameObjectDOToGameObjectVO)
 
