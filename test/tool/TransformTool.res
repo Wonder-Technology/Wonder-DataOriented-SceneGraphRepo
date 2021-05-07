@@ -1,5 +1,7 @@
 open Js.Typed_array
 
+let getId = transform => transform->IndexTransformDoService.getId
+
 let create = () => CreateTransformDoService.create()
 
 let getGameObject = transform => GameObjectTransformDoService.getGameObject(transform)

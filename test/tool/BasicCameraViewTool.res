@@ -1,5 +1,7 @@
 open Js.Typed_array
 
+let getId = cameraView => cameraView->IndexBasicCameraViewDoService.getId
+
 let create = () => CreateBasicCameraViewDoService.create()
 
 let getGameObject = cameraView => GameObjectBasicCameraViewDoService.getGameObject(cameraView)

@@ -1,5 +1,10 @@
 open VODOConvertApService
 
+let getId = cameraProjection =>
+  cameraProjection
+  ->perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO
+  ->IndexPerspectiveCameraProjectionDoService.getId
+
 let create = () =>
   CreatePerspectiveCameraProjectionDoService.create()->perspectiveCameraProjectionDOToPerspectiveCameraProjectionVO
 

@@ -1,5 +1,7 @@
 open Js.Typed_array
 
+let getId = geometry => geometry->IndexGeometryDoService.getId
+
 let create = () => CreateGeometryDoService.create()
 
 let getGameObjects = geometry => GameObjectGeometryDoService.getGameObjects(geometry)

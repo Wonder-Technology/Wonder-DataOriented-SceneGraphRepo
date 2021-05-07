@@ -1,3 +1,5 @@
+let getId = cameraController => cameraController->IndexArcballCameraControllerDoService.getId
+
 let create = () => CreateArcballCameraControllerDoService.create()
 
 let getGameObject = cameraController =>

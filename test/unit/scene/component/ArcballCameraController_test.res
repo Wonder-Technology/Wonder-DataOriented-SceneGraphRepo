@@ -15,6 +15,14 @@ let _ = describe("ArcballCameraController", () => {
   })
   afterEach(() => restoreSandbox(refJsObjToSandbox(sandbox.contents)))
 
+  describe("getId", () => {
+    test("get cameraController's index", () => {
+      let cameraController = create()
+
+      expect(cameraController->getId) == 0
+    })
+  })
+
   describe("create", () => {
     test("create a new cameraController", () => {
       let cameraController = create()

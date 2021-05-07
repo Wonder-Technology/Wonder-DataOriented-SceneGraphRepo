@@ -1,5 +1,7 @@
 open VODOConvertApService
 
+let getId = gameObject => gameObject->gameObjectVOToGameObjectDO->IdGameObjectDoService.getId
+
 let create = () => CreateGameObjectDoService.create()->Result.mapSuccess(gameObjectDOToGameObjectVO)
 
 let addTransform = (gameObject, transform) =>

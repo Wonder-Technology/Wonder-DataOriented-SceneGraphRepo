@@ -1,5 +1,7 @@
 open Js.Typed_array
 
+let getId = material => material->IndexPBRMaterialDoService.getId
+
 let create = () => CreatePBRMaterialDoService.create()
 
 let getGameObjects = material => GameObjectPBRMaterialDoService.getGameObjects(material)

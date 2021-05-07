@@ -58,6 +58,15 @@ let _ = describe("Transform", () => {
   })
   afterEach(() => restoreSandbox(refJsObjToSandbox(sandbox.contents)))
 
+  describe("getId", () => {
+    test("get transform's index", () => {
+      let transform1 = create()->ResultTool.getExnSuccessValue
+      let transform2 = create()->ResultTool.getExnSuccessValue
+
+      expect(transform2->getId) == 1
+    })
+  })
+
   describe("create", () => {
     test("create a new transform", () => {
       let transform = create()->ResultTool.getExnSuccessValue
@@ -694,7 +703,7 @@ let _ = describe("Transform", () => {
     test("set lookAt will change localToWorld matrix", () => {
       let transform = create()->ResultTool.getExnSuccessValue
 
-      let target = (0., 0., 1.) -> TargetVO.create
+      let target = (0., 0., 1.)->TargetVO.create
 
       transform->lookAt(target)->ResultTool.getExnSuccessValue
 

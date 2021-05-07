@@ -1,5 +1,7 @@
 open VODOConvertApService
 
+let getId = geometry => geometry->geometryVOToGeometryDO->IndexGeometryDoService.getId
+
 let create = () => CreateGeometryDoService.create()->Result.mapSuccess(geometryDOToGeometryVO)
 
 let getGameObjects = geometry =>

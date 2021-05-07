@@ -1,5 +1,7 @@
 open Js.Typed_array
 
+let getId = cameraProjection => cameraProjection->IndexPerspectiveCameraProjectionDoService.getId
+
 let create = () => CreatePerspectiveCameraProjectionDoService.create()
 
 let getGameObject = cameraProjection =>

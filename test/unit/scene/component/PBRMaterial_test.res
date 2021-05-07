@@ -15,6 +15,14 @@ let _ = describe("PBRMaterial", () => {
   })
   afterEach(() => restoreSandbox(refJsObjToSandbox(sandbox.contents)))
 
+  describe("getId", () => {
+    test("get material's index", () => {
+      let material = create()->ResultTool.getExnSuccessValue
+
+      expect(material->getId) == 0
+    })
+  })
+
   describe("create", () => {
     test("create a new material", () => {
       let material = create()->ResultTool.getExnSuccessValue

@@ -1,5 +1,8 @@
 open VODOConvertApService
 
+let getId = cameraView =>
+  cameraView->basicCameraViewVOToBasicCameraViewDO->IndexBasicCameraViewDoService.getId
+
 let create = () => CreateBasicCameraViewDoService.create()->basicCameraViewDOToBasicCameraViewVO
 
 let getGameObject = cameraView =>

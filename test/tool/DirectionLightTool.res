@@ -1,5 +1,7 @@
 open Js.Typed_array
 
+let getId = light => light->IndexDirectionLightDoService.getId
+
 let create = () => CreateDirectionLightDoService.create()
 
 let getGameObject = light => GameObjectDirectionLightDoService.getGameObject(light)

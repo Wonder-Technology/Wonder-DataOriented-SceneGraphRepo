@@ -1,5 +1,10 @@
 open VODOConvertApService
 
+let getId = cameraController =>
+  cameraController
+  ->arcballCameraControllerVOToArcballCameraControllerDO
+  ->IndexArcballCameraControllerDoService.getId
+
 let create = () =>
   CreateArcballCameraControllerDoService.create()->arcballCameraControllerDOToArcballCameraControllerVO
 
