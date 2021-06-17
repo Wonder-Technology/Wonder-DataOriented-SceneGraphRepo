@@ -1,6 +1,8 @@
 open Js.Typed_array
 
-let getId = transform => transform->IndexTransformDoService.getId
+let getIndex = transform => transform->IndexTransformDoService.getIndex
+
+let toComponent = index => index->IndexTransformDoService.toComponent
 
 let create = () => CreateTransformDoService.create()
 

@@ -1,4 +1,4 @@
-let getId = cameraController => cameraController->IndexArcballCameraControllerDoService.getId
+let getIndex = cameraController => cameraController->IndexArcballCameraControllerDoService.getIndex
 
 let create = () => CreateArcballCameraControllerDoService.create()
 

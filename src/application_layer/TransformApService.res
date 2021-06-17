@@ -1,6 +1,8 @@
 open VODOConvertApService
 
-let getId = transform => transform->transformVOToTransformDO->IndexTransformDoService.getId
+let getIndex = transform => transform->transformVOToTransformDO->IndexTransformDoService.getIndex
+
+let toComponent = index => index->IndexTransformDoService.toComponent->transformDOToTransformVO
 
 let create = () => CreateTransformDoService.create()->Result.mapSuccess(transformDOToTransformVO)
 

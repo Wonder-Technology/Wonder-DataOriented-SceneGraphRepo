@@ -15,11 +15,11 @@ let _ = describe("DirectionLight", () => {
   })
   afterEach(() => restoreSandbox(refJsObjToSandbox(sandbox.contents)))
 
-  describe("getId", () => {
+  describe("getIndex", () => {
     test("get light's index", () => {
       let light = create()->ResultTool.getExnSuccessValue
 
-      expect(light->getId) == 0
+      expect(light->getIndex) == 0
     })
   })
 

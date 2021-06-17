@@ -1,6 +1,10 @@
 open VODOConvertApService
 
-let getId = light => light->directionLightVOToDirectionLightDO->IndexDirectionLightDoService.getId
+let getIndex = light =>
+  light->directionLightVOToDirectionLightDO->IndexDirectionLightDoService.getIndex
+
+let toComponent = index =>
+  index->IndexDirectionLightDoService.toComponent->directionLightDOToDirectionLightVO
 
 let create = () =>
   CreateDirectionLightDoService.create()->Result.mapSuccess(directionLightDOToDirectionLightVO)

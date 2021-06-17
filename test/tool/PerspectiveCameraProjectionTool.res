@@ -1,6 +1,6 @@
 open Js.Typed_array
 
-let getId = cameraProjection => cameraProjection->IndexPerspectiveCameraProjectionDoService.getId
+let getIndex = cameraProjection => cameraProjection->IndexPerspectiveCameraProjectionDoService.getIndex
 
 let create = () => CreatePerspectiveCameraProjectionDoService.create()
 

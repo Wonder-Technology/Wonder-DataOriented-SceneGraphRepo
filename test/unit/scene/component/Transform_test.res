@@ -58,12 +58,21 @@ let _ = describe("Transform", () => {
   })
   afterEach(() => restoreSandbox(refJsObjToSandbox(sandbox.contents)))
 
-  describe("getId", () => {
+  describe("getIndex", () => {
     test("get transform's index", () => {
       let transform1 = create()->ResultTool.getExnSuccessValue
       let transform2 = create()->ResultTool.getExnSuccessValue
 
-      expect(transform2->getId) == 1
+      expect(transform2->getIndex) == 1
+    })
+  })
+
+  describe("toComponent", () => {
+    test("convert transform's index to transform", () => {
+      let transform1 = create()->ResultTool.getExnSuccessValue
+      let transform2 = create()->ResultTool.getExnSuccessValue
+
+      expect(transform2->getIndex->toComponent) == transform2
     })
   })
 

@@ -1,6 +1,8 @@
 open VODOConvertApService
 
-let getId = geometry => geometry->geometryVOToGeometryDO->IndexGeometryDoService.getId
+let getIndex = geometry => geometry->geometryVOToGeometryDO->IndexGeometryDoService.getIndex
+
+let toComponent = index => index->IndexGeometryDoService.toComponent->geometryDOToGeometryVO
 
 let create = () => CreateGeometryDoService.create()->Result.mapSuccess(geometryDOToGeometryVO)
 

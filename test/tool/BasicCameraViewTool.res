@@ -1,6 +1,6 @@
 open Js.Typed_array
 
-let getId = cameraView => cameraView->IndexBasicCameraViewDoService.getId
+let getIndex = cameraView => cameraView->IndexBasicCameraViewDoService.getIndex
 
 let create = () => CreateBasicCameraViewDoService.create()
 

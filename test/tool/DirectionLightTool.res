@@ -1,6 +1,6 @@
 open Js.Typed_array
 
-let getId = light => light->IndexDirectionLightDoService.getId
+let getIndex = light => light->IndexDirectionLightDoService.getIndex
 
 let create = () => CreateDirectionLightDoService.create()
 

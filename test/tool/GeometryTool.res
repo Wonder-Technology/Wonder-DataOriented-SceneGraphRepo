@@ -1,6 +1,6 @@
 open Js.Typed_array
 
-let getId = geometry => geometry->IndexGeometryDoService.getId
+let getIndex = geometry => geometry->IndexGeometryDoService.getIndex
 
 let create = () => CreateGeometryDoService.create()
 

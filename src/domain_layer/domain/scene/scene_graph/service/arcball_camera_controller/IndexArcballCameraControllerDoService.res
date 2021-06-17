@@ -2,4 +2,6 @@ let getMaxIndex = () => ArcballCameraControllerRepo.getMaxIndex()
 
 let setMaxIndex = maxIndex => ArcballCameraControllerRepo.setMaxIndex(maxIndex)
 
-let getId = cameraController => cameraController->ArcballCameraControllerEntity.value
+let getIndex = cameraController => cameraController->ArcballCameraControllerEntity.value
+
+let toComponent = index => index->ArcballCameraControllerEntity.create

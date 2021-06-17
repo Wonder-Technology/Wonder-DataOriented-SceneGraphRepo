@@ -1,6 +1,6 @@
 open Js.Typed_array
 
-let getId = material => material->IndexPBRMaterialDoService.getId
+let getIndex = material => material->IndexPBRMaterialDoService.getIndex
 
 let create = () => CreatePBRMaterialDoService.create()
 

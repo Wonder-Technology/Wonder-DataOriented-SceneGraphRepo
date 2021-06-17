@@ -17,14 +17,6 @@ let _ = describe("GameObject", () => {
   })
   afterEach(() => restoreSandbox(refJsObjToSandbox(sandbox.contents)))
 
-  describe("getId", () => {
-    test("get gameObject's index", () => {
-      let gameObject = create()->ResultTool.getExnSuccessValue
-
-      expect(gameObject->getId) == 0
-    })
-  })
-
   describe("createGameObject", () => {
     test("create a new gameObject", () => {
       let gameObject = create()->ResultTool.getExnSuccessValue

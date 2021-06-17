@@ -2,4 +2,6 @@ let getMaxIndex = () => DirectionLightRepo.getMaxIndex()
 
 let setMaxIndex = maxIndex => DirectionLightRepo.setMaxIndex(maxIndex)
 
-let getId = light => light->DirectionLightEntity.value
+let getIndex = light => light->DirectionLightEntity.value
+
+let toComponent = index => index->DirectionLightEntity.create

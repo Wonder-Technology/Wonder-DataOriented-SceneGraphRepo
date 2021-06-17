@@ -2,4 +2,6 @@ let getMaxIndex = () => PBRMaterialRepo.getMaxIndex()
 
 let setMaxIndex = maxIndex => PBRMaterialRepo.setMaxIndex(maxIndex)
 
-let getId = material => material->PBRMaterialEntity.value
+let getIndex = material => material->PBRMaterialEntity.value
+
+let toComponent = index => index->PBRMaterialEntity.create

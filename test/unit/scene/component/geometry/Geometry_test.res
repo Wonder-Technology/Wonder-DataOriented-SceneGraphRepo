@@ -17,11 +17,11 @@ let _ = describe("Geometry", () => {
   })
   afterEach(() => restoreSandbox(refJsObjToSandbox(sandbox.contents)))
 
-  describe("getId", () => {
+  describe("getIndex", () => {
     test("get geometry's index", () => {
       let geometry = create()->ResultTool.getExnSuccessValue
 
-      expect(geometry->getId) == 0
+      expect(geometry->getIndex) == 0
     })
   })
 

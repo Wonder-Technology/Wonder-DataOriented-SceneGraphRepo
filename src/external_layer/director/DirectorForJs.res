@@ -69,7 +69,6 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     getAllPBRMaterials: scene => SceneApService.getAllGameObjectPBRMaterials(scene)->ListSt.toArray,
   },
   gameObjectRepo: {
-    getId: GameObjectApService.getId,
     create: () => GameObjectApService.create()->Result.getExn,
     addTransform: (gameObject, transform) =>
       GameObjectApService.addTransform(gameObject, transform)->Result.getExn,
@@ -109,7 +108,8 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     hasArcballCameraController: GameObjectApService.hasArcballCameraController,
   },
   transformRepo: {
-    getId: TransformApService.getId,
+    getIndex: TransformApService.getIndex,
+    toComponent: TransformApService.toComponent,
     create: () => TransformApService.create()->Result.getExn,
     getGameObject: transform => TransformApService.getGameObject(transform)->OptionSt.toNullable,
     getParent: transform => TransformApService.getParent(transform)->OptionSt.toNullable,
@@ -149,7 +149,8 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     lookAt: (transform, target) => TransformApService.lookAt(transform, target)->Result.getExn,
   },
   geometryRepo: {
-    getId: GeometryApService.getId,
+    getIndex: GeometryApService.getIndex,
+    toComponent: GeometryApService.toComponent,
     create: () => GeometryApService.create()->Result.getExn,
     createTriangleGeometry: () => GeometryApService.createTriangleGeometry()->Result.getExn,
     createSphereGeometry: (radius, bands) =>
@@ -187,7 +188,8 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     computeTangents: GeometryApService.computeTangents,
   },
   pbrMaterialRepo: {
-    getId: PBRMaterialApService.getId,
+    getIndex: PBRMaterialApService.getIndex,
+    toComponent: PBRMaterialApService.toComponent,
     create: () => PBRMaterialApService.create()->Result.getExn,
     getGameObjects: pbrMaterial =>
       PBRMaterialApService.getGameObjects(pbrMaterial)
@@ -230,7 +232,8 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     setSpecularMap: (material, map) => PBRMaterialApService.setSpecularMap(material, map),
   },
   directionLightRepo: {
-    getId: DirectionLightApService.getId,
+    getIndex: DirectionLightApService.getIndex,
+    toComponent: DirectionLightApService.toComponent,
     create: () => DirectionLightApService.create()->Result.getExn,
     getGameObject: light => DirectionLightApService.getGameObject(light)->OptionSt.toNullable,
     getColor: light => DirectionLightApService.getColor(light),
@@ -243,7 +246,8 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     getLightCount: () => DirectionLightApService.getLightCount(),
   },
   basicCameraViewRepo: {
-    getId: BasicCameraViewApService.getId,
+    getIndex: BasicCameraViewApService.getIndex,
+    toComponent: BasicCameraViewApService.toComponent,
     create: () => BasicCameraViewApService.create(),
     getGameObject: cameraView =>
       BasicCameraViewApService.getGameObject(cameraView)->OptionSt.toNullable,
@@ -261,7 +265,8 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
       ->Result.getExn,
   },
   perspectiveCameraProjectionRepo: {
-    getId: PerspectiveCameraProjectionApService.getId,
+    getIndex: PerspectiveCameraProjectionApService.getIndex,
+    toComponent: PerspectiveCameraProjectionApService.toComponent,
     create: () => PerspectiveCameraProjectionApService.create(),
     getGameObject: cameraProjection =>
       PerspectiveCameraProjectionApService.getGameObject(cameraProjection)->OptionSt.toNullable,
@@ -289,7 +294,8 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     update: () => PerspectiveCameraProjectionApService.update()->Result.getExn,
   },
   arcballCameraControllerRepo: {
-    getId: ArcballCameraControllerApService.getId,
+    getIndex: ArcballCameraControllerApService.getIndex,
+    toComponent: ArcballCameraControllerApService.toComponent,
     create: () => ArcballCameraControllerApService.create(),
     getGameObject: cameraController =>
       ArcballCameraControllerApService.getGameObject(cameraController)->OptionSt.toNullable,

@@ -1,6 +1,10 @@
 open VODOConvertApService
 
-let getId = material => material->pbrMaterialVOToPBRMaterialDO->IndexPBRMaterialDoService.getId
+let getIndex = material =>
+  material->pbrMaterialVOToPBRMaterialDO->IndexPBRMaterialDoService.getIndex
+
+let toComponent = index =>
+  index->IndexPBRMaterialDoService.toComponent->pbrMaterialDOToPBRMaterialVO
 
 let create = () =>
   CreatePBRMaterialDoService.create()->Result.mapSuccess(pbrMaterialDOToPBRMaterialVO)

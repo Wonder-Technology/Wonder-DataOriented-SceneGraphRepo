@@ -1,7 +1,10 @@
 open VODOConvertApService
 
-let getId = cameraView =>
-  cameraView->basicCameraViewVOToBasicCameraViewDO->IndexBasicCameraViewDoService.getId
+let getIndex = cameraView =>
+  cameraView->basicCameraViewVOToBasicCameraViewDO->IndexBasicCameraViewDoService.getIndex
+
+let toComponent = index =>
+  index->IndexBasicCameraViewDoService.toComponent->basicCameraViewDOToBasicCameraViewVO
 
 let create = () => CreateBasicCameraViewDoService.create()->basicCameraViewDOToBasicCameraViewVO
 

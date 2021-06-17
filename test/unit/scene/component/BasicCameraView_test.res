@@ -15,11 +15,11 @@ let _ = describe("BasicCameraView", () => {
   })
   afterEach(() => restoreSandbox(refJsObjToSandbox(sandbox.contents)))
 
-  describe("getId", () => {
+  describe("getIndex", () => {
     test("get cameraView's index", () => {
       let cameraView = create()
 
-      expect(cameraView->getId) == 0
+      expect(cameraView->getIndex) == 0
     })
   })
 
