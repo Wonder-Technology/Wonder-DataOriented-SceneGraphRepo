@@ -24,6 +24,27 @@ let _initBufferData = (count, defaultDataTuple) =>
     ->Result.mapSuccess(typeArrData => (buffer, typeArrData))
   )
 
+let createPOWithSharedArrayBufferData = (
+  {
+    buffer,
+    colors,
+    intensities,
+  }: DirectionLightSharedArrayBufferDataType.directionLightSharedArrayBufferData,
+): DirectionLightPOType.directionLightPO => {
+  let lightCount = ConfigRepo.getDirectionLightCount()
+
+  let defaultColor = (1., 1., 1.)
+  let defaultIntensity = 1.0
+
+  {
+    maxIndex: 0,
+    buffer: buffer,
+    colors: colors,
+    intensities: intensities,
+    gameObjectMap: CreateMapComponentRepoUtils.createEmptyMap(lightCount),
+  }
+}
+
 let createPO = () => {
   let lightCount = ConfigRepo.getDirectionLightCount()
 
@@ -33,11 +54,11 @@ let createPO = () => {
   _initBufferData(lightCount, (defaultColor, defaultIntensity))->Result.mapSuccess(((
     buffer,
     (colors, intensities),
-  )): DirectionLightPOType.directionLightPO => {
-    maxIndex: 0,
-    buffer: buffer,
-    colors: colors,
-    intensities: intensities,
-    gameObjectMap: CreateMapComponentRepoUtils.createEmptyMap(lightCount),
-  })
+  )): DirectionLightPOType.directionLightPO =>
+    createPOWithSharedArrayBufferData({
+      buffer: buffer,
+      colors: colors,
+      intensities: intensities,
+    })
+  )
 }

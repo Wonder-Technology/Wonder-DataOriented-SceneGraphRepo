@@ -1,3 +1,9 @@
+let preparePO = () => {
+  ContainerManager.setPO(CreatePO.create())
+
+  // DirectorForJs._createAndSetAllComponentPOs()->Result.handleFail(err => err->Exception.throwErr)
+}
+
 let init = (
   ~sandbox,
   ~isDebug=true,
@@ -12,7 +18,7 @@ let init = (
 ) => {
   ContainerManager.setPO(CreatePO.create())
 
-  DirectorForJs.init(
+  DirectorForJs.initForNoWorker(
     Obj.magic(21),
     {
       isDebug: isDebug,

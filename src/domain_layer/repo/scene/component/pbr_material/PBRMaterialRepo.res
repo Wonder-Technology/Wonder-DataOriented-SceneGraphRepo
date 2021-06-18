@@ -1,5 +1,7 @@
 open PBRMaterialPOType
 
+open PBRMaterialSharedArrayBufferDataType
+
 let getMaxIndex = () => ContainerManager.getExnPBRMaterial().maxIndex
 
 let setMaxIndex = maxIndex =>
@@ -180,4 +182,28 @@ let setSpecularMap = (material, id) => {
     ...materialPO,
     specularMapMap: specularMapMap->ImmutableSparseMap.set(material, id),
   })
+}
+
+let getSharedArrayBufferData = () => {
+  let {
+    buffer,
+    diffuseColors,
+    speculars,
+    specularColors,
+    roughnesses,
+    metalnesses,
+    transmissions,
+    iors,
+  } = ContainerManager.getExnPBRMaterial()
+
+  {
+    buffer: buffer,
+    diffuseColors: diffuseColors,
+    speculars: speculars,
+    specularColors: specularColors,
+    roughnesses: roughnesses,
+    metalnesses: metalnesses,
+    transmissions: transmissions,
+    iors: iors,
+  }
 }

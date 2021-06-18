@@ -1,0 +1,6 @@
+type sharedArrayBufferData = {
+  transformSharedArrayBufferData: TransformSharedArrayBufferDataType.transformSharedArrayBufferData,
+  pbrMaterialSharedArrayBufferData: PBRMaterialSharedArrayBufferDataType.pbrMaterialSharedArrayBufferData,
+  geometrySharedArrayBufferData: GeometrySharedArrayBufferDataType.geometrySharedArrayBufferData,
+  directionLightSharedArrayBufferData: DirectionLightSharedArrayBufferDataType.directionLightSharedArrayBufferData,
+}

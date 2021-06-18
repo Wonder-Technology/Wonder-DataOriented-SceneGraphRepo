@@ -1,5 +1,7 @@
 open GeometryPOType
 
+open GeometrySharedArrayBufferDataType
+
 open ReallocatedPointsGeometryRepoUtils
 
 open Js.Typed_array
@@ -170,4 +172,34 @@ let getIndicesCount = geometry => {
     BufferGeometryRepoUtils.getInfoIndex(geometry),
     indicesInfos,
   )->Result.mapSuccess(((startIndex, endIndex)) => endIndex - startIndex)
+}
+
+let getSharedArrayBufferData = () => {
+  let {
+    buffer,
+    vertices,
+    texCoords,
+    normals,
+    tangents,
+    indices,
+    verticesInfos,
+    texCoordsInfos,
+    normalsInfos,
+    tangentsInfos,
+    indicesInfos,
+  } = ContainerManager.getExnGeometry()
+
+  {
+    buffer: buffer,
+    vertices: vertices,
+    texCoords: texCoords,
+    normals: normals,
+    tangents: tangents,
+    indices: indices,
+    verticesInfos: verticesInfos,
+    texCoordsInfos: texCoordsInfos,
+    normalsInfos: normalsInfos,
+    tangentsInfos: tangentsInfos,
+    indicesInfos: indicesInfos,
+  }
 }

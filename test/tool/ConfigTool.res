@@ -1,0 +1,3 @@
+let getIsDebug = () => {
+  ConfigApService.getIsDebug()
+}

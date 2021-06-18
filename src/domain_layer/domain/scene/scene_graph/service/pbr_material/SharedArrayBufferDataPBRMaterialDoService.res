@@ -1,0 +1,1 @@
+let getSharedArrayBufferData = PBRMaterialRepo.getSharedArrayBufferData

@@ -20,7 +20,7 @@ let _ = describe("Canvas", () => {
         height: 4,
         getContext: createEmptyStub(refJsObjToSandbox(sandbox.contents)),
       }
-      DirectorTool.init(~canvas, ())
+      DirectorTool.initForNoWorker(~canvas, ())
 
       CanvasTool.getCanvas()->OptionSt.map(VODOConvertApService.canvasDOToCanvasVO)->expect ==
         canvas->Some

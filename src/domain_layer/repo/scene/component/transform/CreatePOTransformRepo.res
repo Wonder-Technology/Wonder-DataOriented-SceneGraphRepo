@@ -37,7 +37,15 @@ let _initBufferData = (count, defaultDataTuple) =>
     ->Result.mapSuccess(typeArrData => (buffer, typeArrData))
   )
 
-let createPO = () => {
+let createPOWithSharedArrayBufferData = (
+  {
+    buffer,
+    localToWorldMatrices,
+    localPositions,
+    localRotations,
+    localScales,
+  }: TransformSharedArrayBufferDataType.transformSharedArrayBufferData,
+): TransformPOType.transformPO => {
   let transformCount = ConfigRepo.getTransformCount()
 
   let defaultLocalToWorldMatrix = (1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1.)
@@ -45,13 +53,7 @@ let createPO = () => {
   let defaultLocalRotation = (0., 0., 0., 1.)
   let defaultLocalScale = (1., 1., 1.)
 
-  _initBufferData(
-    transformCount,
-    (defaultLocalToWorldMatrix, defaultLocalPosition, defaultLocalRotation, defaultLocalScale),
-  )->Result.mapSuccess(((
-    buffer,
-    (localToWorldMatrices, localPositions, localRotations, localScales),
-  )): TransformPOType.transformPO => {
+  {
     maxIndex: 0,
     buffer: buffer,
     localToWorldMatrices: localToWorldMatrices,
@@ -66,5 +68,34 @@ let createPO = () => {
     childrenMap: CreateMapComponentRepoUtils.createEmptyMap(transformCount),
     gameObjectMap: CreateMapComponentRepoUtils.createEmptyMap(transformCount),
     dirtyMap: CreateMapComponentRepoUtils.createEmptyMap(transformCount),
-  })
+  }
+}
+
+let createPO = () => {
+  let transformCount = ConfigRepo.getTransformCount()
+
+  let defaultLocalToWorldMatrix = (1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1., 0., 0., 0., 0., 1.)
+  let defaultLocalPosition = (0., 0., 0.)
+  let defaultLocalRotation = (0., 0., 0., 1.)
+  let defaultLocalScale = (1., 1., 1.)
+
+  _initBufferData(
+    transformCount,
+    (defaultLocalToWorldMatrix, defaultLocalPosition, defaultLocalRotation, defaultLocalScale),
+  )->Result.mapSuccess(((
+    buffer,
+    (localToWorldMatrices, localPositions, localRotations, localScales),
+  )): TransformPOType.transformPO =>
+    createPOWithSharedArrayBufferData(
+      (
+        {
+          buffer: buffer,
+          localToWorldMatrices: localToWorldMatrices,
+          localPositions: localPositions,
+          localRotations: localRotations,
+          localScales: localScales,
+        }: TransformSharedArrayBufferDataType.transformSharedArrayBufferData
+      ),
+    )
+  )
 }

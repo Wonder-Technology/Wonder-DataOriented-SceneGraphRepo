@@ -93,3 +93,9 @@ external arcballCameraControllerDOToArcballCameraControllerVO: ArcballCameraCont
 
 external arcballCameraControllerVOToArcballCameraControllerDO: WonderEngineAbstract.ISceneGraphRepoForJs.arcballCameraController => ArcballCameraControllerEntity.t =
   "%identity"
+
+external sharedArrayBufferDataDOToSharedArrayBufferDataVO: SharedArrayBufferDataType.sharedArrayBufferData => WonderEngineAbstract.ISceneGraphRepoForJs.sharedArrayBufferData =
+  "%identity"
+
+external sharedArrayBufferDataVOToSharedArrayBufferDataDO: WonderEngineAbstract.ISceneGraphRepoForJs.sharedArrayBufferData => SharedArrayBufferDataType.sharedArrayBufferData =
+  "%identity"

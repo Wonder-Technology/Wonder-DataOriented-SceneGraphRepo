@@ -1,5 +1,7 @@
 open TransformPOType
 
+open TransformSharedArrayBufferDataType
+
 let getMaxIndex = () => ContainerManager.getExnTransform().maxIndex
 
 let setMaxIndex = maxIndex =>
@@ -136,3 +138,21 @@ let setLocalScale = (transform, scale) =>
     scale,
     ContainerManager.getExnTransform().localScales,
   )
+
+let getSharedArrayBufferData = () => {
+  let {
+    buffer,
+    localToWorldMatrices,
+    localPositions,
+    localRotations,
+    localScales,
+  } = ContainerManager.getExnTransform()
+
+  {
+    buffer: buffer,
+    localToWorldMatrices: localToWorldMatrices,
+    localPositions: localPositions,
+    localRotations: localRotations,
+    localScales: localScales,
+  }
+}

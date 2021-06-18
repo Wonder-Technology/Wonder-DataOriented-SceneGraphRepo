@@ -1,4 +1,4 @@
-let init = (
+let initForNoWorker = (
   ~canvas=Obj.magic(221),
   ~isDebug=true,
   ~transformCount=10,
@@ -10,7 +10,7 @@ let init = (
   ~float32Array1=Js.Typed_array.Float32Array.make([]),
   (),
 ) =>
-  DirectorForJs.buildSceneGraphRepo().init(
+  DirectorForJs.buildSceneGraphRepoForNoWorker().init(
     canvas,
     {
       isDebug: isDebug,
@@ -22,3 +22,5 @@ let init = (
     },
     {float9Array1: float9Array1, float32Array1: float32Array1},
   )
+
+

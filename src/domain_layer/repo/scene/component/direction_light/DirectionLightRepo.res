@@ -1,5 +1,7 @@
 open DirectionLightPOType
 
+open DirectionLightSharedArrayBufferDataType
+
 let getMaxIndex = () => ContainerManager.getExnDirectionLight().maxIndex
 
 let setMaxIndex = maxIndex =>
@@ -45,3 +47,9 @@ let setIntensity = (light, intensity) =>
     intensity,
     ContainerManager.getExnDirectionLight().intensities,
   )
+
+let getSharedArrayBufferData = () => {
+  let {buffer, colors, intensities} = ContainerManager.getExnDirectionLight()
+
+  {buffer: buffer, colors: colors, intensities: intensities}
+}
