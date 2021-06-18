@@ -147,6 +147,7 @@ let buildSceneGraphRepo = (): WonderEngineAbstract.ISceneGraphRepoForJs.sceneGra
     getLocalToWorldMatrix: TransformApService.getLocalToWorldMatrix,
     getNormalMatrix: transform => TransformApService.getNormalMatrix(transform)->Result.getExn,
     lookAt: (transform, target) => TransformApService.lookAt(transform, target)->Result.getExn,
+    update: () => TransformApService.update(),
   },
   geometryRepo: {
     getIndex: GeometryApService.getIndex,

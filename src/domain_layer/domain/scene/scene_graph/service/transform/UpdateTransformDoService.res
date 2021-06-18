@@ -96,3 +96,9 @@ let updateAndGetEulerAngles = transform => {
 
 let updateAndSetEulerAngles = (transform, eulerAngles) =>
   updateAndSetRotation(transform, eulerAngles->EulerAnglesVO.convertToQuaternion->RotationVO.create)
+
+let update = () => {
+  for i in 0 to IndexTransformDoService.getMaxIndex() - 1 {
+    mutableUpdate(i->TransformEntity.create)
+  }
+}

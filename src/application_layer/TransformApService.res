@@ -145,3 +145,5 @@ let lookAt = (transform, target) =>
     ~target=target->TargetVO.create,
     (),
   )
+
+let update = UpdateTransformDoService.update

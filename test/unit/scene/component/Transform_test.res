@@ -719,4 +719,25 @@ let _ = describe("Transform", () => {
       getEulerAngles(transform)->expect == (180., -0., 180.)->EulerAnglesTool.createFromPrimitive
     })
   )
+
+  describe("update", () =>
+    test("update all transforms", () => {
+      let parent1 = create()->ResultTool.getExnSuccessValue
+      let child1 = create()->ResultTool.getExnSuccessValue
+      let transform3 = create()->ResultTool.getExnSuccessValue
+      setParent(parent1, child1)->ResultTool.getExnSuccessValue
+
+      let pos1 = (1., 2., 3.)->PositionTool.create
+      let pos2 = (3., 2., 3.)->PositionTool.create
+      let pos3 = (3., 6., 3.)->PositionTool.create
+      setLocalPosition(parent1, pos1)->ResultTool.getExnSuccessValue
+      setLocalPosition(child1, pos2)->ResultTool.getExnSuccessValue
+      setLocalPosition(transform3, pos3)->ResultTool.getExnSuccessValue
+
+      updateAll()
+
+      (getPosition(child1), getPosition(transform3))->expect ==
+        ((4., 4., 6.)->PositionTool.create, (3., 6., 3.)->PositionTool.create)
+    })
+  )
 })

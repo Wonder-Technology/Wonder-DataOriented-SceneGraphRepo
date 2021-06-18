@@ -100,3 +100,5 @@ let getDefaultLocalToWorldMatrixTypeArray = () =>
   ContainerManager.getExnTransform().defaultLocalToWorldMatrix->Obj.magic->Float32Array.make
 
 let update = transform => UpdateTransformDoService.mutableUpdate(transform)
+
+let updateAll = UpdateTransformDoService.update
