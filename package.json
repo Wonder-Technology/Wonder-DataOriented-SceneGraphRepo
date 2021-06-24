@@ -1,6 +1,6 @@
 {
   "name": "wonder-dataoriented-scenegraphrepo",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "authors": "Wonder",
   "description": "",
   "homepage": "https://github.com/Wonder-Technology/Wonder-DataOriented-SceneGraphRepo",
@@ -27,11 +27,11 @@
     "jest": "^25.2.3",
     "gentype": "^3.48.0",
     "wonder-bs-jest": "^0.3.0",
-    "wonder-bs-sinon": "^0.1.9"
+    "wonder-bs-sinon": "^0.1.9",
+    "rescript": "^9.1.4"
   },
   "dependencies": {
-    "bs-platform": "^8.3.3",
     "wonder-bs-most": "^0.0.3",
-    "wonder-engine-abstract": "^0.0.15"
+    "wonder-engine-abstract": "^0.0.16"
   }
 }
