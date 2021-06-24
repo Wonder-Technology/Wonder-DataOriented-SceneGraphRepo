@@ -8,8 +8,8 @@
   "license": "MIT",
   "main": "",
   "scripts": {
-    "watch": "bsb -clean-world -make-world -w",
-    "build": "bsb -clean-world -make-world",
+    "watch": "rescript build -w",
+    "build": "rescript",
     "test:watch": "jest --watch --config jest.json"
   },
   "config": {
