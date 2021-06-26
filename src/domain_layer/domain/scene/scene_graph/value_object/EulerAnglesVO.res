@@ -7,7 +7,7 @@ let value = eulerAngles =>
   | EulerAngles(value) => value
   }
 
-let getPrimitiveValue = eulerAngles => eulerAngles->value->Tuple3.map(AngleVO.value)
+let getPrimitiveValue = eulerAngles => eulerAngles->value->WonderCommonlib.Tuple3.map(AngleVO.value)
 
 let convertToQuaternion = eulerAngles =>
   eulerAngles->getPrimitiveValue->Quaternion.setFromEulerAngles

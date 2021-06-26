@@ -14,7 +14,7 @@ let setMaxIndex = maxIndex =>
   ContainerManager.setGeometry({...ContainerManager.getExnGeometry(), maxIndex: maxIndex})
 
 let getGameObjects = geometry =>
-  ContainerManager.getExnGeometry().gameObjectsMap->ImmutableSparseMap.get(geometry)
+  ContainerManager.getExnGeometry().gameObjectsMap->WonderCommonlib.ImmutableSparseMap.get(geometry)
 
 let addGameObject = (geometry, gameObject) => {
   let {gameObjectsMap} as geometryPO = ContainerManager.getExnGeometry()
@@ -42,7 +42,7 @@ let setVertices = (geometry, data) => {
       Float32Array.length(data),
     ),
     fillFloat32ArrayWithOffset(vertices, data),
-  )->Result.mapSuccess(verticesOffset =>
+  )->WonderCommonlib.Result.mapSuccess(verticesOffset =>
     ContainerManager.setGeometry({...geometryPO, verticesOffset: verticesOffset})
   )
 }
@@ -64,7 +64,7 @@ let setNormals = (geometry, data) => {
       Float32Array.length(data),
     ),
     fillFloat32ArrayWithOffset(normals, data),
-  )->Result.mapSuccess(normalsOffset =>
+  )->WonderCommonlib.Result.mapSuccess(normalsOffset =>
     ContainerManager.setGeometry({...geometryPO, normalsOffset: normalsOffset})
   )
 }
@@ -86,7 +86,7 @@ let setTexCoords = (geometry, data) => {
       Float32Array.length(data),
     ),
     fillFloat32ArrayWithOffset(texCoords, data),
-  )->Result.mapSuccess(texCoordsOffset =>
+  )->WonderCommonlib.Result.mapSuccess(texCoordsOffset =>
     ContainerManager.setGeometry({...geometryPO, texCoordsOffset: texCoordsOffset})
   )
 }
@@ -108,7 +108,7 @@ let setTangents = (geometry, data) => {
       Float32Array.length(data),
     ),
     fillFloat32ArrayWithOffset(tangents, data),
-  )->Result.mapSuccess(tangentsOffset =>
+  )->WonderCommonlib.Result.mapSuccess(tangentsOffset =>
     ContainerManager.setGeometry({...geometryPO, tangentsOffset: tangentsOffset})
   )
 }
@@ -130,7 +130,7 @@ let setIndices = (geometry, data) => {
       Uint32Array.length(data),
     ),
     fillUint32ArrayWithOffset(indices, data),
-  )->Result.mapSuccess(indicesOffset =>
+  )->WonderCommonlib.Result.mapSuccess(indicesOffset =>
     ContainerManager.setGeometry({...geometryPO, indicesOffset: indicesOffset})
   )
 }
@@ -171,7 +171,7 @@ let getIndicesCount = geometry => {
   ReallocatedPointsGeometryRepoUtils.getInfo(
     BufferGeometryRepoUtils.getInfoIndex(geometry),
     indicesInfos,
-  )->Result.mapSuccess(((startIndex, endIndex)) => endIndex - startIndex)
+  )->WonderCommonlib.Result.mapSuccess(((startIndex, endIndex)) => endIndex - startIndex)
 }
 
 let getSharedArrayBufferData = () => {

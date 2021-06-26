@@ -12,41 +12,41 @@ let test = (message, func) =>
     ? ()
     : Js.Exn.raiseError(message)
 
-let requireCheck = // (f: unit => (string, bool), isTest: bool): Result.t2(unit) =>
-(f: unit => unit, isTest: bool): Result.t2<unit> =>
+let requireCheck = // (f: unit => (string, bool), isTest: bool): WonderCommonlib.Result.t2(unit) =>
+(f: unit => unit, isTest: bool): WonderCommonlib.Result.t2<unit> =>
   isTest
-    ? try f()->Result.succeed catch {
-      | Js.Exn.Error(e) => Result.fail(e)
+    ? try f()->WonderCommonlib.Result.succeed catch {
+      | Js.Exn.Error(e) => WonderCommonlib.Result.fail(e)
       }
-    : Result.succeed()
+    : WonderCommonlib.Result.succeed()
 
 // switch (isTest) {
 // | true =>
 //   let (message, isPass) = f();
 
 //   switch (isPass) {
-//   | false => Result.fail(Js.Exn.raiseError(message))
-//   | true => Result.succeed()
+//   | false => WonderCommonlib.Result.fail(Js.Exn.raiseError(message))
+//   | true => WonderCommonlib.Result.succeed()
 //   };
-// | _ => Result.succeed()
+// | _ => WonderCommonlib.Result.succeed()
 // };
 
-let ensureCheck = // (returnVal: 'a, f: 'a => (string, bool), isTest: bool): Result.t2('a) =>
-(returnVal: 'a, f: 'a => unit, isTest: bool): Result.t2<'a> =>
+let ensureCheck = // (returnVal: 'a, f: 'a => (string, bool), isTest: bool): WonderCommonlib.Result.t2('a) =>
+(returnVal: 'a, f: 'a => unit, isTest: bool): WonderCommonlib.Result.t2<'a> =>
   // switch (isTest) {
   // | true =>
   //   let (message, isPass) = f(returnVal);
   //   switch (isPass) {
-  //   | false => Result.fail(Js.Exn.raiseError(message))
-  //   | true => Result.succeed(returnVal)
+  //   | false => WonderCommonlib.Result.fail(Js.Exn.raiseError(message))
+  //   | true => WonderCommonlib.Result.succeed(returnVal)
   //   };
-  // | _ => Result.succeed(returnVal)
+  // | _ => WonderCommonlib.Result.succeed(returnVal)
   // };
   isTest
-    ? try f(returnVal)->Result.succeed->Result.mapSuccess(() => returnVal) catch {
-      | Js.Exn.Error(e) => Result.fail(e)
+    ? try f(returnVal)->WonderCommonlib.Result.succeed->WonderCommonlib.Result.mapSuccess(() => returnVal) catch {
+      | Js.Exn.Error(e) => WonderCommonlib.Result.fail(e)
       }
-    : Result.succeed(returnVal)
+    : WonderCommonlib.Result.succeed(returnVal)
 
 let assertPass = () => true
 

@@ -7,7 +7,7 @@ let clamp = (num, below, up) => {
     test(Log.buildAssertMessage(~expect={j`below <= up`}, ~actual={j`not`}), () =>
       assertLte(Float, below, up)
     )
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() => {
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() => {
     num < below ? below : num > up ? up : num
   })
 }

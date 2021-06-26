@@ -1,1 +1,1 @@
-let createEmptyMap = componentCount => ImmutableSparseMap.createEmpty(~hintSize=componentCount, ())
+let createEmptyMap = componentCount => WonderCommonlib.ImmutableSparseMap.createEmpty(~hintSize=componentCount, ())

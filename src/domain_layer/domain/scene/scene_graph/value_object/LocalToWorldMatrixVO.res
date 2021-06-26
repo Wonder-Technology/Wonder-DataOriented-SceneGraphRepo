@@ -27,6 +27,8 @@ let getRotation = mat => Matrix4.getRotationTuple(mat->value)->RotationVO.create
 let getScale = mat => Matrix4.getScaleTuple(mat->value)->ScaleVO.create
 
 let getEulerAngles = mat =>
-  Matrix4.getEulerAngles(mat->value)->Tuple3.map(AngleVO.create)->EulerAnglesVO.create
+  Matrix4.getEulerAngles(mat->value)
+  ->WonderCommonlib.Tuple3.map(AngleVO.create)
+  ->EulerAnglesVO.create
 
 let invert = (result, mat) => result->Matrix4.invert(mat->value)

@@ -14,7 +14,7 @@ let _addComponent = (
   (hasComponentFunc, addComponentFunc, handleAddComponentFunc),
   (gameObject, component),
 ) =>
-  _check(hasComponentFunc, gameObject)->Result.mapSuccess(() => {
+  _check(hasComponentFunc, gameObject)->WonderCommonlib.Result.mapSuccess(() => {
     addComponentFunc(gameObject, component)
 
     handleAddComponentFunc(. component, gameObject)

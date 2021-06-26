@@ -11,13 +11,13 @@ let create = () => CreateBasicCameraViewDoService.create()->basicCameraViewDOToB
 let getGameObject = cameraView =>
   GameObjectBasicCameraViewDoService.getGameObject(
     cameraView->basicCameraViewVOToBasicCameraViewDO,
-  )->OptionSt.map(gameObjectDOToGameObjectVO)
+  )->WonderCommonlib.OptionSt.map(gameObjectDOToGameObjectVO)
 
 let getViewWorldToCameraMatrix = cameraView =>
   ViewMatrixBasicCameraViewDoService.getViewWorldToCameraMatrix(
     cameraView->basicCameraViewVOToBasicCameraViewDO,
-  )->Result.mapSuccess(viewWorldToCameraMatrix =>
-    viewWorldToCameraMatrix->OptionSt.map(ViewMatrixVO.value)
+  )->WonderCommonlib.Result.mapSuccess(viewWorldToCameraMatrix =>
+    viewWorldToCameraMatrix->WonderCommonlib.OptionSt.map(ViewMatrixVO.value)
   )
 
 let isActive = cameraView =>
@@ -36,6 +36,6 @@ let setActive = (cameraView, isActive) =>
   )
 
 let getActiveBasicCameraView = () =>
-  ActiveBasicCameraViewDoService.getActiveCameraView()->Result.mapSuccess(cameraView =>
-    cameraView->OptionSt.map(basicCameraViewDOToBasicCameraViewVO)
+  ActiveBasicCameraViewDoService.getActiveCameraView()->WonderCommonlib.Result.mapSuccess(cameraView =>
+    cameraView->WonderCommonlib.OptionSt.map(basicCameraViewDOToBasicCameraViewVO)
   )

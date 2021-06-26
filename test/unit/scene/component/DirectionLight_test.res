@@ -59,7 +59,7 @@ let _ = describe("DirectionLight", () => {
       GameObjectTool.addDirectionLight(gameObject1, light)->ResultTool.getExnSuccessValueIgnore
       GameObjectTool.addDirectionLight(gameObject2, light)->ResultTool.getExnSuccessValueIgnore
 
-      getGameObject(light)->OptionSt.getExn->expect == gameObject2
+      getGameObject(light)->WonderCommonlib.OptionSt.getExn->expect == gameObject2
     })
   )
 

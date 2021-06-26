@@ -51,6 +51,6 @@ let truncateColor = color => {
 
 let getDirection = light =>
   DirectionDirectionLightDoService.getDirection(light)
-  ->OptionSt.getExn
+  ->WonderCommonlib.OptionSt.getExn
   ->DirectionVO.value
   ->Vector3Tool.truncate(3)

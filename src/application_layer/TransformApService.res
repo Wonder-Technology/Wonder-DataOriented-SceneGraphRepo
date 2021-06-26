@@ -4,15 +4,15 @@ let getIndex = transform => transform->transformVOToTransformDO->IndexTransformD
 
 let toComponent = index => index->IndexTransformDoService.toComponent->transformDOToTransformVO
 
-let create = () => CreateTransformDoService.create()->Result.mapSuccess(transformDOToTransformVO)
+let create = () => CreateTransformDoService.create()->WonderCommonlib.Result.mapSuccess(transformDOToTransformVO)
 
 let getGameObject = transform =>
-  GameObjectTransformDoService.getGameObject(transform->transformVOToTransformDO)->OptionSt.map(
+  GameObjectTransformDoService.getGameObject(transform->transformVOToTransformDO)->WonderCommonlib.OptionSt.map(
     gameObjectDOToGameObjectVO,
   )
 
 let getParent = transform =>
-  HierachyTransformDoService.getParent(transform->transformVOToTransformDO)->OptionSt.map(
+  HierachyTransformDoService.getParent(transform->transformVOToTransformDO)->WonderCommonlib.OptionSt.map(
     transformDOToTransformVO,
   )
 
@@ -31,7 +31,7 @@ let removeParent = parent =>
 let getChildren = transform =>
   HierachyTransformDoService.getChildren(
     transform->transformVOToTransformDO,
-  )->OptionSt.map(children => children->ListSt.map(transformDOToTransformVO))
+  )->WonderCommonlib.OptionSt.map(children => children->WonderCommonlib.ListSt.map(transformDOToTransformVO))
 
 let getLocalPosition = transform =>
   ModelMatrixTransformDoService.getLocalPosition(
@@ -103,7 +103,7 @@ let getLocalEulerAngles = transform =>
 let setLocalEulerAngles = (transform, localEulerAngles) =>
   ModelMatrixTransformDoService.setLocalEulerAngles(
     transform->transformVOToTransformDO,
-    localEulerAngles->Tuple3.map(AngleVO.create)->EulerAnglesVO.create,
+    localEulerAngles->WonderCommonlib.Tuple3.map(AngleVO.create)->EulerAnglesVO.create,
   )
 
 let getEulerAngles = transform =>
@@ -114,7 +114,7 @@ let getEulerAngles = transform =>
 let setEulerAngles = (transform, eulerAngles) =>
   UpdateTransformDoService.updateAndSetEulerAngles(
     transform->transformVOToTransformDO,
-    eulerAngles->Tuple3.map(AngleVO.create)->EulerAnglesVO.create,
+    eulerAngles->WonderCommonlib.Tuple3.map(AngleVO.create)->EulerAnglesVO.create,
   )
 
 let rotateLocalOnAxis = (transform, (angle, localAxis)) =>
@@ -137,7 +137,7 @@ let getLocalToWorldMatrix = transform =>
 let getNormalMatrix = transform =>
   ModelMatrixTransformDoService.getNormalMatrix(
     transform->transformVOToTransformDO,
-  )->Result.mapSuccess(NormalMatrixVO.value)
+  )->WonderCommonlib.Result.mapSuccess(NormalMatrixVO.value)
 
 let lookAt = (transform, target) =>
   LookAtTransformDoService.lookAt(

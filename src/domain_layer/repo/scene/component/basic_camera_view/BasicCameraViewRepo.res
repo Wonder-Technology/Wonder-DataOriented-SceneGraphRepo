@@ -9,28 +9,28 @@ let setMaxIndex = maxIndex =>
   })
 
 let getGameObject = cameraView =>
-  ContainerManager.getBasicCameraView().gameObjectMap->ImmutableSparseMap.get(cameraView)
+  ContainerManager.getBasicCameraView().gameObjectMap->WonderCommonlib.ImmutableSparseMap.get(cameraView)
 
 let setGameObject = (cameraView, gameObject) => {
   let {gameObjectMap} as cameraViewPO = ContainerManager.getBasicCameraView()
 
   ContainerManager.setBasicCameraView({
     ...cameraViewPO,
-    gameObjectMap: gameObjectMap->ImmutableSparseMap.set(cameraView, gameObject),
+    gameObjectMap: gameObjectMap->WonderCommonlib.ImmutableSparseMap.set(cameraView, gameObject),
   })
 }
 
 let isActive = cameraView =>
   ContainerManager.getBasicCameraView().isActiveMap
-  ->ImmutableSparseMap.get(cameraView)
-  ->OptionSt.getWithDefault(false)
+  ->WonderCommonlib.ImmutableSparseMap.get(cameraView)
+  ->WonderCommonlib.OptionSt.getWithDefault(false)
 
 let setAllNotActive = () => {
   let {isActiveMap} as cameraViewPO = ContainerManager.getBasicCameraView()
 
   ContainerManager.setBasicCameraView({
     ...cameraViewPO,
-    isActiveMap: isActiveMap->ImmutableSparseMap.map((. value) => false),
+    isActiveMap: isActiveMap->WonderCommonlib.ImmutableSparseMap.map((. value) => false),
   })
 }
 
@@ -39,14 +39,14 @@ let setActive = (cameraView, isActive) => {
 
   ContainerManager.setBasicCameraView({
     ...cameraViewPO,
-    isActiveMap: isActiveMap->ImmutableSparseMap.set(cameraView, isActive),
+    isActiveMap: isActiveMap->WonderCommonlib.ImmutableSparseMap.set(cameraView, isActive),
   })
 }
 
 let getActiveBasicCameraViews = () =>
   ContainerManager.getBasicCameraView().isActiveMap
-  ->ImmutableSparseMap.reducei(
-    (. list, isActive, cameraView) => isActive === true ? list->ListSt.push(cameraView) : list,
+  ->WonderCommonlib.ImmutableSparseMap.reducei(
+    (. list, isActive, cameraView) => isActive === true ? list->WonderCommonlib.ListSt.push(cameraView) : list,
     list{},
   )
   ->Contract.ensureCheck(r => {
@@ -54,6 +54,6 @@ let getActiveBasicCameraViews = () =>
     open Operators
     test(
       Log.buildAssertMessage(~expect=j`only has one active cameraView at most`, ~actual=j`not`),
-      () => r->ListSt.length <= 1,
+      () => r->WonderCommonlib.ListSt.length <= 1,
     )
   }, ConfigRepo.getIsDebug())

@@ -1,7 +1,7 @@
 open VODOConvertApService
 
 let getCanvas = () => {
-  CanvasEntity.getCanvas()->OptionSt.map(canvasDOToCanvasVO)
+  CanvasEntity.getCanvas()->WonderCommonlib.OptionSt.map(canvasDOToCanvasVO)
 }
 
 let setCanvas = canvas => {

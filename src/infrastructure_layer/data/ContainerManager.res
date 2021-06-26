@@ -65,7 +65,7 @@ let setGameObject = gameObject => {
 let getExnTransform = () => {
   let po = getPO()
 
-  po.transform->OptionSt.getExn
+  po.transform->WonderCommonlib.OptionSt.getExn
 }
 
 let setTransform = transform => {
@@ -77,7 +77,7 @@ let setTransform = transform => {
 let getExnGeometry = () => {
   let po = getPO()
 
-  po.geometry->OptionSt.getExn
+  po.geometry->WonderCommonlib.OptionSt.getExn
 }
 
 let setGeometry = geometry => {
@@ -89,7 +89,7 @@ let setGeometry = geometry => {
 let getExnPBRMaterial = () => {
   let po = getPO()
 
-  po.pbrMaterial->OptionSt.getExn
+  po.pbrMaterial->WonderCommonlib.OptionSt.getExn
 }
 
 let setPBRMaterial = pbrMaterial => {
@@ -101,7 +101,7 @@ let setPBRMaterial = pbrMaterial => {
 let getExnDirectionLight = () => {
   let po = getPO()
 
-  po.directionLight->OptionSt.getExn
+  po.directionLight->WonderCommonlib.OptionSt.getExn
 }
 
 let setDirectionLight = directionLight => {

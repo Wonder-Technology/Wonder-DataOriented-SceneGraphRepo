@@ -5,7 +5,7 @@ let create = () => {
 
   let gameObject = uid->GameObjectEntity.create
 
-  CreateTransformDoService.create()->Result.bind(transform =>
+  CreateTransformDoService.create()->WonderCommonlib.Result.bind(transform =>
     gameObject->AddComponentGameObjectDoService.addTransform(transform)
   )
 }

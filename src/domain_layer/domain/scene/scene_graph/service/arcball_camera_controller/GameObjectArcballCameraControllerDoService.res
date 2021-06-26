@@ -1,4 +1,4 @@
 let getGameObject = camerController =>
   ArcballCameraControllerRepo.getGameObject(
     camerController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(GameObjectEntity.create)
+  )->WonderCommonlib.OptionSt.map(GameObjectEntity.create)

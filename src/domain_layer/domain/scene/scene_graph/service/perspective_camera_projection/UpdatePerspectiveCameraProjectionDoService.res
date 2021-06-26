@@ -2,12 +2,12 @@ let updateCameraProjection = cameraProjection =>
   switch FrustumPerspectiveCameraProjectionDoService.getAspect(cameraProjection) {
   | None =>
     CanvasEntity.getCanvas()
-    ->OptionSt.get
-    ->Result.mapSuccess(({width, height}: CanvasEntity.t) =>
+    ->WonderCommonlib.OptionSt.get
+    ->WonderCommonlib.Result.mapSuccess(({width, height}: CanvasEntity.t) =>
       (width, height)->FrustumPerspectiveCameraProjectionDoService.computeAspect
     )
-  | Some(aspect) => aspect->Result.succeed
-  }->Result.bind(aspect =>
+  | Some(aspect) => aspect->WonderCommonlib.Result.succeed
+  }->WonderCommonlib.Result.bind(aspect =>
     switch (
       FrustumPerspectiveCameraProjectionDoService.getFovy(cameraProjection),
       FrustumPerspectiveCameraProjectionDoService.getNear(cameraProjection),
@@ -21,7 +21,7 @@ let updateCameraProjection = cameraProjection =>
         near->NearVO.value,
         far->FarVO.value,
       ))
-      ->Result.mapSuccess(pMatrix =>
+      ->WonderCommonlib.Result.mapSuccess(pMatrix =>
         pMatrix
         ->ProjectionMatrixVO.create
         ->PMatrixPerspectiveCameraProjectionDoService.setPMatrix(cameraProjection, _)
@@ -33,13 +33,13 @@ let updateCameraProjection = cameraProjection =>
         ~reason="",
         ~solution=j``,
         ~params=j`cameraProjection: $cameraProjection`,
-      )->Result.failWith
+      )->WonderCommonlib.Result.failWith
     }
   )
 
 let update = () =>
   DirtyPerspectiveCameraProjectionDoService.getUniqueDirtyList()
-  ->ListSt.traverseResultM(cameraProjection => updateCameraProjection(cameraProjection))
-  ->Result.mapSuccess(_ => {
+  ->WonderCommonlib.ListSt.traverseResultM(cameraProjection => updateCameraProjection(cameraProjection))
+  ->WonderCommonlib.Result.mapSuccess(_ => {
     PerspectiveCameraProjectionRepo.clearDirtyList()
   })

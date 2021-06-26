@@ -1,7 +1,7 @@
 let getFovy = cameraProjection =>
   PerspectiveCameraProjectionRepo.getFovy(
     cameraProjection->PerspectiveCameraProjectionEntity.value,
-  )->OptionSt.map(FovyVO.create)
+  )->WonderCommonlib.OptionSt.map(FovyVO.create)
 
 let setFovy = (cameraProjection, fovy) => {
   PerspectiveCameraProjectionRepo.setFovy(
@@ -17,7 +17,7 @@ let setFovy = (cameraProjection, fovy) => {
 let getAspect = cameraProjection =>
   PerspectiveCameraProjectionRepo.getAspect(
     cameraProjection->PerspectiveCameraProjectionEntity.value,
-  )->OptionSt.map(AspectVO.create)
+  )->WonderCommonlib.OptionSt.map(AspectVO.create)
 
 let setAspect = (cameraProjection, aspect) => {
   PerspectiveCameraProjectionRepo.setAspect(
@@ -33,7 +33,7 @@ let setAspect = (cameraProjection, aspect) => {
 let getNear = cameraProjection =>
   PerspectiveCameraProjectionRepo.getNear(
     cameraProjection->PerspectiveCameraProjectionEntity.value,
-  )->OptionSt.map(NearVO.create)
+  )->WonderCommonlib.OptionSt.map(NearVO.create)
 
 let setNear = (cameraProjection, near) => {
   PerspectiveCameraProjectionRepo.setNear(
@@ -49,7 +49,7 @@ let setNear = (cameraProjection, near) => {
 let getFar = cameraProjection =>
   PerspectiveCameraProjectionRepo.getFar(
     cameraProjection->PerspectiveCameraProjectionEntity.value,
-  )->OptionSt.map(FarVO.create)
+  )->WonderCommonlib.OptionSt.map(FarVO.create)
 
 let setFar = (cameraProjection, far) => {
   PerspectiveCameraProjectionRepo.setFar(

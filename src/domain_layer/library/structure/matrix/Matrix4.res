@@ -251,7 +251,7 @@ let buildPerspective = (resultFloat32Arr, (fovy: float, aspect: float, near: flo
       let fovy = Js.Math._PI *. fovy /. 180. /. 2.
       \"<>=."(Js.Math.sin(fovy), 0.)
     })
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() => {
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() => {
     let fovy = Js.Math._PI *. fovy /. 180. /. 2.
     let s = Js.Math.sin(fovy)
     let rd = 1. /. (far -. near)
@@ -309,7 +309,7 @@ let invert = (resultFloat32Arr, mat: Float32Array.t) => {
   let det = ref(b00 *. b11 -. b01 *. b10 +. b02 *. b09 +. b03 *. b08 -. b04 *. b07 +. b05 *. b06)
   switch det.contents {
   | 0. =>
-    Result.failWith(
+    WonderCommonlib.Result.failWith(
       Log.buildFatalMessage(
         ~title="invert",
         ~description=j`det shouldn't be 0.`,
@@ -401,7 +401,7 @@ let invert = (resultFloat32Arr, mat: Float32Array.t) => {
       (a20 *. b03 -. a21 *. b01 +. a22 *. b00) *. det.contents,
     )
 
-    resultFloat32Arr->Result.succeed
+    resultFloat32Arr->WonderCommonlib.Result.succeed
   }
 }
 
@@ -435,7 +435,7 @@ let invertTo3x3 = (resultFloat32Arr, mat: Float32Array.t) => {
   let det = ref(a00 *. b11 +. a01 *. b12 +. a02 *. b13)
   switch det.contents {
   | 0. =>
-    Result.failWith(
+    WonderCommonlib.Result.failWith(
       Log.buildFatalMessage(
         ~title="invert",
         ~description=j`det shouldn't be 0.`,
@@ -456,7 +456,7 @@ let invertTo3x3 = (resultFloat32Arr, mat: Float32Array.t) => {
     Float32Array.unsafe_set(resultFloat32Arr, 7, b23 *. det.contents)
     Float32Array.unsafe_set(resultFloat32Arr, 8, b33 *. det.contents)
 
-    resultFloat32Arr->Result.succeed
+    resultFloat32Arr->WonderCommonlib.Result.succeed
   }
 }
 

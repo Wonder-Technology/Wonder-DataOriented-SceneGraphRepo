@@ -2,7 +2,7 @@ let _initBufferData = (geometryPointCount, geometryCount) =>
   BufferGeometryRepoUtils.createBuffer(
     geometryPointCount,
     geometryCount,
-  )->Result.mapSuccess(buffer => (
+  )->WonderCommonlib.Result.mapSuccess(buffer => (
     buffer,
     CreateTypeArrayGeometryRepoUtils.createTypeArrays(buffer, geometryPointCount, geometryCount),
   ))
@@ -50,7 +50,7 @@ let createPO = () => {
   let geometryPointCount = ConfigRepo.getGeometryPointCount()
   let geometryCount = ConfigRepo.getGeometryCount()
 
-  _initBufferData(geometryPointCount, geometryCount)->Result.mapSuccess(((
+  _initBufferData(geometryPointCount, geometryCount)->WonderCommonlib.Result.mapSuccess(((
     buffer,
     (
       vertices,

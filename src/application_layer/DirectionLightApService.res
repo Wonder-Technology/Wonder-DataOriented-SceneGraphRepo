@@ -7,12 +7,12 @@ let toComponent = index =>
   index->IndexDirectionLightDoService.toComponent->directionLightDOToDirectionLightVO
 
 let create = () =>
-  CreateDirectionLightDoService.create()->Result.mapSuccess(directionLightDOToDirectionLightVO)
+  CreateDirectionLightDoService.create()->WonderCommonlib.Result.mapSuccess(directionLightDOToDirectionLightVO)
 
 let getGameObject = light =>
   GameObjectDirectionLightDoService.getGameObject(
     light->directionLightVOToDirectionLightDO,
-  )->OptionSt.map(gameObjectDOToGameObjectVO)
+  )->WonderCommonlib.OptionSt.map(gameObjectDOToGameObjectVO)
 
 let getColor = light =>
   OperateDirectionLightDoService.getColor(light->directionLightVOToDirectionLightDO)->Color3VO.value
@@ -36,12 +36,12 @@ let setIntensity = (light, intensity) =>
 
 let getAllLights = () =>
   AllDirectionLightsDoService.getAllLights()
-  ->ListSt.map(directionLightDOToDirectionLightVO)
-  ->ListSt.toArray
+  ->WonderCommonlib.ListSt.map(directionLightDOToDirectionLightVO)
+  ->WonderCommonlib.ListSt.toArray
 
 let getDirection = light =>
   DirectionDirectionLightDoService.getDirection(
     light->directionLightVOToDirectionLightDO,
-  )->OptionSt.map(DirectionVO.value)
+  )->WonderCommonlib.OptionSt.map(DirectionVO.value)
 
 let getLightCount = () => AllDirectionLightsDoService.getLightCount()

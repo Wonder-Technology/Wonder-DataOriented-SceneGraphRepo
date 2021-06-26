@@ -1,5 +1,5 @@
 let getTexCoords = geometry =>
-  GeometryRepo.getTexCoords(geometry->GeometryEntity.value)->Result.mapSuccess(TexCoordsVO.create)
+  GeometryRepo.getTexCoords(geometry->GeometryEntity.value)->WonderCommonlib.Result.mapSuccess(TexCoordsVO.create)
 
 let setTexCoords = (geometry, texCoords) => Contract.requireCheck(() => {
     open Contract
@@ -11,7 +11,7 @@ let setTexCoords = (geometry, texCoords) => Contract.requireCheck(() => {
         result && (\">=."(value, 0.0) && \"<=."(value, 1.0))
       )
     )
-  }, ConfigRepo.getIsDebug())->Result.bind(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.bind(() =>
     GeometryRepo.setTexCoords(geometry->GeometryEntity.value, texCoords->TexCoordsVO.value)
   )
 

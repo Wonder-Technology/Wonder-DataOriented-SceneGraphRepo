@@ -14,4 +14,4 @@ let newSharedArrayBuffer = totalByteLength => Contract.requireCheck(() => {
     test(Log.buildAssertMessage(~expect=j`support sharedArrayBuffer`, ~actual=j`not`), () =>
       _isSupportSharedArrayBuffer()->assertTrue
     )
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() => _newSharedArrayBuffer(totalByteLength))
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() => _newSharedArrayBuffer(totalByteLength))

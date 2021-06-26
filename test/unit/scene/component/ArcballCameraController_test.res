@@ -46,16 +46,16 @@ let _ = describe("ArcballCameraController", () => {
       let cameraController = ArcballCameraControllerApService.create()
 
       (
-        ArcballCameraControllerApService.getDistance(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getMinDistance(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getPhi(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getTheta(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getThetaMargin(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getTarget(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getMoveSpeedX(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getMoveSpeedY(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getRotateSpeed(cameraController)->OptionSt.getExn,
-        ArcballCameraControllerApService.getWheelSpeed(cameraController)->OptionSt.getExn,
+        ArcballCameraControllerApService.getDistance(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getMinDistance(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getPhi(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getTheta(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getThetaMargin(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getTarget(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getMoveSpeedX(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getMoveSpeedY(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getRotateSpeed(cameraController)->WonderCommonlib.OptionSt.getExn,
+        ArcballCameraControllerApService.getWheelSpeed(cameraController)->WonderCommonlib.OptionSt.getExn,
       )->expect ==
         (10., 0.05, Js.Math._PI /. 2., Js.Math._PI /. 2., 0.05, (0., 0., 0.), 1., 1., 1., 1.)
     })
@@ -76,7 +76,7 @@ let _ = describe("ArcballCameraController", () => {
         cameraController,
       )->ResultTool.getExnSuccessValueIgnore
 
-      getGameObject(cameraController)->OptionSt.getExn->expect == gameObject2
+      getGameObject(cameraController)->WonderCommonlib.OptionSt.getExn->expect == gameObject2
     })
   )
 
@@ -87,7 +87,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setDistance(cameraController, distance)->ResultTool.getExnSuccessValueIgnore
 
-      getDistance(cameraController)->OptionSt.getExn->expect == DistanceVO.create(20.)
+      getDistance(cameraController)->WonderCommonlib.OptionSt.getExn->expect == DistanceVO.create(20.)
     })
     test("constrain distance", () => {
       let cameraController = create()
@@ -97,7 +97,7 @@ let _ = describe("ArcballCameraController", () => {
       let distance = 1.->DistanceVO.create
       setDistance(cameraController, distance)->ResultTool.getExnSuccessValueIgnore
 
-      getDistance(cameraController)->OptionSt.getExn->expect == minDistance
+      getDistance(cameraController)->WonderCommonlib.OptionSt.getExn->expect == minDistance
     })
   })
 
@@ -108,7 +108,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setMinDistance(cameraController, minDistance)
 
-      getMinDistance(cameraController)->OptionSt.getExn->expect == minDistance
+      getMinDistance(cameraController)->WonderCommonlib.OptionSt.getExn->expect == minDistance
     })
   })
 
@@ -119,7 +119,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setWheelSpeed(cameraController, speed)
 
-      getWheelSpeed(cameraController)->OptionSt.getExn->expect == speed
+      getWheelSpeed(cameraController)->WonderCommonlib.OptionSt.getExn->expect == speed
     })
   })
 
@@ -130,7 +130,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setMoveSpeedX(cameraController, speed)
 
-      getMoveSpeedX(cameraController)->OptionSt.getExn->expect == speed
+      getMoveSpeedX(cameraController)->WonderCommonlib.OptionSt.getExn->expect == speed
     })
   })
 
@@ -141,7 +141,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setMoveSpeedY(cameraController, speed)
 
-      getMoveSpeedY(cameraController)->OptionSt.getExn->expect == speed
+      getMoveSpeedY(cameraController)->WonderCommonlib.OptionSt.getExn->expect == speed
     })
   })
 
@@ -152,7 +152,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setRotateSpeed(cameraController, speed)
 
-      getRotateSpeed(cameraController)->OptionSt.getExn->expect == speed
+      getRotateSpeed(cameraController)->WonderCommonlib.OptionSt.getExn->expect == speed
     })
   })
 
@@ -163,7 +163,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setPhi(cameraController, phi)
 
-      getPhi(cameraController)->OptionSt.getExn->expect == phi
+      getPhi(cameraController)->WonderCommonlib.OptionSt.getExn->expect == phi
     })
   })
 
@@ -174,7 +174,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setTheta(cameraController, theta)->ResultTool.getExnSuccessValueIgnore
 
-      getTheta(cameraController)->OptionSt.getExn->expect == theta
+      getTheta(cameraController)->WonderCommonlib.OptionSt.getExn->expect == theta
     })
     test("constrain theta", () => {
       let cameraController = create()
@@ -184,7 +184,7 @@ let _ = describe("ArcballCameraController", () => {
       setThetaMargin(cameraController, thetaMargin)->ResultTool.getExnSuccessValueIgnore
       setTheta(cameraController, theta)->ResultTool.getExnSuccessValueIgnore
 
-      getTheta(cameraController)->OptionSt.getExn->expect ==
+      getTheta(cameraController)->WonderCommonlib.OptionSt.getExn->expect ==
         (Js.Math._PI -. thetaMargin)->ThetaVO.create
     })
   })
@@ -196,7 +196,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setThetaMargin(cameraController, thetaMargin)->ResultTool.getExnSuccessValueIgnore
 
-      getThetaMargin(cameraController)->OptionSt.getExn->expect == thetaMargin
+      getThetaMargin(cameraController)->WonderCommonlib.OptionSt.getExn->expect == thetaMargin
     })
     test("constrain theta", () => {
       let cameraController = create()
@@ -206,7 +206,7 @@ let _ = describe("ArcballCameraController", () => {
       setTheta(cameraController, theta)->ResultTool.getExnSuccessValueIgnore
       setThetaMargin(cameraController, thetaMargin)->ResultTool.getExnSuccessValueIgnore
 
-      getTheta(cameraController)->OptionSt.getExn->expect ==
+      getTheta(cameraController)->WonderCommonlib.OptionSt.getExn->expect ==
         (Js.Math._PI -. thetaMargin)->ThetaVO.create
     })
   })
@@ -218,7 +218,7 @@ let _ = describe("ArcballCameraController", () => {
 
       setTarget(cameraController, target)
 
-      getTarget(cameraController)->OptionSt.getExn->expect == target
+      getTarget(cameraController)->WonderCommonlib.OptionSt.getExn->expect == target
     })
   })
 })

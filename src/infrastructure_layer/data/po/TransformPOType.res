@@ -29,8 +29,8 @@ type transformPO = {
   defaultLocalPosition: VectorPOType.vec3,
   defaultLocalRotation: VectorPOType.vec4,
   defaultLocalScale: VectorPOType.vec3,
-  parentMap: ImmutableSparseMap.t<transform, transform>,
-  childrenMap: ImmutableSparseMap.t<transform, list<transform>>,
+  parentMap: WonderCommonlib.ImmutableSparseMap.t<transform, transform>,
+  childrenMap: WonderCommonlib.ImmutableSparseMap.t<transform, list<transform>>,
   gameObjectMap: ComponentPOType.gameObjectMap,
-  dirtyMap: ImmutableSparseMap.t<transform, bool>,
+  dirtyMap: WonderCommonlib.ImmutableSparseMap.t<transform, bool>,
 }

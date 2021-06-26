@@ -6,5 +6,5 @@ let create = () => {
 
   index
   ->BufferComponentDoService.checkNotExceedMaxCountByIndex(ConfigRepo.getDirectionLightCount())
-  ->Result.mapSuccess(DirectionLightEntity.create)
+  ->WonderCommonlib.Result.mapSuccess(DirectionLightEntity.create)
 }

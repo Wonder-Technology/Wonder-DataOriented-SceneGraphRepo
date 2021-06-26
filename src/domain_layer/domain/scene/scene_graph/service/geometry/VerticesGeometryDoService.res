@@ -1,7 +1,7 @@
 let getVertices = geometry =>
   GeometryRepo.getVertices(
     geometry->GeometryEntity.value,
-  )->Result.mapSuccess(VerticesVO.create)
+  )->WonderCommonlib.Result.mapSuccess(VerticesVO.create)
 
 let setVertices = (geometry, vertices) =>
   GeometryRepo.setVertices(

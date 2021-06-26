@@ -8,5 +8,5 @@ let create = () => {
   ->BufferComponentDoService.checkNotExceedMaxCountByIndex(
     ConfigRepo.getPBRMaterialCount(),
   )
-  ->Result.mapSuccess(PBRMaterialEntity.create)
+  ->WonderCommonlib.Result.mapSuccess(PBRMaterialEntity.create)
 }

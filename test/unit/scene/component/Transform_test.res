@@ -139,7 +139,7 @@ let _ = describe("Transform", () => {
 
         setParent(parent, child)->ResultTool.getExnSuccessValue
 
-        getParent(child)->OptionSt.getExn->expect == parent
+        getParent(child)->WonderCommonlib.OptionSt.getExn->expect == parent
       })
       test("can set different parent", () => {
         let parent1 = create()->ResultTool.getExnSuccessValue
@@ -152,7 +152,7 @@ let _ = describe("Transform", () => {
         setLocalPosition(parent2, pos2)->ResultTool.getExnSuccessValue
         setParent(parent2, child)->ResultTool.getExnSuccessValue
 
-        getParent(child)->OptionSt.getExn->expect == parent2
+        getParent(child)->WonderCommonlib.OptionSt.getExn->expect == parent2
       })
       test("change its current parent's children order", () => {
         let parent = create()->ResultTool.getExnSuccessValue
@@ -165,7 +165,7 @@ let _ = describe("Transform", () => {
 
         setParent(child3, child1)->ResultTool.getExnSuccessValue
 
-        getChildren(parent)->OptionSt.getExn->expect == list{child3, child2}
+        getChildren(parent)->WonderCommonlib.OptionSt.getExn->expect == list{child3, child2}
       })
     })
 
@@ -271,7 +271,7 @@ let _ = describe("Transform", () => {
       setParent(parent, child1)->ResultTool.getExnSuccessValue
       setParent(parent, child2)->ResultTool.getExnSuccessValue
 
-      getChildren(parent)->OptionSt.getExn->expect == list{child2, child1}
+      getChildren(parent)->WonderCommonlib.OptionSt.getExn->expect == list{child2, child1}
     })
   )
 
@@ -607,9 +607,9 @@ let _ = describe("Transform", () => {
     test("get transform's gameObject", () => {
       let gameObject = GameObjectTool.create()->ResultTool.getExnSuccessValue
 
-      let transform = GameObjectTool.getTransform(gameObject)->OptionSt.getExn
+      let transform = GameObjectTool.getTransform(gameObject)->WonderCommonlib.OptionSt.getExn
 
-      getGameObject(transform)->OptionSt.getExn->expect == gameObject
+      getGameObject(transform)->WonderCommonlib.OptionSt.getExn->expect == gameObject
     })
   )
 

@@ -173,7 +173,7 @@ let _ = describe("Geometry", () => {
       GameObjectTool.addGeometry(gameObject1, geometry)->ResultTool.getExnSuccessValueIgnore
       GameObjectTool.addGeometry(gameObject2, geometry)->ResultTool.getExnSuccessValueIgnore
 
-      getGameObjects(geometry)->OptionSt.getExn->expect == list{gameObject2, gameObject1}
+      getGameObjects(geometry)->WonderCommonlib.OptionSt.getExn->expect == list{gameObject2, gameObject1}
     })
   )
 

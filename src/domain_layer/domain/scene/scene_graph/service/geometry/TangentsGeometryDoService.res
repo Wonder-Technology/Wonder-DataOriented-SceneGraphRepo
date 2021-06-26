@@ -140,7 +140,7 @@ let computeTangents = (vertices, texCoords, normals, indices) => {
 let getTangents = geometry =>
   GeometryRepo.getTangents(
     geometry->GeometryEntity.value,
-  )->Result.mapSuccess(TangentsVO.create)
+  )->WonderCommonlib.Result.mapSuccess(TangentsVO.create)
 
 let setTangents = (geometry, tangents) =>
   GeometryRepo.setTangents(

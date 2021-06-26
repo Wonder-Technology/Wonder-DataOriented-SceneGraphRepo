@@ -45,7 +45,7 @@ let _ = describe("PerspectiveCameraProjection", () => {
     test("set empty pMatrix", () => {
       let cameraProjection = create()
 
-      getPMatrix(cameraProjection)->OptionSt.getExn->expect ==
+      getPMatrix(cameraProjection)->WonderCommonlib.OptionSt.getExn->expect ==
         Matrix4.createIdentityMatrix4()->ProjectionMatrixVO.create
     })
   })
@@ -88,7 +88,7 @@ let _ = describe("PerspectiveCameraProjection", () => {
         cameraProjection,
       )->ResultTool.getExnSuccessValueIgnore
 
-      getGameObject(cameraProjection)->OptionSt.getExn->expect == gameObject2
+      getGameObject(cameraProjection)->WonderCommonlib.OptionSt.getExn->expect == gameObject2
     })
   )
 
@@ -99,7 +99,7 @@ let _ = describe("PerspectiveCameraProjection", () => {
 
       setFovy(cameraProjection, fovy)
 
-      getFovy(cameraProjection)->OptionSt.getExn->expect == fovy
+      getFovy(cameraProjection)->WonderCommonlib.OptionSt.getExn->expect == fovy
     })
   )
 
@@ -110,7 +110,7 @@ let _ = describe("PerspectiveCameraProjection", () => {
 
       setAspect(cameraProjection, aspect)
 
-      getAspect(cameraProjection)->OptionSt.getExn->expect == aspect
+      getAspect(cameraProjection)->WonderCommonlib.OptionSt.getExn->expect == aspect
     })
   )
 
@@ -121,7 +121,7 @@ let _ = describe("PerspectiveCameraProjection", () => {
 
       setNear(cameraProjection, near)
 
-      getNear(cameraProjection)->OptionSt.getExn->expect == near
+      getNear(cameraProjection)->WonderCommonlib.OptionSt.getExn->expect == near
     })
   )
 
@@ -132,7 +132,7 @@ let _ = describe("PerspectiveCameraProjection", () => {
 
       setFar(cameraProjection, far)
 
-      getFar(cameraProjection)->OptionSt.getExn->expect == far
+      getFar(cameraProjection)->WonderCommonlib.OptionSt.getExn->expect == far
     })
   )
 })

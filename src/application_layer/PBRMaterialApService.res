@@ -7,12 +7,12 @@ let toComponent = index =>
   index->IndexPBRMaterialDoService.toComponent->pbrMaterialDOToPBRMaterialVO
 
 let create = () =>
-  CreatePBRMaterialDoService.create()->Result.mapSuccess(pbrMaterialDOToPBRMaterialVO)
+  CreatePBRMaterialDoService.create()->WonderCommonlib.Result.mapSuccess(pbrMaterialDOToPBRMaterialVO)
 
 let getGameObjects = material =>
   GameObjectPBRMaterialDoService.getGameObjects(
     material->pbrMaterialVOToPBRMaterialDO,
-  )->OptionSt.map(gameObjects => gameObjects->ListSt.map(gameObjectDOToGameObjectVO))
+  )->WonderCommonlib.OptionSt.map(gameObjects => gameObjects->WonderCommonlib.ListSt.map(gameObjectDOToGameObjectVO))
 
 let getDiffuseColor = material =>
   OperatePBRMaterialDoService.getDiffuseColor(
@@ -85,7 +85,7 @@ let setIOR = (material, ior) =>
   OperatePBRMaterialDoService.setIOR(material->pbrMaterialVOToPBRMaterialDO, ior->IORVO.create)
 
 let getDiffuseMap = material =>
-  OperatePBRMaterialDoService.getDiffuseMap(material->pbrMaterialVOToPBRMaterialDO)->OptionSt.map(
+  OperatePBRMaterialDoService.getDiffuseMap(material->pbrMaterialVOToPBRMaterialDO)->WonderCommonlib.OptionSt.map(
     diffuseMapDOToDiffuseMapVO,
   )
 
@@ -98,7 +98,7 @@ let setDiffuseMap = (material, map) =>
 let getChannelRoughnessMetallicMap = material =>
   OperatePBRMaterialDoService.getChannelRoughnessMetallicMap(
     material->pbrMaterialVOToPBRMaterialDO,
-  )->OptionSt.map(channelRoughnessMetallicMapDOToChannelRoughnessMetallicMapVO)
+  )->WonderCommonlib.OptionSt.map(channelRoughnessMetallicMapDOToChannelRoughnessMetallicMapVO)
 
 let setChannelRoughnessMetallicMap = (material, map) =>
   OperatePBRMaterialDoService.setChannelRoughnessMetallicMap(
@@ -107,7 +107,7 @@ let setChannelRoughnessMetallicMap = (material, map) =>
   )
 
 let getEmissionMap = material =>
-  OperatePBRMaterialDoService.getEmissionMap(material->pbrMaterialVOToPBRMaterialDO)->OptionSt.map(
+  OperatePBRMaterialDoService.getEmissionMap(material->pbrMaterialVOToPBRMaterialDO)->WonderCommonlib.OptionSt.map(
     emissionMapDOToEmissionMapVO,
   )
 
@@ -118,7 +118,7 @@ let setEmissionMap = (material, map) =>
   )
 
 let getNormalMap = material =>
-  OperatePBRMaterialDoService.getNormalMap(material->pbrMaterialVOToPBRMaterialDO)->OptionSt.map(
+  OperatePBRMaterialDoService.getNormalMap(material->pbrMaterialVOToPBRMaterialDO)->WonderCommonlib.OptionSt.map(
     normalMapDOToNormalMapVO,
   )
 
@@ -131,7 +131,7 @@ let setNormalMap = (material, map) =>
 let getTransmissionMap = material =>
   OperatePBRMaterialDoService.getTransmissionMap(
     material->pbrMaterialVOToPBRMaterialDO,
-  )->OptionSt.map(transmissionMapDOToTransmissionMapVO)
+  )->WonderCommonlib.OptionSt.map(transmissionMapDOToTransmissionMapVO)
 
 let setTransmissionMap = (material, map) =>
   OperatePBRMaterialDoService.setTransmissionMap(
@@ -140,7 +140,7 @@ let setTransmissionMap = (material, map) =>
   )
 
 let getSpecularMap = material =>
-  OperatePBRMaterialDoService.getSpecularMap(material->pbrMaterialVOToPBRMaterialDO)->OptionSt.map(
+  OperatePBRMaterialDoService.getSpecularMap(material->pbrMaterialVOToPBRMaterialDO)->WonderCommonlib.OptionSt.map(
     specularMapDOToSpecularMapVO,
   )
 

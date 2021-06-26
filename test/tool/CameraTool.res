@@ -27,7 +27,7 @@ let createCameraGameObjectWithFunc = createBasicCameraViewPerspectiveCameraFunc 
 
   (
     gameObject,
-    GameObjectTool.getTransform(gameObject)->OptionSt.getExn,
+    GameObjectTool.getTransform(gameObject)->WonderCommonlib.OptionSt.getExn,
     (basicCameraView, perspectiveCameraProjection),
   )
 }

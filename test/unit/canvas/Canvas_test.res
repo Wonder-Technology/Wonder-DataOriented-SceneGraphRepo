@@ -22,7 +22,7 @@ let _ = describe("Canvas", () => {
       }
       DirectorTool.initForNoWorker(~canvas, ())
 
-      CanvasTool.getCanvas()->OptionSt.map(VODOConvertApService.canvasDOToCanvasVO)->expect ==
+      CanvasTool.getCanvas()->WonderCommonlib.OptionSt.map(VODOConvertApService.canvasDOToCanvasVO)->expect ==
         canvas->Some
     })
   )

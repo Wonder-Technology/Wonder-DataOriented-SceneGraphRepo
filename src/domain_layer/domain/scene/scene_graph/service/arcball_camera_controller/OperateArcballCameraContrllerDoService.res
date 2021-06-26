@@ -1,7 +1,7 @@
 let getMinDistance = cameraController =>
   ArcballCameraControllerRepo.getMinDistance(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(DistanceVO.create)
+  )->WonderCommonlib.OptionSt.map(DistanceVO.create)
 
 let setMinDistance = (cameraController, minDistance) => {
   ArcballCameraControllerRepo.setMinDistance(
@@ -15,14 +15,14 @@ let setMinDistance = (cameraController, minDistance) => {
 let getDistance = cameraController =>
   ArcballCameraControllerRepo.getDistance(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(DistanceVO.create)
+  )->WonderCommonlib.OptionSt.map(DistanceVO.create)
 
 let setDistance = (cameraController, distance) => {
   ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
 
   getMinDistance(cameraController)
-  ->OptionSt.get
-  ->Result.mapSuccess(minDistance => {
+  ->WonderCommonlib.OptionSt.get
+  ->WonderCommonlib.Result.mapSuccess(minDistance => {
     ArcballCameraControllerRepo.setDistance(
       cameraController->ArcballCameraControllerEntity.value,
       NumberDoService.bigThan(distance->DistanceVO.value, minDistance->DistanceVO.value),
@@ -33,7 +33,7 @@ let setDistance = (cameraController, distance) => {
 let getWheelSpeed = cameraController =>
   ArcballCameraControllerRepo.getWheelSpeed(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(SpeedVO.create)
+  )->WonderCommonlib.OptionSt.map(SpeedVO.create)
 
 let setWheelSpeed = (cameraController, wheelSpeed) => {
   ArcballCameraControllerRepo.setWheelSpeed(
@@ -47,7 +47,7 @@ let setWheelSpeed = (cameraController, wheelSpeed) => {
 let getPhi = cameraController =>
   ArcballCameraControllerRepo.getPhi(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(PhiVO.create)
+  )->WonderCommonlib.OptionSt.map(PhiVO.create)
 
 let setPhi = (cameraController, phi) => {
   ArcballCameraControllerRepo.setPhi(
@@ -64,7 +64,7 @@ let _constrainTheta = (theta, thetaMargin) =>
 let getTheta = cameraController =>
   ArcballCameraControllerRepo.getTheta(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(ThetaVO.create)
+  )->WonderCommonlib.OptionSt.map(ThetaVO.create)
 
 let getThetaMargin = cameraController =>
   ArcballCameraControllerRepo.getThetaMargin(cameraController->ArcballCameraControllerEntity.value)
@@ -73,11 +73,11 @@ let setTheta = (cameraController, theta) => {
   ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
 
   getThetaMargin(cameraController)
-  ->OptionSt.get
-  ->Result.bind(thetaMargin => {
+  ->WonderCommonlib.OptionSt.get
+  ->WonderCommonlib.Result.bind(thetaMargin => {
     _constrainTheta(theta->ThetaVO.value, thetaMargin)
   })
-  ->Result.mapSuccess(constrainedTheta => {
+  ->WonderCommonlib.Result.mapSuccess(constrainedTheta => {
     ArcballCameraControllerRepo.setTheta(
       cameraController->ArcballCameraControllerEntity.value,
       constrainedTheta,
@@ -94,11 +94,11 @@ let setThetaMargin = (cameraController, thetaMargin) => {
   ArcballCameraControllerRepo.markDirty(cameraController->ArcballCameraControllerEntity.value)
 
   getTheta(cameraController)
-  ->OptionSt.get
-  ->Result.bind(theta => {
+  ->WonderCommonlib.OptionSt.get
+  ->WonderCommonlib.Result.bind(theta => {
     _constrainTheta(theta->ThetaVO.value, thetaMargin)
   })
-  ->Result.mapSuccess(constrainedTheta => {
+  ->WonderCommonlib.Result.mapSuccess(constrainedTheta => {
     ArcballCameraControllerRepo.setTheta(
       cameraController->ArcballCameraControllerEntity.value,
       constrainedTheta,
@@ -109,7 +109,7 @@ let setThetaMargin = (cameraController, thetaMargin) => {
 let getTarget = cameraController =>
   ArcballCameraControllerRepo.getTarget(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(TargetVO.create)
+  )->WonderCommonlib.OptionSt.map(TargetVO.create)
 
 let setTarget = (cameraController, target) => {
   ArcballCameraControllerRepo.setTarget(
@@ -123,7 +123,7 @@ let setTarget = (cameraController, target) => {
 let getMoveSpeedX = cameraController =>
   ArcballCameraControllerRepo.getMoveSpeedX(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(SpeedVO.create)
+  )->WonderCommonlib.OptionSt.map(SpeedVO.create)
 
 let setMoveSpeedX = (cameraController, moveSpeedX) => {
   ArcballCameraControllerRepo.setMoveSpeedX(
@@ -137,7 +137,7 @@ let setMoveSpeedX = (cameraController, moveSpeedX) => {
 let getMoveSpeedY = cameraController =>
   ArcballCameraControllerRepo.getMoveSpeedY(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(SpeedVO.create)
+  )->WonderCommonlib.OptionSt.map(SpeedVO.create)
 
 let setMoveSpeedY = (cameraController, moveSpeedY) => {
   ArcballCameraControllerRepo.setMoveSpeedY(
@@ -151,7 +151,7 @@ let setMoveSpeedY = (cameraController, moveSpeedY) => {
 let getRotateSpeed = cameraController =>
   ArcballCameraControllerRepo.getRotateSpeed(
     cameraController->ArcballCameraControllerEntity.value,
-  )->OptionSt.map(SpeedVO.create)
+  )->WonderCommonlib.OptionSt.map(SpeedVO.create)
 
 let setRotateSpeed = (cameraController, rotateSpeed) => {
   ArcballCameraControllerRepo.setRotateSpeed(

@@ -6,5 +6,5 @@ let create = () => {
 
   index
   ->BufferComponentDoService.checkNotExceedMaxCountByIndex(ConfigRepo.getGeometryCount())
-  ->Result.mapSuccess(GeometryEntity.create)
+  ->WonderCommonlib.Result.mapSuccess(GeometryEntity.create)
 }

@@ -3,7 +3,7 @@ let _toFailContainErrMessage = (err, message) => {
   open Expect
   open! Expect.Operators
 
-  expect(err->Js.Exn.message->OptionSt.getExn)->toContainString(message, _)
+  expect(err->Js.Exn.message->WonderCommonlib.OptionSt.getExn)->toContainString(message, _)
 }
 
 let toFail = (result, message) => {
@@ -11,7 +11,10 @@ let toFail = (result, message) => {
   open Expect
   open! Expect.Operators
 
-  result->Result.either(_ => expect(true) == true, err => _toFailContainErrMessage(err, message))
+  result->WonderCommonlib.Result.either(
+    _ => expect(true) == true,
+    err => _toFailContainErrMessage(err, message),
+  )
 }
 
 let toPass = () => {
@@ -27,5 +30,5 @@ let judgeResult = result => {
   open Expect
   open! Expect.Operators
 
-  result->Result.isSuccess->expect == true
+  result->WonderCommonlib.Result.isSuccess->expect == true
 }

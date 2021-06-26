@@ -16,7 +16,7 @@ let setMat3Data = (index, mat3, typeArray: Float32Array.t) =>
     open Contract
     open Operators
     _checkNotExceedBound(Float32Array.length, index + 11, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() => {
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() => {
     Float32Array.unsafe_set(typeArray, index, Float32Array.unsafe_get(mat3, 0))
     Float32Array.unsafe_set(typeArray, index + 1, Float32Array.unsafe_get(mat3, 1))
     Float32Array.unsafe_set(typeArray, index + 2, Float32Array.unsafe_get(mat3, 2))
@@ -35,7 +35,7 @@ let setFloat1 = (index: int, value, typeArray: Float32Array.t) => Contract.requi
     open Contract
     open Operators
     _checkNotExceedBound(Float32Array.length, index + 0, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() =>
     Float32Array.unsafe_set(typeArray, index, value)
   )
 
@@ -44,7 +44,7 @@ let setFloat2 = (index: int, (x, y), typeArray: Float32Array.t) =>
     open Contract
     open Operators
     _checkNotExceedBound(Float32Array.length, index + 1, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() => {
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() => {
     Float32Array.unsafe_set(typeArray, index, x)
     Float32Array.unsafe_set(typeArray, index + 1, y)
   })
@@ -54,7 +54,7 @@ let setFloat3 = (index: int, (x, y, z), typeArray: Float32Array.t) =>
     open Contract
     open Operators
     _checkNotExceedBound(Float32Array.length, index + 2, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() => {
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() => {
     Float32Array.unsafe_set(typeArray, index, x)
     Float32Array.unsafe_set(typeArray, index + 1, y)
     Float32Array.unsafe_set(typeArray, index + 2, z)
@@ -65,7 +65,7 @@ let setFloat4 = (index: int, (x, y, z, w), typeArray: Float32Array.t) =>
     open Contract
     open Operators
     _checkNotExceedBound(Float32Array.length, index + 3, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() => {
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() => {
     Float32Array.unsafe_set(typeArray, index, x)
     Float32Array.unsafe_set(typeArray, index + 1, y)
     Float32Array.unsafe_set(typeArray, index + 2, z)
@@ -81,7 +81,7 @@ let setFloat16 = (
     open Contract
     open Operators
     _checkNotExceedBound(Float32Array.length, index + 15, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() => {
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() => {
     Float32Array.unsafe_set(typeArray, index + 0, a0)
     Float32Array.unsafe_set(typeArray, index + 1, a1)
     Float32Array.unsafe_set(typeArray, index + 2, a2)
@@ -105,7 +105,7 @@ let setFloat16WithFloat32Array = (index, target: Float32Array.t, typeArray) =>
     open Contract
     open Operators
     _checkNotExceedBound(Float32Array.length, index + 15, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() =>
     typeArray->Float32Array.setArrayOffset(Obj.magic(target), index, _)
   )
 
@@ -116,7 +116,7 @@ let setUint8_1 = (index: int, value: int, typeArray: Uint8Array.t) => Contract.r
     open Contract
     open Operators
     _checkNotExceedBound(Uint8Array.length, index + 0, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() =>
     Uint8Array.unsafe_set(typeArray, index, value)
   )
 
@@ -125,7 +125,7 @@ let setUint16_1 = (index: int, value: int, typeArray: Uint16Array.t) =>
     open Contract
     open Operators
     _checkNotExceedBound(Uint16Array.length, index + 0, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() =>
     Uint16Array.unsafe_set(typeArray, index, value)
   )
 
@@ -134,7 +134,7 @@ let setUint32_1 = (index: int, value: int, typeArray: Uint32Array.t) =>
     open Contract
     open Operators
     _checkNotExceedBound(Uint32Array.length, index + 0, typeArray)
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() =>
     Uint32Array.unsafe_set(typeArray, index, value)
   )
 
@@ -215,7 +215,7 @@ let fillFloat32ArrayWithOffset = (targetTypeArr, sourceTypeArr: Float32Array.t, 
       ),
       () => sourceTypeArrLen + offset <= targetTypeArrLen,
     )
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() =>
     targetTypeArr->Float32Array.setArrayOffset(Obj.magic(sourceTypeArr), offset, _)
   )
 
@@ -235,7 +235,7 @@ let fillUint32ArrayWithOffset = (targetTypeArr, sourceTypeArr, offset) =>
       ),
       () => sourceTypeArrLen + offset <= targetTypeArrLen,
     )
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() =>
     targetTypeArr->Uint32Array.setArrayOffset(Obj.magic(sourceTypeArr), offset, _)
   )
 

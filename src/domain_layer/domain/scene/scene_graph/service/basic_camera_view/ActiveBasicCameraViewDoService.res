@@ -23,6 +23,6 @@ let setActive = (cameraView, isActive) =>
   )
 
 let getActiveCameraView = () =>
-  BasicCameraViewRepo.getActiveBasicCameraViews()->Result.mapSuccess(
-    activeCameraViews => activeCameraViews->ListSt.head->OptionSt.map(BasicCameraViewEntity.create),
+  BasicCameraViewRepo.getActiveBasicCameraViews()->WonderCommonlib.Result.mapSuccess(
+    activeCameraViews => activeCameraViews->WonderCommonlib.ListSt.head->WonderCommonlib.OptionSt.map(BasicCameraViewEntity.create),
   )

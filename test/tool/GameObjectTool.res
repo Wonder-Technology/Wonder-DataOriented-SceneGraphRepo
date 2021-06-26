@@ -1,6 +1,6 @@
 open VODOConvertApService
 
-let create = () => GameObjectApService.create()->Result.mapSuccess(gameObjectVOToGameObjectDO)
+let create = () => GameObjectApService.create()->WonderCommonlib.Result.mapSuccess(gameObjectVOToGameObjectDO)
 
 let addTransform = (gameObject, transform) =>
   AddComponentGameObjectDoService.addTransform(gameObject, transform)
@@ -64,5 +64,5 @@ let getMaxUID = () => ContainerManager.getGameObject().maxUID
 let createGameObject = () => {
   let gameObject = create()->ResultTool.getExnSuccessValue
 
-  (gameObject, getTransform(gameObject)->OptionSt.getExn)
+  (gameObject, getTransform(gameObject)->WonderCommonlib.OptionSt.getExn)
 }

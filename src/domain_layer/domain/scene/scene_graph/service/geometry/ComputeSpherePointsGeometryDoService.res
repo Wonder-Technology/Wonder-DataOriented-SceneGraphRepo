@@ -31,11 +31,11 @@ let compute = (radius, bands) => {
       let u = 1. -. longNumber /. longitudeBands
       let v = 1. -. latNumber /. latitudeBands
 
-      vertices->ArraySt.push(x)->ArraySt.push(y)->ArraySt.push(z)->ignore
+      vertices->WonderCommonlib.ArraySt.push(x)->WonderCommonlib.ArraySt.push(y)->WonderCommonlib.ArraySt.push(z)->ignore
 
-      normals->ArraySt.push(x)->ArraySt.push(y)->ArraySt.push(z)->ignore
+      normals->WonderCommonlib.ArraySt.push(x)->WonderCommonlib.ArraySt.push(y)->WonderCommonlib.ArraySt.push(z)->ignore
 
-      texCoords->ArraySt.push(u)->ArraySt.push(v)->ignore
+      texCoords->WonderCommonlib.ArraySt.push(u)->WonderCommonlib.ArraySt.push(v)->ignore
     }
   }
 
@@ -45,12 +45,12 @@ let compute = (radius, bands) => {
       let second = first + longitudeBands + 1
 
       indices
-      ->ArraySt.push(first + 1)
-      ->ArraySt.push(second)
-      ->ArraySt.push(first)
-      ->ArraySt.push(first + 1)
-      ->ArraySt.push(second + 1)
-      ->ArraySt.push(second)
+      ->WonderCommonlib.ArraySt.push(first + 1)
+      ->WonderCommonlib.ArraySt.push(second)
+      ->WonderCommonlib.ArraySt.push(first)
+      ->WonderCommonlib.ArraySt.push(first + 1)
+      ->WonderCommonlib.ArraySt.push(second + 1)
+      ->WonderCommonlib.ArraySt.push(second)
       ->ignore
     }
   }

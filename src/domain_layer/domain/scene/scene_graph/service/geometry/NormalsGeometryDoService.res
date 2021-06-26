@@ -1,7 +1,7 @@
 let getNormals = geometry =>
   GeometryRepo.getNormals(
     geometry->GeometryEntity.value,
-  )->Result.mapSuccess(NormalsVO.create)
+  )->WonderCommonlib.Result.mapSuccess(NormalsVO.create)
 
 let setNormals = (geometry, normals) =>
   GeometryRepo.setNormals(

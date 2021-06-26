@@ -9,7 +9,7 @@ let setMaxIndex = maxIndex =>
   })
 
 let getGameObject = cameraController =>
-  ContainerManager.getArcballCameraController().gameObjectMap->ImmutableSparseMap.get(
+  ContainerManager.getArcballCameraController().gameObjectMap->WonderCommonlib.ImmutableSparseMap.get(
     cameraController,
   )
 
@@ -18,12 +18,12 @@ let setGameObject = (cameraController, gameObject) => {
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    gameObjectMap: gameObjectMap->ImmutableSparseMap.set(cameraController, gameObject),
+    gameObjectMap: gameObjectMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, gameObject),
   })
 }
 
 let getDistance = cameraController =>
-  ContainerManager.getArcballCameraController().distanceMap->ImmutableSparseMap.get(
+  ContainerManager.getArcballCameraController().distanceMap->WonderCommonlib.ImmutableSparseMap.get(
     cameraController,
   )
 
@@ -32,12 +32,12 @@ let setDistance = (cameraController, distance) => {
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    distanceMap: distanceMap->ImmutableSparseMap.set(cameraController, distance),
+    distanceMap: distanceMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, distance),
   })
 }
 
 let getMinDistance = cameraController =>
-  ContainerManager.getArcballCameraController().minDistanceMap->ImmutableSparseMap.get(
+  ContainerManager.getArcballCameraController().minDistanceMap->WonderCommonlib.ImmutableSparseMap.get(
     cameraController,
   )
 
@@ -46,12 +46,12 @@ let setMinDistance = (cameraController, minDistance) => {
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    minDistanceMap: minDistanceMap->ImmutableSparseMap.set(cameraController, minDistance),
+    minDistanceMap: minDistanceMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, minDistance),
   })
 }
 
 let getWheelSpeed = cameraController =>
-  ContainerManager.getArcballCameraController().wheelSpeedMap->ImmutableSparseMap.get(
+  ContainerManager.getArcballCameraController().wheelSpeedMap->WonderCommonlib.ImmutableSparseMap.get(
     cameraController,
   )
 
@@ -60,36 +60,36 @@ let setWheelSpeed = (cameraController, wheelSpeed) => {
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    wheelSpeedMap: wheelSpeedMap->ImmutableSparseMap.set(cameraController, wheelSpeed),
+    wheelSpeedMap: wheelSpeedMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, wheelSpeed),
   })
 }
 
 let getPhi = cameraController =>
-  ContainerManager.getArcballCameraController().phiMap->ImmutableSparseMap.get(cameraController)
+  ContainerManager.getArcballCameraController().phiMap->WonderCommonlib.ImmutableSparseMap.get(cameraController)
 
 let setPhi = (cameraController, phi) => {
   let {phiMap} as cameraControllerPO = ContainerManager.getArcballCameraController()
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    phiMap: phiMap->ImmutableSparseMap.set(cameraController, phi),
+    phiMap: phiMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, phi),
   })
 }
 
 let getTheta = cameraController =>
-  ContainerManager.getArcballCameraController().thetaMap->ImmutableSparseMap.get(cameraController)
+  ContainerManager.getArcballCameraController().thetaMap->WonderCommonlib.ImmutableSparseMap.get(cameraController)
 
 let setTheta = (cameraController, theta) => {
   let {thetaMap} as cameraControllerPO = ContainerManager.getArcballCameraController()
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    thetaMap: thetaMap->ImmutableSparseMap.set(cameraController, theta),
+    thetaMap: thetaMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, theta),
   })
 }
 
 let getThetaMargin = cameraController =>
-  ContainerManager.getArcballCameraController().thetaMarginMap->ImmutableSparseMap.get(
+  ContainerManager.getArcballCameraController().thetaMarginMap->WonderCommonlib.ImmutableSparseMap.get(
     cameraController,
   )
 
@@ -98,24 +98,24 @@ let setThetaMargin = (cameraController, thetaMargin) => {
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    thetaMarginMap: thetaMarginMap->ImmutableSparseMap.set(cameraController, thetaMargin),
+    thetaMarginMap: thetaMarginMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, thetaMargin),
   })
 }
 
 let getTarget = cameraController =>
-  ContainerManager.getArcballCameraController().targetMap->ImmutableSparseMap.get(cameraController)
+  ContainerManager.getArcballCameraController().targetMap->WonderCommonlib.ImmutableSparseMap.get(cameraController)
 
 let setTarget = (cameraController, target) => {
   let {targetMap} as cameraControllerPO = ContainerManager.getArcballCameraController()
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    targetMap: targetMap->ImmutableSparseMap.set(cameraController, target),
+    targetMap: targetMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, target),
   })
 }
 
 let getMoveSpeedX = cameraController =>
-  ContainerManager.getArcballCameraController().moveSpeedXMap->ImmutableSparseMap.get(
+  ContainerManager.getArcballCameraController().moveSpeedXMap->WonderCommonlib.ImmutableSparseMap.get(
     cameraController,
   )
 
@@ -124,12 +124,12 @@ let setMoveSpeedX = (cameraController, moveSpeedX) => {
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    moveSpeedXMap: moveSpeedXMap->ImmutableSparseMap.set(cameraController, moveSpeedX),
+    moveSpeedXMap: moveSpeedXMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, moveSpeedX),
   })
 }
 
 let getMoveSpeedY = cameraController =>
-  ContainerManager.getArcballCameraController().moveSpeedYMap->ImmutableSparseMap.get(
+  ContainerManager.getArcballCameraController().moveSpeedYMap->WonderCommonlib.ImmutableSparseMap.get(
     cameraController,
   )
 
@@ -138,12 +138,12 @@ let setMoveSpeedY = (cameraController, moveSpeedY) => {
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    moveSpeedYMap: moveSpeedYMap->ImmutableSparseMap.set(cameraController, moveSpeedY),
+    moveSpeedYMap: moveSpeedYMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, moveSpeedY),
   })
 }
 
 let getRotateSpeed = cameraController =>
-  ContainerManager.getArcballCameraController().rotateSpeedMap->ImmutableSparseMap.get(
+  ContainerManager.getArcballCameraController().rotateSpeedMap->WonderCommonlib.ImmutableSparseMap.get(
     cameraController,
   )
 
@@ -152,7 +152,7 @@ let setRotateSpeed = (cameraController, rotateSpeed) => {
 
   ContainerManager.setArcballCameraController({
     ...cameraControllerPO,
-    rotateSpeedMap: rotateSpeedMap->ImmutableSparseMap.set(cameraController, rotateSpeed),
+    rotateSpeedMap: rotateSpeedMap->WonderCommonlib.ImmutableSparseMap.set(cameraController, rotateSpeed),
   })
 }
 

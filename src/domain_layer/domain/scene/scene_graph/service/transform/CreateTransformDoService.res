@@ -12,5 +12,5 @@ let create = () => {
 
   index
   ->BufferComponentDoService.checkNotExceedMaxCountByIndex(ConfigRepo.getTransformCount())
-  ->Result.mapSuccess(TransformEntity.create)
+  ->WonderCommonlib.Result.mapSuccess(TransformEntity.create)
 }

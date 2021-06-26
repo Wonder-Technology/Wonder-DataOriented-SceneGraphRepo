@@ -53,7 +53,7 @@ let _ = describe("GameObject", () => {
         test("can get component's gameObject", () => {
           let gameObject = create()->ResultTool.getExnSuccessValue
 
-          TransformTool.getGameObject(getTransform(gameObject)->OptionSt.getExn)->expect ==
+          TransformTool.getGameObject(getTransform(gameObject)->WonderCommonlib.OptionSt.getExn)->expect ==
             gameObject->Some
         })
       })
@@ -62,7 +62,7 @@ let _ = describe("GameObject", () => {
         test("get transform component", () => {
           let gameObject = create()->ResultTool.getExnSuccessValue
 
-          getTransform(gameObject)->OptionSt.getExn->TransformTool.isTransform
+          getTransform(gameObject)->WonderCommonlib.OptionSt.getExn->TransformTool.isTransform
         })
       )
 
@@ -100,7 +100,7 @@ let _ = describe("GameObject", () => {
         test("get pbrMaterial component", () => {
           let gameObject = _createAndAddComponent()
 
-          getPBRMaterial(gameObject)->OptionSt.getExn->PBRMaterialTool.isPBRMaterial
+          getPBRMaterial(gameObject)->WonderCommonlib.OptionSt.getExn->PBRMaterialTool.isPBRMaterial
         })
       )
 
@@ -138,7 +138,7 @@ let _ = describe("GameObject", () => {
         test("get geometry component", () => {
           let gameObject = _createAndAddComponent()
 
-          getGeometry(gameObject)->OptionSt.getExn->GeometryTool.isGeometry
+          getGeometry(gameObject)->WonderCommonlib.OptionSt.getExn->GeometryTool.isGeometry
         })
       )
 

@@ -16,12 +16,12 @@ let create = () =>
 let getGameObject = cameraController =>
   GameObjectArcballCameraControllerDoService.getGameObject(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(gameObjectDOToGameObjectVO)
+  )->WonderCommonlib.OptionSt.map(gameObjectDOToGameObjectVO)
 
 let getDistance = cameraController =>
   OperateArcballCameraContrllerDoService.getDistance(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(DistanceVO.value)
+  )->WonderCommonlib.OptionSt.map(DistanceVO.value)
 
 let setDistance = (cameraController, distance) =>
   OperateArcballCameraContrllerDoService.setDistance(
@@ -32,7 +32,7 @@ let setDistance = (cameraController, distance) =>
 let getMinDistance = cameraController =>
   OperateArcballCameraContrllerDoService.getMinDistance(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(DistanceVO.value)
+  )->WonderCommonlib.OptionSt.map(DistanceVO.value)
 
 let setMinDistance = (cameraController, minDistance) =>
   OperateArcballCameraContrllerDoService.setMinDistance(
@@ -43,7 +43,7 @@ let setMinDistance = (cameraController, minDistance) =>
 let getWheelSpeed = cameraController =>
   OperateArcballCameraContrllerDoService.getWheelSpeed(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(SpeedVO.value)
+  )->WonderCommonlib.OptionSt.map(SpeedVO.value)
 
 let setWheelSpeed = (cameraController, wheelSpeed) =>
   OperateArcballCameraContrllerDoService.setWheelSpeed(
@@ -54,7 +54,7 @@ let setWheelSpeed = (cameraController, wheelSpeed) =>
 let getPhi = cameraController =>
   OperateArcballCameraContrllerDoService.getPhi(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(PhiVO.value)
+  )->WonderCommonlib.OptionSt.map(PhiVO.value)
 
 let setPhi = (cameraController, phi) =>
   OperateArcballCameraContrllerDoService.setPhi(
@@ -65,7 +65,7 @@ let setPhi = (cameraController, phi) =>
 let getTheta = cameraController =>
   OperateArcballCameraContrllerDoService.getTheta(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(ThetaVO.value)
+  )->WonderCommonlib.OptionSt.map(ThetaVO.value)
 
 let setTheta = (cameraController, theta) =>
   OperateArcballCameraContrllerDoService.setTheta(
@@ -87,7 +87,7 @@ let setThetaMargin = (cameraController, thetaMargin) =>
 let getTarget = cameraController =>
   OperateArcballCameraContrllerDoService.getTarget(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(TargetVO.value)
+  )->WonderCommonlib.OptionSt.map(TargetVO.value)
 
 let setTarget = (cameraController, target) =>
   OperateArcballCameraContrllerDoService.setTarget(
@@ -98,7 +98,7 @@ let setTarget = (cameraController, target) =>
 let getRotateSpeed = cameraController =>
   OperateArcballCameraContrllerDoService.getRotateSpeed(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(SpeedVO.value)
+  )->WonderCommonlib.OptionSt.map(SpeedVO.value)
 
 let setRotateSpeed = (cameraController, rotateSpeed) =>
   OperateArcballCameraContrllerDoService.setRotateSpeed(
@@ -109,7 +109,7 @@ let setRotateSpeed = (cameraController, rotateSpeed) =>
 let getMoveSpeedX = cameraController =>
   OperateArcballCameraContrllerDoService.getMoveSpeedX(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(SpeedVO.value)
+  )->WonderCommonlib.OptionSt.map(SpeedVO.value)
 
 let setMoveSpeedX = (cameraController, moveSpeedX) =>
   OperateArcballCameraContrllerDoService.setMoveSpeedX(
@@ -120,7 +120,7 @@ let setMoveSpeedX = (cameraController, moveSpeedX) =>
 let getMoveSpeedY = cameraController =>
   OperateArcballCameraContrllerDoService.getMoveSpeedY(
     cameraController->arcballCameraControllerVOToArcballCameraControllerDO,
-  )->OptionSt.map(SpeedVO.value)
+  )->WonderCommonlib.OptionSt.map(SpeedVO.value)
 
 let setMoveSpeedY = (cameraController, moveSpeedY) =>
   OperateArcballCameraContrllerDoService.setMoveSpeedY(

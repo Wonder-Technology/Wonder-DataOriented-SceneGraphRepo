@@ -1,7 +1,7 @@
 let getIndices = geometry =>
   GeometryRepo.getIndices(
     geometry->GeometryEntity.value,
-  )->Result.mapSuccess(IndicesVO.create)
+  )->WonderCommonlib.Result.mapSuccess(IndicesVO.create)
 
 let setIndices = (geometry, indices) =>
   GeometryRepo.setIndices(

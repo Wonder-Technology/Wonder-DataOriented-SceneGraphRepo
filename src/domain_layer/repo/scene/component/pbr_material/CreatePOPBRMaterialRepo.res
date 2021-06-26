@@ -11,10 +11,10 @@ let _setAllTypeArrDataToDefault = (
     defaultIOR,
   ),
 ) =>
-  ListSt.range(0, count - 1)
-  ->ListSt.reduce(Result.succeed(), (result, index) =>
-    result->Result.bind(() =>
-      ListResult.mergeResults(list{
+  WonderCommonlib.ListSt.range(0, count - 1)
+  ->WonderCommonlib.ListSt.reduce(WonderCommonlib.Result.succeed(), (result, index) =>
+    result->WonderCommonlib.Result.bind(() =>
+      WonderCommonlib.ListResult.mergeResults(list{
         OperateTypeArrayPBRMaterialRepoUtils.setDiffuseColor(
           index,
           defaultDiffuseColor,
@@ -37,7 +37,7 @@ let _setAllTypeArrDataToDefault = (
       })
     )
   )
-  ->Result.mapSuccess(() => (
+  ->WonderCommonlib.Result.mapSuccess(() => (
     diffuseColors,
     speculars,
     specularColors,
@@ -48,10 +48,10 @@ let _setAllTypeArrDataToDefault = (
   ))
 
 let _initBufferData = (count, defaultDataTuple) =>
-  BufferPBRMaterialRepoUtils.createBuffer(count)->Result.bind(buffer =>
+  BufferPBRMaterialRepoUtils.createBuffer(count)->WonderCommonlib.Result.bind(buffer =>
     CreateTypeArrayPBRMaterialRepoUtils.createTypeArrays(buffer, count)
     ->_setAllTypeArrDataToDefault(count, defaultDataTuple)
-    ->Result.mapSuccess(typeArrData => (buffer, typeArrData))
+    ->WonderCommonlib.Result.mapSuccess(typeArrData => (buffer, typeArrData))
   )
 
 let createPOWithSharedArrayBufferData = (
@@ -125,7 +125,7 @@ let createPO = () => {
       defaultTransmission,
       defaultIOR,
     ),
-  )->Result.mapSuccess(((
+  )->WonderCommonlib.Result.mapSuccess(((
     buffer,
     (diffuseColors, speculars, specularColors, roughnesses, metalnesses, transmissions, iors),
   )): PBRMaterialPOType.pbrMaterialPO =>

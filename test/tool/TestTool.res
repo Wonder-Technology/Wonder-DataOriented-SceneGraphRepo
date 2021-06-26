@@ -1,7 +1,7 @@
 let preparePO = () => {
   ContainerManager.setPO(CreatePO.create())
 
-  // DirectorForJs._createAndSetAllComponentPOs()->Result.handleFail(err => err->Exception.throwErr)
+  // DirectorForJs._createAndSetAllComponentPOs()->WonderCommonlib.Result.handleFail(err => err->WonderCommonlib.Exceptionmonlib.Exception.throwErr)
 }
 
 let init = (
@@ -29,5 +29,5 @@ let init = (
       directionLightCount: directionLightCount,
     },
     {float9Array1: float9Array1, float32Array1: float32Array1},
-  )->Result.handleFail(err => err->Exception.throwErr)
+  )->WonderCommonlib.Result.handleFail(err => err->WonderCommonlib.Exception.throwErr)
 }

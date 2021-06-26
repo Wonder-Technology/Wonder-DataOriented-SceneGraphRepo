@@ -11,14 +11,14 @@ let setMaxIndex = maxIndex =>
   })
 
 let getGameObject = light =>
-  ContainerManager.getExnDirectionLight().gameObjectMap->ImmutableSparseMap.get(light)
+  ContainerManager.getExnDirectionLight().gameObjectMap->WonderCommonlib.ImmutableSparseMap.get(light)
 
 let setGameObject = (light, gameObject) => {
   let {gameObjectMap} as lightPO = ContainerManager.getExnDirectionLight()
 
   ContainerManager.setDirectionLight({
     ...lightPO,
-    gameObjectMap: gameObjectMap->ImmutableSparseMap.set(light, gameObject),
+    gameObjectMap: gameObjectMap->WonderCommonlib.ImmutableSparseMap.set(light, gameObject),
   })
 }
 

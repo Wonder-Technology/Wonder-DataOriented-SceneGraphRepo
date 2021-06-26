@@ -16,17 +16,17 @@ let create = () =>
 let getGameObject = cameraProjection =>
   GameObjectPerspectiveCameraProjectionDoService.getGameObject(
     cameraProjection->perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO,
-  )->OptionSt.map(gameObjectDOToGameObjectVO)
+  )->WonderCommonlib.OptionSt.map(gameObjectDOToGameObjectVO)
 
 let getPMatrix = cameraProjection =>
   PMatrixPerspectiveCameraProjectionDoService.getPMatrix(
     cameraProjection->perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO,
-  )->OptionSt.map(ProjectionMatrixVO.value)
+  )->WonderCommonlib.OptionSt.map(ProjectionMatrixVO.value)
 
 let getFovy = cameraProjection =>
   FrustumPerspectiveCameraProjectionDoService.getFovy(
     cameraProjection->perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO,
-  )->OptionSt.map(FovyVO.value)
+  )->WonderCommonlib.OptionSt.map(FovyVO.value)
 
 let setFovy = (cameraProjection, fovy) =>
   FrustumPerspectiveCameraProjectionDoService.setFovy(
@@ -37,7 +37,7 @@ let setFovy = (cameraProjection, fovy) =>
 let getAspect = cameraProjection =>
   FrustumPerspectiveCameraProjectionDoService.getAspect(
     cameraProjection->perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO,
-  )->OptionSt.map(AspectVO.value)
+  )->WonderCommonlib.OptionSt.map(AspectVO.value)
 
 let setAspect = (cameraProjection, aspect) =>
   FrustumPerspectiveCameraProjectionDoService.setAspect(
@@ -48,7 +48,7 @@ let setAspect = (cameraProjection, aspect) =>
 let getNear = cameraProjection =>
   FrustumPerspectiveCameraProjectionDoService.getNear(
     cameraProjection->perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO,
-  )->OptionSt.map(NearVO.value)
+  )->WonderCommonlib.OptionSt.map(NearVO.value)
 
 let setNear = (cameraProjection, near) =>
   FrustumPerspectiveCameraProjectionDoService.setNear(
@@ -59,7 +59,7 @@ let setNear = (cameraProjection, near) =>
 let getFar = cameraProjection =>
   FrustumPerspectiveCameraProjectionDoService.getFar(
     cameraProjection->perspectiveCameraProjectionVOToPerspectiveCameraProjectionDO,
-  )->OptionSt.map(FarVO.value)
+  )->WonderCommonlib.OptionSt.map(FarVO.value)
 
 let setFar = (cameraProjection, far) =>
   FrustumPerspectiveCameraProjectionDoService.setFar(

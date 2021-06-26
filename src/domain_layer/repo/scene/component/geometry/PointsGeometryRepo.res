@@ -6,7 +6,7 @@ let getVertexInfo = index => {
   ReallocatedPointsGeometryRepoUtils.getInfo(
     BufferGeometryRepoUtils.getInfoIndex(index),
     verticesInfos,
-  )->Result.bind(((startIndex, endIndex)) =>
+  )->WonderCommonlib.Result.bind(((startIndex, endIndex)) =>
     (startIndex, endIndex)->Contract.ensureCheck(((startIndex, endIndex)) => {
       open Contract
       open Operators
@@ -20,7 +20,7 @@ let getVertexInfo = index => {
             ReallocatedPointsGeometryRepoUtils.getInfo(
               BufferGeometryRepoUtils.getInfoIndex(index),
               normalsInfos,
-            )->Result.getExn
+            )->WonderCommonlib.Result.getExn
 
           startIndex == startIndexGetFromNormals && endIndex == endIndexGetFromNormals
         },
@@ -66,7 +66,7 @@ let getVertexCount = () => Contract.requireCheck(() => {
 
       \"==."(x -. x->Js.Math.floor_float, 0.0)
     })
-  }, ConfigRepo.getIsDebug())->Result.mapSuccess(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.mapSuccess(() =>
     getVerticesOffset() / 3
   )
 

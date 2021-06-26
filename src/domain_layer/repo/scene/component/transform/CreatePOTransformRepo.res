@@ -3,38 +3,38 @@ let _setAllTypeArrDataToDefault = (
   count,
   (defaultLocalToWorldMatrix, defaultLocalPosition, defaultLocalRotation, defaultLocalScale),
 ) =>
-  ListSt.range(0, count - 1)
+  WonderCommonlib.ListSt.range(0, count - 1)
   /* ! shouldn't use traverseResultM! it will cause max size stack err! */
-  ->ListSt.reduce(Result.succeed(), (result, index) =>
-    result->Result.bind(() =>
+  ->WonderCommonlib.ListSt.reduce(WonderCommonlib.Result.succeed(), (result, index) =>
+    result->WonderCommonlib.Result.bind(() =>
       OperateTypeArrayTransformRepoUtils.setLocalToWorldMatrix(
         index,
         defaultLocalToWorldMatrix,
         localToWorldMatrices,
-      )->Result.bind(() =>
+      )->WonderCommonlib.Result.bind(() =>
         OperateTypeArrayTransformRepoUtils.setLocalPosition(
           index,
           defaultLocalPosition,
           localPositions,
-        )->Result.bind(() =>
+        )->WonderCommonlib.Result.bind(() =>
           OperateTypeArrayTransformRepoUtils.setLocalRotation(
             index,
             defaultLocalRotation,
             localRotations,
-          )->Result.bind(() =>
+          )->WonderCommonlib.Result.bind(() =>
             OperateTypeArrayTransformRepoUtils.setLocalScale(index, defaultLocalScale, localScales)
           )
         )
       )
     )
   )
-  ->Result.mapSuccess(() => (localToWorldMatrices, localPositions, localRotations, localScales))
+  ->WonderCommonlib.Result.mapSuccess(() => (localToWorldMatrices, localPositions, localRotations, localScales))
 
 let _initBufferData = (count, defaultDataTuple) =>
-  BufferTransformRepoUtils.createBuffer(count)->Result.bind(buffer =>
+  BufferTransformRepoUtils.createBuffer(count)->WonderCommonlib.Result.bind(buffer =>
     CreateTypeArrayTransformRepoUtils.createTypeArrays(buffer, count)
     ->_setAllTypeArrDataToDefault(count, defaultDataTuple)
-    ->Result.mapSuccess(typeArrData => (buffer, typeArrData))
+    ->WonderCommonlib.Result.mapSuccess(typeArrData => (buffer, typeArrData))
   )
 
 let createPOWithSharedArrayBufferData = (
@@ -82,7 +82,7 @@ let createPO = () => {
   _initBufferData(
     transformCount,
     (defaultLocalToWorldMatrix, defaultLocalPosition, defaultLocalRotation, defaultLocalScale),
-  )->Result.mapSuccess(((
+  )->WonderCommonlib.Result.mapSuccess(((
     buffer,
     (localToWorldMatrices, localPositions, localRotations, localScales),
   )): TransformPOType.transformPO =>

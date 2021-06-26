@@ -7,12 +7,12 @@ let create = ((vertices, texCoords, normals, tangents, indices)) => {
   let tangents = tangents->TangentsVO.create
   let indices = indices->IndicesVO.create
 
-  CreateGeometryDoService.create()->Result.bind(geometry =>
+  CreateGeometryDoService.create()->WonderCommonlib.Result.bind(geometry =>
     VerticesGeometryDoService.setVertices(geometry, vertices)
-    ->Result.bind(() => TexCoordsGeometryDoService.setTexCoords(geometry, texCoords))
-    ->Result.bind(() => NormalsGeometryDoService.setNormals(geometry, normals))
-    ->Result.bind(() => TangentsGeometryDoService.setTangents(geometry, tangents))
-    ->Result.bind(() => IndicesGeometryDoService.setIndices(geometry, indices))
-    ->Result.mapSuccess(() => geometry)
+    ->WonderCommonlib.Result.bind(() => TexCoordsGeometryDoService.setTexCoords(geometry, texCoords))
+    ->WonderCommonlib.Result.bind(() => NormalsGeometryDoService.setNormals(geometry, normals))
+    ->WonderCommonlib.Result.bind(() => TangentsGeometryDoService.setTangents(geometry, tangents))
+    ->WonderCommonlib.Result.bind(() => IndicesGeometryDoService.setIndices(geometry, indices))
+    ->WonderCommonlib.Result.mapSuccess(() => geometry)
   )
 }

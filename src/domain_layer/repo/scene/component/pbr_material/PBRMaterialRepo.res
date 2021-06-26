@@ -8,7 +8,7 @@ let setMaxIndex = maxIndex =>
   ContainerManager.setPBRMaterial({...ContainerManager.getExnPBRMaterial(), maxIndex: maxIndex})
 
 let getGameObjects = material =>
-  ContainerManager.getExnPBRMaterial().gameObjectsMap->ImmutableSparseMap.get(material)
+  ContainerManager.getExnPBRMaterial().gameObjectsMap->WonderCommonlib.ImmutableSparseMap.get(material)
 
 let addGameObject = (material, gameObject) => {
   let {gameObjectsMap} as materialPO = ContainerManager.getExnPBRMaterial()
@@ -108,19 +108,19 @@ let setIOR = (material, ior) =>
   )
 
 let getDiffuseMap = material =>
-  ContainerManager.getExnPBRMaterial().diffuseMapMap->ImmutableSparseMap.get(material)
+  ContainerManager.getExnPBRMaterial().diffuseMapMap->WonderCommonlib.ImmutableSparseMap.get(material)
 
 let setDiffuseMap = (material, id) => {
   let {diffuseMapMap} as materialPO = ContainerManager.getExnPBRMaterial()
 
   ContainerManager.setPBRMaterial({
     ...materialPO,
-    diffuseMapMap: diffuseMapMap->ImmutableSparseMap.set(material, id),
+    diffuseMapMap: diffuseMapMap->WonderCommonlib.ImmutableSparseMap.set(material, id),
   })
 }
 
 let getChannelRoughnessMetallicMap = material =>
-  ContainerManager.getExnPBRMaterial().channelRoughnessMetallicMapMap->ImmutableSparseMap.get(
+  ContainerManager.getExnPBRMaterial().channelRoughnessMetallicMapMap->WonderCommonlib.ImmutableSparseMap.get(
     material,
   )
 
@@ -129,7 +129,7 @@ let setChannelRoughnessMetallicMap = (material, id) => {
 
   ContainerManager.setPBRMaterial({
     ...materialPO,
-    channelRoughnessMetallicMapMap: channelRoughnessMetallicMapMap->ImmutableSparseMap.set(
+    channelRoughnessMetallicMapMap: channelRoughnessMetallicMapMap->WonderCommonlib.ImmutableSparseMap.set(
       material,
       id,
     ),
@@ -137,50 +137,50 @@ let setChannelRoughnessMetallicMap = (material, id) => {
 }
 
 let getEmissionMap = material =>
-  ContainerManager.getExnPBRMaterial().emissionMapMap->ImmutableSparseMap.get(material)
+  ContainerManager.getExnPBRMaterial().emissionMapMap->WonderCommonlib.ImmutableSparseMap.get(material)
 
 let setEmissionMap = (material, id) => {
   let {emissionMapMap} as materialPO = ContainerManager.getExnPBRMaterial()
 
   ContainerManager.setPBRMaterial({
     ...materialPO,
-    emissionMapMap: emissionMapMap->ImmutableSparseMap.set(material, id),
+    emissionMapMap: emissionMapMap->WonderCommonlib.ImmutableSparseMap.set(material, id),
   })
 }
 
 let getNormalMap = material =>
-  ContainerManager.getExnPBRMaterial().normalMapMap->ImmutableSparseMap.get(material)
+  ContainerManager.getExnPBRMaterial().normalMapMap->WonderCommonlib.ImmutableSparseMap.get(material)
 
 let setNormalMap = (material, id) => {
   let {normalMapMap} as materialPO = ContainerManager.getExnPBRMaterial()
 
   ContainerManager.setPBRMaterial({
     ...materialPO,
-    normalMapMap: normalMapMap->ImmutableSparseMap.set(material, id),
+    normalMapMap: normalMapMap->WonderCommonlib.ImmutableSparseMap.set(material, id),
   })
 }
 
 let getTransmissionMap = material =>
-  ContainerManager.getExnPBRMaterial().transmissionMapMap->ImmutableSparseMap.get(material)
+  ContainerManager.getExnPBRMaterial().transmissionMapMap->WonderCommonlib.ImmutableSparseMap.get(material)
 
 let setTransmissionMap = (material, id) => {
   let {transmissionMapMap} as materialPO = ContainerManager.getExnPBRMaterial()
 
   ContainerManager.setPBRMaterial({
     ...materialPO,
-    transmissionMapMap: transmissionMapMap->ImmutableSparseMap.set(material, id),
+    transmissionMapMap: transmissionMapMap->WonderCommonlib.ImmutableSparseMap.set(material, id),
   })
 }
 
 let getSpecularMap = material =>
-  ContainerManager.getExnPBRMaterial().specularMapMap->ImmutableSparseMap.get(material)
+  ContainerManager.getExnPBRMaterial().specularMapMap->WonderCommonlib.ImmutableSparseMap.get(material)
 
 let setSpecularMap = (material, id) => {
   let {specularMapMap} as materialPO = ContainerManager.getExnPBRMaterial()
 
   ContainerManager.setPBRMaterial({
     ...materialPO,
-    specularMapMap: specularMapMap->ImmutableSparseMap.set(material, id),
+    specularMapMap: specularMapMap->WonderCommonlib.ImmutableSparseMap.set(material, id),
   })
 }
 

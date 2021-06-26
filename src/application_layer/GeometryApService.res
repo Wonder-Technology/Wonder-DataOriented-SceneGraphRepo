@@ -4,18 +4,18 @@ let getIndex = geometry => geometry->geometryVOToGeometryDO->IndexGeometryDoServ
 
 let toComponent = index => index->IndexGeometryDoService.toComponent->geometryDOToGeometryVO
 
-let create = () => CreateGeometryDoService.create()->Result.mapSuccess(geometryDOToGeometryVO)
+let create = () => CreateGeometryDoService.create()->WonderCommonlib.Result.mapSuccess(geometryDOToGeometryVO)
 
 let getGameObjects = geometry =>
   GameObjectGeometryDoService.getGameObjects(
     geometry->geometryVOToGeometryDO,
-  )->OptionSt.map(gameObjects => gameObjects->ListSt.map(gameObjectDOToGameObjectVO))
+  )->WonderCommonlib.OptionSt.map(gameObjects => gameObjects->WonderCommonlib.ListSt.map(gameObjectDOToGameObjectVO))
 
 let createTriangleGeometry = () =>
-  CreateTriangleGeometryDoService.create()->Result.mapSuccess(geometryDOToGeometryVO)
+  CreateTriangleGeometryDoService.create()->WonderCommonlib.Result.mapSuccess(geometryDOToGeometryVO)
 
 let createSphereGeometry = (radius, bands) =>
-  CreateSphereGeometryDoService.create(radius, bands)->Result.mapSuccess(geometryDOToGeometryVO)
+  CreateSphereGeometryDoService.create(radius, bands)->WonderCommonlib.Result.mapSuccess(geometryDOToGeometryVO)
 
 let createPlaneGeometry = (width, height, widthSegments, heightSegments) =>
   CreatePlaneGeometryDoService.create(
@@ -23,10 +23,10 @@ let createPlaneGeometry = (width, height, widthSegments, heightSegments) =>
     height,
     widthSegments,
     heightSegments,
-  )->Result.mapSuccess(geometryDOToGeometryVO)
+  )->WonderCommonlib.Result.mapSuccess(geometryDOToGeometryVO)
 
 let getVertices = geometry =>
-  VerticesGeometryDoService.getVertices(geometry->geometryVOToGeometryDO)->Result.mapSuccess(
+  VerticesGeometryDoService.getVertices(geometry->geometryVOToGeometryDO)->WonderCommonlib.Result.mapSuccess(
     VerticesVO.value,
   )
 
@@ -37,7 +37,7 @@ let setVertices = (geometry, vertices) =>
   )
 
 let getTexCoords = geometry =>
-  TexCoordsGeometryDoService.getTexCoords(geometry->geometryVOToGeometryDO)->Result.mapSuccess(
+  TexCoordsGeometryDoService.getTexCoords(geometry->geometryVOToGeometryDO)->WonderCommonlib.Result.mapSuccess(
     TexCoordsVO.value,
   )
 
@@ -48,7 +48,7 @@ let setTexCoords = (geometry, texCoords) =>
   )
 
 let getNormals = geometry =>
-  NormalsGeometryDoService.getNormals(geometry->geometryVOToGeometryDO)->Result.mapSuccess(
+  NormalsGeometryDoService.getNormals(geometry->geometryVOToGeometryDO)->WonderCommonlib.Result.mapSuccess(
     NormalsVO.value,
   )
 
@@ -56,7 +56,7 @@ let setNormals = (geometry, normals) =>
   NormalsGeometryDoService.setNormals(geometry->geometryVOToGeometryDO, normals->NormalsVO.create)
 
 let getTangents = geometry =>
-  TangentsGeometryDoService.getTangents(geometry->geometryVOToGeometryDO)->Result.mapSuccess(
+  TangentsGeometryDoService.getTangents(geometry->geometryVOToGeometryDO)->WonderCommonlib.Result.mapSuccess(
     TangentsVO.value,
   )
 
@@ -67,7 +67,7 @@ let setTangents = (geometry, tangents) =>
   )
 
 let getIndices = geometry =>
-  IndicesGeometryDoService.getIndices(geometry->geometryVOToGeometryDO)->Result.mapSuccess(
+  IndicesGeometryDoService.getIndices(geometry->geometryVOToGeometryDO)->WonderCommonlib.Result.mapSuccess(
     IndicesVO.value,
   )
 

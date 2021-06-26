@@ -54,7 +54,7 @@ let _ = describe("BasicCameraView", () => {
         cameraView,
       )->ResultTool.getExnSuccessValueIgnore
 
-      getGameObject(cameraView)->OptionSt.getExn->expect == gameObject2
+      getGameObject(cameraView)->WonderCommonlib.OptionSt.getExn->expect == gameObject2
     })
   )
 
@@ -142,7 +142,7 @@ let _ = describe("BasicCameraView", () => {
 
       getViewWorldToCameraMatrix(cameraView)
       ->ResultTool.getExnSuccessValue
-      ->OptionSt.getExn
+      ->WonderCommonlib.OptionSt.getExn
       ->ViewMatrixVO.value
       ->expect ==
         Js.Typed_array.Float32Array.make([

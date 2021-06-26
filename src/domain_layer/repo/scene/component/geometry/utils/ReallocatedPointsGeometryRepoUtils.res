@@ -27,15 +27,15 @@ let setInfo = (infoIndex, startIndex, endIndex, infos) => Contract.requireCheck(
     test(Log.buildAssertMessage(~expect=j`endIndex >= startIndex`, ~actual=j`is $endIndex`), () =>
       endIndex >= startIndex
     )
-  }, ConfigRepo.getIsDebug())->Result.bind(() =>
+  }, ConfigRepo.getIsDebug())->WonderCommonlib.Result.bind(() =>
     TypeArrayRepoUtils.setUint32_1(infoIndex, startIndex, infos)
-  )->Result.bind(() => TypeArrayRepoUtils.setUint32_1(infoIndex + 1, endIndex, infos))
+  )->WonderCommonlib.Result.bind(() => TypeArrayRepoUtils.setUint32_1(infoIndex + 1, endIndex, infos))
 
 let hasPointData = (infoIndex, infos) =>
-  getInfo(infoIndex, infos)->Result.mapSuccess(((startIndex, endIndex)) => endIndex > startIndex)
+  getInfo(infoIndex, infos)->WonderCommonlib.Result.mapSuccess(((startIndex, endIndex)) => endIndex > startIndex)
 
 let getFloat32PointData = (infoIndex, points: Float32Array.t, infos) =>
-  getInfo(infoIndex, infos)->Result.mapSuccess(((startIndex, endIndex)) =>
+  getInfo(infoIndex, infos)->WonderCommonlib.Result.mapSuccess(((startIndex, endIndex)) =>
     TypeArrayRepoUtils.getFloat32Array(points, startIndex, endIndex)
   )
 
@@ -43,15 +43,15 @@ let _setPointData = ((infoIndex: int, infos, offset: int, count), fillTypeArrayF
   let startIndex = offset
   let newOffset = offset + count
   setInfo(infoIndex, startIndex, newOffset, infos)
-  ->Result.bind(() => fillTypeArrayFunc(startIndex))
-  ->Result.mapSuccess(() => newOffset)
+  ->WonderCommonlib.Result.bind(() => fillTypeArrayFunc(startIndex))
+  ->WonderCommonlib.Result.mapSuccess(() => newOffset)
 }
 
 let setFloat32PointData = (dataTuple, fillFloat32ArrayFunc) =>
   _setPointData(dataTuple, fillFloat32ArrayFunc)
 
 let getUint32PointData = (infoIndex: int, points: Uint32Array.t, infos) =>
-  getInfo(infoIndex, infos)->Result.mapSuccess(((startIndex, endIndex)) =>
+  getInfo(infoIndex, infos)->WonderCommonlib.Result.mapSuccess(((startIndex, endIndex)) =>
     getUint32Array(points, startIndex, endIndex)
   )
 

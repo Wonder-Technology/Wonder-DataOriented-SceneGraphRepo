@@ -1,11 +1,11 @@
 let getViewWorldToCameraMatrix = cameraView =>
   GameObjectBasicCameraViewDoService.getGameObject(cameraView)
-  ->OptionSt.map(gameObject =>
-    GetComponentGameObjectDoService.getTransform(gameObject)->OptionSt.map(transform =>
+  ->WonderCommonlib.OptionSt.map(gameObject =>
+    GetComponentGameObjectDoService.getTransform(gameObject)->WonderCommonlib.OptionSt.map(transform =>
       Matrix4.createIdentityMatrix4()
       ->LocalToWorldMatrixVO.invert(ModelMatrixTransformDoService.getLocalToWorldMatrix(transform))
-      ->Result.mapSuccess(mat => mat->ViewMatrixVO.create)
+      ->WonderCommonlib.Result.mapSuccess(mat => mat->ViewMatrixVO.create)
     )
   )
-  ->OptionSt.open_
-  ->OptionSt.sequenceResultM
+  ->WonderCommonlib.OptionSt.open_
+  ->WonderCommonlib.OptionSt.sequenceResultM

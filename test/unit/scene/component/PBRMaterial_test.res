@@ -48,7 +48,7 @@ let _ = describe("PBRMaterial", () => {
       GameObjectTool.addPBRMaterial(gameObject1, material)->ResultTool.getExnSuccessValueIgnore
       GameObjectTool.addPBRMaterial(gameObject2, material)->ResultTool.getExnSuccessValueIgnore
 
-      getGameObjects(material)->OptionSt.getExn->expect == list{gameObject2, gameObject1}
+      getGameObjects(material)->WonderCommonlib.OptionSt.getExn->expect == list{gameObject2, gameObject1}
     })
   )
 
@@ -214,7 +214,7 @@ let _ = describe("PBRMaterial", () => {
 
           setDiffuseMap(material, map)
 
-          getDiffuseMap(material)->OptionSt.getExn->expect == map
+          getDiffuseMap(material)->WonderCommonlib.OptionSt.getExn->expect == map
         })
       )
 
@@ -225,7 +225,7 @@ let _ = describe("PBRMaterial", () => {
 
           setChannelRoughnessMetallicMap(material, map)
 
-          getChannelRoughnessMetallicMap(material)->OptionSt.getExn->expect == map
+          getChannelRoughnessMetallicMap(material)->WonderCommonlib.OptionSt.getExn->expect == map
         })
       )
 
@@ -236,7 +236,7 @@ let _ = describe("PBRMaterial", () => {
 
           setEmissionMap(material, map)
 
-          getEmissionMap(material)->OptionSt.getExn->expect == map
+          getEmissionMap(material)->WonderCommonlib.OptionSt.getExn->expect == map
         })
       )
 
@@ -247,7 +247,7 @@ let _ = describe("PBRMaterial", () => {
 
           setNormalMap(material, map)
 
-          getNormalMap(material)->OptionSt.getExn->expect == map
+          getNormalMap(material)->WonderCommonlib.OptionSt.getExn->expect == map
         })
       )
 
@@ -258,7 +258,7 @@ let _ = describe("PBRMaterial", () => {
 
           setTransmissionMap(material, map)
 
-          getTransmissionMap(material)->OptionSt.getExn->expect == map
+          getTransmissionMap(material)->WonderCommonlib.OptionSt.getExn->expect == map
         })
       )
 
@@ -269,7 +269,7 @@ let _ = describe("PBRMaterial", () => {
 
           setSpecularMap(material, map)
 
-          getSpecularMap(material)->OptionSt.getExn->expect == map
+          getSpecularMap(material)->WonderCommonlib.OptionSt.getExn->expect == map
         })
       )
     })

@@ -1,6 +1,6 @@
 let getAllLights = () =>
-  ListSt.range(0, IndexDirectionLightDoService.getMaxIndex())->ListSt.map(
+  WonderCommonlib.ListSt.range(0, IndexDirectionLightDoService.getMaxIndex())->WonderCommonlib.ListSt.map(
     DirectionLightEntity.create,
   )
 
-let getLightCount = () => getAllLights()->ListSt.length
+let getLightCount = () => getAllLights()->WonderCommonlib.ListSt.length
