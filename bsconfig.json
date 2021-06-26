@@ -30,8 +30,8 @@
   ],
   "refmt": 3,
   "bs-dependencies": [
-    "wonder-bs-most",
     "wonder-commonlib",
+    "wonder-bs-most",
     "wonder-engine-abstract"
   ],
   "package-specs": [
